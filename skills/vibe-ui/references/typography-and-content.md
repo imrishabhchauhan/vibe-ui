@@ -37,6 +37,10 @@ Textual example:
 
 Do not use internal system names, AI jargon, vague benefit claims, or playful language in errors and high-stakes flows. Preserve intentional brand voice only when it does not reduce clarity or trust.
 
+Remove copy whose only job is to narrate the interface. Headings such as "Summary", subtitles such as "Common tasks", and explanatory text beneath self-explanatory actions often add noise. Keep words that define scope, consequence, time, tax, currency, status, or an unfamiliar action.
+
+Make time language follow the selected data scope. Do not say "this year" or "today" when a historical period is selected. Prefer stable labels such as "Revenue", "Expenses", "Pending invoices", and "Current team", then let the visible filter establish the period. If the data is not a historical snapshot, describe its true semantics rather than implying that it is.
+
 ## Verification
 
 Read the page at normal speed, not just the code. Check hierarchy while squinting, line length, wrapping at narrow widths, 200% text zoom, content expansion, dynamic numbers, font loading, fallback faces, bidi content, selection, and truncation recovery.

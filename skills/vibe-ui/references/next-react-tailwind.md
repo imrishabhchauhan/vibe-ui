@@ -33,6 +33,7 @@ Inspect:
 - Keep components focused, but do not fragment simple markup into abstraction noise.
 - Use native elements and controlled custom widgets with complete keyboard behaviour.
 - Memoise only after evidence; unnecessary memoisation harms readability and can be ineffective.
+- During scoped refetches, prefer the repository's supported placeholder or previous-data pattern over clearing the entire region. Keep the selected filter immediate, expose `isFetching` locally, and prevent stale responses from overwriting a newer selection.
 
 ## Tailwind CSS
 
@@ -53,6 +54,8 @@ Textual example:
 ## Component systems
 
 Extend primitives through documented variants. Do not fork a copied Button, Input, Dialog, or Card for one screen. Repair shared accessibility or token defects at the primitive when safe and verify all consumers.
+
+Use the installed Tabs, Select, Tooltip, Link, and Card primitives before drawing custom substitutes. A text pair with an underline is not a tab system unless it exposes selected state, keyboard behaviour, focus treatment, and a visibly changed panel.
 
 ## Verification
 

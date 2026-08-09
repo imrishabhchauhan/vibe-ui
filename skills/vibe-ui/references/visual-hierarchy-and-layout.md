@@ -30,6 +30,12 @@ Density depends on task, frequency, and input. A professional desktop data tool 
 
 Keep primary decisions visible. Place rare, advanced, or destructive options behind clearly labelled disclosure—not invisible gestures or ambiguous icons. Preserve the user's context when opening details.
 
+## Make destinations discoverable
+
+When an entire card or row navigates, give it a consistent visible affordance in the action zone. Use a familiar chevron or arrow with sufficient contrast, hit area, hover, focus-visible, and pressed feedback. Keep it beside the supporting row or trailing edge rather than crowding the title and semantic icon. A restrained border or surface behind the indicator can improve discoverability when a bare glyph is too faint.
+
+Do not rely on cursor change alone. Do not add an arrow to a non-interactive card. Use a real link or button so keyboard and assistive-technology users receive the same destination cue.
+
 ## Layout failure patterns
 
 - every block has equal visual strength;

@@ -47,9 +47,15 @@ Choose feedback by duration and uncertainty:
 
 Never show a spinner with no context for a high-stakes action. Never replace a whole page skeleton when only one region is updating.
 
+For filters and tabs, keep the control responsive and the affected region stable. Preserve the last valid result during a short refetch when showing it is not misleading, add a compact local pending indicator, and reserve geometry so cards and charts do not disappear or jump. Never render blank card shells while a neighbouring chart still implies that data exists.
+
 ## Empty states
 
 Differentiate first-use, no results, filtered-empty, permission-empty, and failure. Each needs distinct copy and action.
+
+Differentiate these again from a legitimate zero. A metric card may show `0` without redundant prose such as "0 invoices awaiting payment" or "all settled". Preserve separators and alignment when they provide consistent structure, but leave the supporting row intentionally empty when there is nothing useful to say.
+
+For time-series controls, a selected range must visibly change the domain. A twelve-month financial-year view should show the full reporting sequence, such as April through March, even when later months are unavailable. Represent unavailable or future months as missing values rather than zero so users do not mistake absence for performance.
 
 ## Success
 

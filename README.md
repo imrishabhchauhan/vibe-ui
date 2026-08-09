@@ -1,6 +1,6 @@
 # Vibe UI
 
-Current foundation: `v0.2.0`.
+Current foundation: `v0.3.0`.
 
 Vibe UI is an evidence-led UI and UX engineering skill for AI coding agents. It audits, builds, improves, and visually validates interfaces across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, forms, onboarding, UX writing, interaction states, and motion.
 
@@ -63,6 +63,8 @@ skills/vibe-ui/
 Before substantial design work, Vibe UI classifies the audience, task, product type, journey stage, page archetype, dominant content, density, environment, and stakes. This prevents application dashboards, landing pages, checkout flows, and expert tools from receiving the same generic AI visual treatment.
 
 The skill converts UX theory into practical diagnosis: observed signal, intervention, textual example, misuse warning, and verification. It does not use laws as conversion tricks or copy attached screenshots at runtime.
+
+Version 0.3 adds stronger dashboard judgement: subtraction before decoration, honest time-filter semantics, stable asynchronous transitions, full-period chart domains, concise zero states, and explicit but restrained navigation affordances.
 
 ## Optional Mobbin and Refero research
 

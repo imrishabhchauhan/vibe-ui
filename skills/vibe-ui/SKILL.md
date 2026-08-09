@@ -67,6 +67,8 @@ Inspect existing tokens, components, layout conventions, copy vocabulary, routes
 
 First fix missing information, confusing order, unnecessary decisions, poor defaults, blocked recovery, weak feedback, and inaccessible controls. Then fix hierarchy, spacing, typography, colour, surfaces, and motion. A polished broken flow is still broken.
 
+Apply subtraction before addition. Every section, metric, action, label, illustration, and chart must earn its space by helping the page's primary job. Do not duplicate module-level data, notification content, or self-explanatory copy on a dashboard merely to make it look complete.
+
 ### Use behavioural principles as lenses, not commandments
 
 Every law needs context and evidence. Never add gamification, artificial urgency, fake progress, forced defaults, hidden opt-outs, or manipulative friction merely because a principle can explain it. Prefer user agency, reversibility, and honest feedback.
@@ -74,6 +76,8 @@ Every law needs context and evidence. Never add gamification, artificial urgency
 ### Design every state
 
 Cover default, hover, focus-visible, active, selected, disabled, loading, success, empty, error, offline or retry, partial data, long content, narrow width, dark appearance when supported, and reduced motion where relevant.
+
+Also verify state transitions. A filter change must not blank a working surface, shift its geometry, silently change the meaning of labels, or make a valid control appear broken. Preserve prior data during short refetches when it remains safe, expose local progress, and distinguish zero, unavailable, future, and not-yet-loaded values.
 
 ### Respect platform and stack
 

@@ -8,6 +8,7 @@ Select only applicable rows, but do not omit failure or accessibility states bec
 | --- | --- |
 | Viewport | 320, 375, 768, 1024, 1440 CSS px plus project breakpoints |
 | Content | normal, empty, long, translated, partial, malformed |
+| Data scope | current, historical, zero, unavailable, future period, partial period |
 | Network | loading, slow, offline, timeout, retry, duplicate submission |
 | Interaction | hover, focus-visible, active, selected, disabled, open, closed |
 | Outcome | success, warning, field error, request error, destructive confirmation |
@@ -34,6 +35,8 @@ For every visual comparison record route, viewport, state, data fixture, theme, 
 ## Behaviour checks
 
 Complete the primary journey, then force invalid input, server failure, interruption, retry, and back navigation. Check duplicate submissions and preservation of drafts. Use real permissions where role-specific UI exists.
+
+For every filter and tab, verify the selected styling, changed data domain, copy semantics, URL or state persistence when intended, and refetch transition. Toggle away and back. Confirm that a zero result remains structurally intentional, a historical period does not retain current-period wording, and a full-period control does not appear inert merely because some months lack data.
 
 ## Accessibility checks
 

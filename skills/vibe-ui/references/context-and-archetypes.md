@@ -71,6 +71,17 @@ Prove value early, request only currently needed information, show honest progre
 
 Prioritise status and the user's most valuable or frequent actions. A dashboard is not a catalogue of every feature. Use analytics and research to distinguish habitual work from occasional navigation.
 
+Treat a dashboard as an orientation and decision surface, not a compressed copy of every module. Remove tables, deadlines, activity feeds, alerts, and creation actions when their dedicated pages or notification centre already serve them better. Add a dashboard element only when it answers a recurring cross-module question, reveals a meaningful change, or shortens a genuinely frequent task.
+
+For financial or operational dashboards:
+
+- prefer bars for discrete monthly comparisons and lines for genuinely continuous trends;
+- keep charts compact enough that summary and context remain visible together;
+- retain essential scope such as tax treatment, currency, or reporting basis;
+- remove duplicate KPI chips and legends when axes, labels, colour, or tooltips already make the series clear;
+- make global filters visibly control the nearby cards and charts, or label exceptions explicitly;
+- show a complete period domain when users select a complete period, distinguishing future or unavailable values from numeric zero.
+
 ### Search and discovery
 
 Preserve the query, filters, result count, sorting, and recovery from no results. Support recognition and comparison. Do not hide active constraints.
@@ -124,6 +135,8 @@ Consider shorter tasks, visible progress, clear feedback, suitable illustration,
 ### Older or low-digital-literacy users
 
 Prefer explicit labels, familiar controls, strong contrast, readable type, larger targets, predictable navigation, fewer simultaneous choices, visible feedback, and forgiving recovery. Avoid hidden gestures and clever icon-only actions.
+
+Calibrate guidance from observed capability and product evidence, never nationality, age, or another demographic stereotype. When discoverability is uncertain, strengthen familiar affordances for everyone rather than writing condescending copy.
 
 ### Expert users
 
