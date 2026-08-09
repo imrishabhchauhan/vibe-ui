@@ -1,0 +1,39 @@
+{
+  "name": "vibe-ui-skill",
+  "version": "0.2.0",
+  "description": "Evidence-led UI and UX engineering skill for AI coding agents, with deep Next.js, React, and Tailwind CSS guidance.",
+  "type": "commonjs",
+  "bin": {
+    "vibe-ui": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node test/cli.test.js",
+    "validate:skill": "node scripts/validate-skill.js"
+  },
+  "keywords": [
+    "ui",
+    "ux",
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "accessibility",
+    "design-system",
+    "agent-skill"
+  ],
+  "author": "Rishabh Chauhan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabhchauhan/vibe-ui.git"
+  },
+  "homepage": "https://github.com/rishabhchauhan/vibe-ui#readme"
+}
