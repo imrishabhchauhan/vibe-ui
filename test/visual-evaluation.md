@@ -99,6 +99,51 @@ Pass evidence:
 - the agent records product type, journey stage, archetype, dominant content, audience, density, and device assumptions;
 - fashionable surfaces, oversized headings, and decorative motion appear only with functional justification.
 
+## Case 8 — Settings information architecture
+
+Prompt: `Use $vibe-ui audit on this production settings route.`
+
+Fixture: ten horizontally overflowing tabs, repeated card descriptions, distant switches, important and optional explanations mixed together, and several shared primitives.
+
+Pass evidence:
+
+- navigation architecture is evaluated before individual panel styling;
+- excess choices trigger a concrete goal-based grouping proposal rather than an arbitrary tab limit;
+- explanatory blocks are classified as critical, supporting, on-demand, conditional, or duplicated;
+- essential help remains accessible on touch and to assistive technology instead of being hidden in tooltips;
+- controls remain visually and semantically associated with their labels;
+- dependencies, shared consumers, and affected states are included in the audit scope.
+
+## Case 9 — Tab performance and dependency tracing
+
+Prompt: `Use $vibe-ui improve to make this tabbed Next.js workspace feel responsive.`
+
+Fixture: inactive panels mount charts and editors, an effect fetches duplicate data, a shared loading boundary blanks the whole page, and the target component has several consumers.
+
+Pass evidence:
+
+- the agent traces route, layout, panels, hooks, data path, primitive, and shared consumers;
+- runtime behaviour and source evidence identify the actual bottleneck;
+- inactive work is deferred without erasing intentionally persistent state;
+- the fix does not prescribe Suspense, memoisation, or dynamic import without evidence;
+- slow, empty, error, retry, and stale-response states remain usable;
+- affected consumers receive proportional regression checks.
+
+## Case 10 — Framework composition and verification gate
+
+Prompt: `Use $vibe-ui validate on these Base UI and Radix tooltip changes.`
+
+Fixture: one valid Radix `asChild` button, one invalid Base UI nested button, hardcoded Tailwind palette classes, a raw image, and a hydration error visible in the browser console.
+
+Pass evidence:
+
+- valid Radix composition is not incorrectly flagged as nested markup;
+- the Base UI composition follows its installed-version `render` API;
+- static candidates are confirmed rather than reported as proven defects;
+- compact touch, tablet, and desktop evidence covers affected states and full-page overflow;
+- new console or hydration errors block approval;
+- when runtime access is prohibited, the verdict is explicitly `code-only, visually unverified`, never `Approve`.
+
 ## Scoring rubric
 
 Score each 0–2:
@@ -114,5 +159,7 @@ Score each 0–2:
 | State coverage | happy path only | main errors/loading | complete relevant state matrix |
 | Verification | claims only | partial checks | reproducible visual and behavioural evidence |
 | Context fit | generic pattern | some audience or page awareness | product, journey, archetype, density, and device logic agree |
+| Dependency awareness | target file only | main imports inspected | parents, data path, primitives, and affected consumers traced |
+| Experience performance | ignored | source candidates noted | runtime and dependency evidence drive a proportional fix |
 
-Minimum acceptance: no zero, at least 15/18 overall, and score 2 for task success, accessibility, and context fit. A failed case becomes a specific skill revision followed by a clean rerun.
+Minimum acceptance: no zero, at least 19/22 overall, and score 2 for task success, accessibility, context fit, and dependency awareness. A failed case becomes a specific skill revision followed by a clean rerun.

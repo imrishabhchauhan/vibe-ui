@@ -57,6 +57,19 @@ Extend primitives through documented variants. Do not fork a copied Button, Inpu
 
 Use the installed Tabs, Select, Tooltip, Link, and Card primitives before drawing custom substitutes. A text pair with an underline is not a tab system unless it exposes selected state, keyboard behaviour, focus treatment, and a visibly changed panel.
 
+### Base UI and Radix composition
+
+Identify the installed library and version before applying composition advice; Base UI and Radix APIs are not interchangeable.
+
+- Base UI popup triggers render their own element by default and use the documented `render` prop to compose another element. Do not place an interactive child inside a trigger that already renders an interactive element.
+- Radix triggers use `asChild` to replace the default element with the child. A valid single button child is the documented composition pattern, not an automatic nested-button defect.
+- Inspect the rendered DOM for nested buttons, links inside links, invalid interactive descendants, duplicate focus targets, and missing accessible names. Treat actual invalid markup or hydration errors as blockers.
+- Keep critical descriptions inline or in an accessible popover/disclosure. A tooltip is supplementary and cannot be the only explanation for touch or assistive-technology users.
+
+### Tabs and expensive panels
+
+Inspect the installed primitive's mounting behaviour rather than assuming inactive panels unmount. Confirm whether heavy charts, editors, requests, observers, and subscriptions run while hidden. Defer expensive Client Components only when it improves the measured path and preserves state intentionally; Suspense or dynamic import is a tool, not a default fix.
+
 ## Verification
 
 Run the repository's typecheck, lint, targeted tests, build, and browser flow. Inspect the client boundary and bundle impact when adding interactivity or motion. Test hydration-sensitive and server/client state transitions.

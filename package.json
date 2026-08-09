@@ -1,6 +1,6 @@
 {
   "name": "vibe-ui-skill",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Evidence-led UI and UX engineering skill for AI coding agents, with deep Next.js, React, and Tailwind CSS guidance.",
   "type": "commonjs",
   "bin": {
@@ -16,7 +16,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node test/cli.test.js",
+    "test": "node test/cli.test.js && node test/static-audit.test.js",
     "validate:skill": "node scripts/validate-skill.js",
     "prepublishOnly": "npm test && npm run validate:skill"
   },

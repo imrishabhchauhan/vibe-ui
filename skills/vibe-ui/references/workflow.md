@@ -24,16 +24,20 @@ Inspect before editing:
 2. package versions and scripts;
 3. framework, routing, rendering, styling, components, icons, fonts, and motion dependencies;
 4. global tokens and theme variables;
-5. the target route plus shared parents and primitives;
-6. similar screens and established patterns;
-7. tests, Storybook, visual regression tooling, browser automation, and accessibility tooling;
-8. existing screenshots, specs, research, and analytics.
+5. the target route, layouts, boundaries, imported sections, shared parents, and primitives;
+6. hooks, providers, stores, server actions, API routes, queries, caches, and permissions feeding the UI;
+7. consumers of any shared file likely to change;
+8. similar screens and established patterns;
+9. tests, Storybook, visual regression tooling, browser automation, and accessibility tooling;
+10. existing screenshots, specs, research, and analytics.
 
 Run `node scripts/detect-project.mjs <project-root>` when useful. Treat its output as discovery assistance, not proof of correctness.
 
+Load `context-dependencies-and-performance.md` for route-level work, shared components, data-driven surfaces, tabs, or reported slowness. Build a proportional UI blast-radius map and identify the likely root before proposing a fix.
+
 ## 3. Inspect the real experience
 
-Start the existing preview command if safe. Walk the primary task as the target user would. Observe:
+For `audit`, `improve`, and `validate`, render the affected experience before making visual claims when runtime access is available, safe, and authorised. Reuse an existing preview when possible; do not start a server or browser when the user prohibits it. Walk the primary task as the target user would. Observe:
 
 - what is visible first;
 - whether the next action is obvious;
@@ -47,18 +51,23 @@ Start the existing preview command if safe. Walk the primary task as the target 
 
 Capture exact route, viewport, state, and component for every visual finding.
 
+Inspect the applicable tabs or navigation structure before individual panels. Capture a baseline at compact touch, tablet, and desktop widths or the product's supported equivalents. Inspect both themes when supported and exercise loading, empty, error, partial, and representative populated states.
+
+If runtime access is unavailable, unsafe, or prohibited, continue with source-backed accessibility, architecture, consistency, and performance candidates. Mark every visual conclusion `unverified`, state the limitation prominently, and do not return `Approve`.
+
 ## 4. Diagnose root causes
 
 Review foundations before polish:
 
 1. task and information architecture;
-2. access and input;
-3. state and feedback;
-4. hierarchy and layout;
-5. spacing and consistency;
-6. typography and content;
-7. colour and contrast;
-8. motion and details.
+2. cognitive load and navigation choices;
+3. access and input;
+4. state, feedback, and perceived performance;
+5. hierarchy and layout;
+6. spacing and consistency;
+7. typography and content;
+8. colour and contrast;
+9. motion and details.
 
 Use UX laws to explain a confirmed behaviour, not to manufacture a finding. Consolidate repeated symptoms under the shared token, component, or flow decision causing them.
 
@@ -91,6 +100,8 @@ Do not redesign unrelated surfaces. Do not replace a design system because one c
 ## 7. Verify
 
 Load `visual-validation.md`. Run proportional checks: typecheck, lint, tests, build, targeted accessibility checks, browser journeys, and visual comparisons. Validate source and rendered behaviour.
+
+Treat source review as verification of source only. For rendered work, inspect relevant browser-console errors, responsive screenshots, full-page overflow, focus/hover/selected behaviour, and applicable loading, empty, error, and partial states. New or changed runtime errors block completion. Record unrelated pre-existing errors rather than hiding them.
 
 ## 8. Report
 

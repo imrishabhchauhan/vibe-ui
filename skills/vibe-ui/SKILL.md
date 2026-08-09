@@ -23,15 +23,15 @@ If no mode is named, use `improve` for explicit change requests and `audit` for 
 Read [workflow.md](references/workflow.md) for every engagement and follow it in order.
 
 1. Establish the user, job, success condition, scope, and constraints.
-2. Recon the real project before judging or coding.
-3. Inspect the rendered interface when visual or runtime behaviour matters.
+2. Trace the target's parents, dependencies, data path, shared primitives, and affected consumers.
+3. Inspect the rendered interface before making visual findings when runtime access is available and authorised.
 4. Diagnose root causes across UX and UI domains.
 5. Select the smallest safe intervention that improves the complete task.
 6. Implement in the project's existing system.
 7. Verify supported viewports, states, input modes, and accessibility.
 8. Report evidence, remaining risks, and what was not verified.
 
-Do not infer a visual defect from code alone when rendering determines the result. Do not infer a code defect from a screenshot alone.
+Do not infer a visual defect from code alone when rendering determines the result. Do not infer a code defect from a screenshot alone. If rendering is unavailable, unsafe, or prohibited, continue with source-backed findings but label the work `code-only, visually unverified`; never issue an `Approve` verdict.
 
 ## Load only relevant references
 
@@ -40,6 +40,8 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 | Need | Read |
 | --- | --- |
 | Audience, product type, journey stage, page archetype, content type, density | [context-and-archetypes.md](references/context-and-archetypes.md) |
+| Dependency tracing, shared consumers, data paths, and experience performance | [context-dependencies-and-performance.md](references/context-dependencies-and-performance.md) |
+| Cognitive load, explanatory content, navigation and tab architecture | [cognitive-load-and-information-architecture.md](references/cognitive-load-and-information-architecture.md) |
 | Visual hierarchy, grouping, scanning, density | [visual-hierarchy-and-layout.md](references/visual-hierarchy-and-layout.md) |
 | Spacing rhythm, components, tokens, cross-screen consistency | [spacing-and-consistency.md](references/spacing-and-consistency.md) |
 | Palette, semantic colour, contrast, light/dark themes | [color-and-contrast.md](references/color-and-contrast.md) |
@@ -63,11 +65,15 @@ Identify who is using the product, what they are trying to complete, their likel
 
 Inspect existing tokens, components, layout conventions, copy vocabulary, routes, state management, accessibility patterns, and dependency versions. Reuse defensible patterns. Report a shared-token or shared-component root cause once instead of fixing symptoms repeatedly.
 
+Read `context-dependencies-and-performance.md` for any route-level change, shared component edit, data-driven interface, tabbed surface, or reported slowness. Search both dependencies and consumers before editing; do not optimise a leaf while ignoring the parent, primitive, state, or data source causing the experience.
+
 ### Separate UX from decoration
 
 First fix missing information, confusing order, unnecessary decisions, poor defaults, blocked recovery, weak feedback, and inaccessible controls. Then fix hierarchy, spacing, typography, colour, surfaces, and motion. A polished broken flow is still broken.
 
 Apply subtraction before addition. Every section, metric, action, label, illustration, and chart must earn its space by helping the page's primary job. Do not duplicate module-level data, notification content, or self-explanatory copy on a dashboard merely to make it look complete.
+
+Read `cognitive-load-and-information-architecture.md` before redesigning settings, dashboards, dense cards, tabbed pages, navigation, or multi-choice flows. Inventory visible information and decisions before shortening copy or styling individual panels.
 
 ### Use behavioural principles as lenses, not commandments
 

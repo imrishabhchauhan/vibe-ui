@@ -1,6 +1,6 @@
 # Vibe UI
 
-Current foundation: `v0.3.0`.
+Current foundation: `v0.4.0`.
 
 Vibe UI is an evidence-led UI and UX engineering skill for AI coding agents. It audits, builds, improves, and visually validates interfaces across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, forms, onboarding, UX writing, interaction states, and motion.
 
@@ -64,7 +64,7 @@ Before substantial design work, Vibe UI classifies the audience, task, product t
 
 The skill converts UX theory into practical diagnosis: observed signal, intervention, textual example, misuse warning, and verification. It does not use laws as conversion tricks or copy attached screenshots at runtime.
 
-Version 0.3 adds stronger dashboard judgement: subtraction before decoration, honest time-filter semantics, stable asynchronous transitions, full-period chart domains, concise zero states, and explicit but restrained navigation affordances.
+Version 0.4 makes context and verification enforceable. It traces route dependencies and shared consumers, audits cognitive load and navigation architecture before panel polish, checks page-level experience performance, distinguishes Base UI from Radix composition, requires rendered evidence for visual approval, and expands the static auditor with diff-scoped Tailwind colour, image, mounting, fetching, and nested-interaction candidates.
 
 ## Optional Mobbin and Refero research
 
@@ -91,6 +91,15 @@ python C:/Users/you/.codex/skills/.system/skill-creator/scripts/quick_validate.p
 ```
 
 Visual quality cannot be proven by a structural test. Forward tests should use real repositories and compare the same routes, fixtures, states, themes, and viewports before and after.
+
+The bundled static auditor can scan a project or only Git-changed files:
+
+```bash
+node .agents/skills/vibe-ui/scripts/audit-static.mjs .
+node .agents/skills/vibe-ui/scripts/audit-static.mjs . --changed
+```
+
+Its output contains review candidates, not automatic defects. Confirm every candidate in source and, when visual or runtime behaviour matters, in the rendered interface.
 
 ## Licence
 
