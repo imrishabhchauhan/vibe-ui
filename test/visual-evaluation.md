@@ -160,6 +160,21 @@ Pass evidence:
 - placeholder casing inconsistency is flagged as a single systemic finding, not scattered per-field noise;
 - the audit remains read-only unless the user also asked for implementation.
 
+## Case 12 — Dashboard hierarchy and sidebar grouping
+
+Prompt: `Use $vibe-ui audit on this admin dashboard home.`
+
+Fixture: a flat nine-item sidebar with no grouping or active-item styling, ten equal-weight KPI cards with bare numbers and no comparison period, a decorative donut chart with no labelled question, a table with every row's detail already inlined, and a permanently visible bulk-action toolbar that is disabled until a row is selected.
+
+Pass evidence:
+
+- the audit classifies the dashboard's dominant job (monitoring/analytical/operational/management/administrative) before critiquing widgets;
+- KPI cards are flagged for missing comparison period and update recency, not just for visual polish;
+- the sidebar's lack of grouping and active state is flagged against `dashboards-and-kpis.md`, with a concrete goal-based grouping proposed;
+- the donut chart is questioned against the "simplest chart for the question" rule rather than accepted at face value;
+- the permanently visible disabled bulk toolbar is flagged in favour of a contextual toolbar that appears on selection;
+- findings distinguish Level 1/2/3 information and flag Level 3 detail crowding the first screen.
+
 ## Scoring rubric
 
 Score each 0–2:

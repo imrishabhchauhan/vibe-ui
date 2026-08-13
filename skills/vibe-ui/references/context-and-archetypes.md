@@ -69,7 +69,7 @@ Prove value early, request only currently needed information, show honest progre
 
 ### Dashboard home
 
-Prioritise status and the user's most valuable or frequent actions. A dashboard is not a catalogue of every feature. Use analytics and research to distinguish habitual work from occasional navigation.
+Prioritise status and the user's most valuable or frequent actions. A dashboard is not a catalogue of every feature. Use analytics and research to distinguish habitual work from occasional navigation. Read `dashboards-and-kpis.md` for sidebar structure, information hierarchy, KPI card design, and chart selection.
 
 Treat a dashboard as an orientation and decision surface, not a compressed copy of every module. Remove tables, deadlines, activity feeds, alerts, and creation actions when their dedicated pages or notification centre already serve them better. Add a dashboard element only when it answers a recurring cross-module question, reveals a meaningful change, or shortens a genuinely frequent task.
 

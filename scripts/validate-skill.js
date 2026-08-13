@@ -13,7 +13,7 @@ assert.ok(!/\bTODO\b/.test(content), 'SKILL.md contains TODO markers');
 assert.ok(content.split(/\r?\n/).length < 500, 'SKILL.md must stay under 500 lines');
 
 const references = [...content.matchAll(/\]\((references\/[^)]+\.md)\)/g)].map((match) => match[1]);
-assert.ok(new Set(references).size >= 16, 'Expected all progressive-disclosure reference modules');
+assert.ok(new Set(references).size >= 19, 'Expected all progressive-disclosure reference modules');
 for (const relative of references) {
   assert.ok(fs.existsSync(path.join(skillRoot, relative)), `Missing reference: ${relative}`);
 }
@@ -29,6 +29,7 @@ for (const requiredRule of [
   'connected-surfaces.md',
   'data-tables-and-controls.md',
   'component-libraries-and-mcp.md',
+  'dashboards-and-kpis.md',
   'mobile-first',
 ]) {
   assert.ok(content.includes(requiredRule), `Missing operating rule: ${requiredRule}`);

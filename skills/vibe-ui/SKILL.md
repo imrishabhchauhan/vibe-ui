@@ -40,6 +40,7 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 | Need | Read |
 | --- | --- |
 | Audience, product type, journey stage, page archetype, content type, density | [context-and-archetypes.md](references/context-and-archetypes.md) |
+| Dashboard hierarchy, sidebar structure, KPI cards, chart selection, contextual actions | [dashboards-and-kpis.md](references/dashboards-and-kpis.md) |
 | Dependency tracing, shared consumers, data paths, and experience performance | [context-dependencies-and-performance.md](references/context-dependencies-and-performance.md) |
 | Cognitive load, explanatory content, navigation and tab architecture | [cognitive-load-and-information-architecture.md](references/cognitive-load-and-information-architecture.md) |
 | Visual hierarchy, grouping, scanning, density | [visual-hierarchy-and-layout.md](references/visual-hierarchy-and-layout.md) |
@@ -92,6 +93,10 @@ First fix missing information, confusing order, unnecessary decisions, poor defa
 Apply subtraction before addition. Every section, metric, action, label, illustration, and chart must earn its space by helping the page's primary job. Do not duplicate module-level data, notification content, or self-explanatory copy on a dashboard merely to make it look complete.
 
 Read `cognitive-load-and-information-architecture.md` before redesigning settings, dashboards, dense cards, tabbed pages, navigation, or multi-choice flows. Inventory visible information and decisions before shortening copy or styling individual panels.
+
+### Give dashboards a job before widgets
+
+For any dashboard, admin overview, or analytics home, classify its dominant job (monitoring, analytical, operational, management, or administrative) and build a three-level information hierarchy (critical, important, detailed) before choosing cards, charts, or tables. Read `dashboards-and-kpis.md` for sidebar structure, KPI card completeness, chart selection, and contextual bulk actions. Two dashboards with different jobs can legitimately have different structures even when they share the same design system.
 
 ### Use behavioural principles as lenses, not commandments
 
