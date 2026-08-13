@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/vibe-ui-skill.svg)](https://www.npmjs.com/package/vibe-ui-skill)
 [![license](https://img.shields.io/npm/l/vibe-ui-skill.svg)](./LICENSE)
 
-Evidence-led UI/UX engineering skill for AI coding agents. Current release: `v0.6.0`.
+Evidence-led UI/UX engineering skill for AI coding agents. Current release: `v0.6.1`.
 
 Vibe UI audits and improves product interfaces — including building new components from a project's existing library and visually validating shipped work — across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, dashboards, forms, onboarding, UX writing, interaction states, and motion.
 
@@ -125,6 +125,8 @@ node .agents/skills/vibe-ui/scripts/audit-static.mjs . --changed
 ```
 
 ## Changelog
+
+**0.6.1** — Documentation only: restructured README with a table of contents, a table describing all 19 reference modules, a CLI reference table, and a dedicated changelog section. No skill behaviour changed.
 
 **0.6.0** — Adds `dashboards-and-kpis.md`: dashboard job classification (monitoring/analytical/operational/management/administrative) before choosing widgets, a three-level critical/important/detailed information hierarchy, sidebar grouping and active-state rules, KPI cards that must carry a comparison period and update recency, a chart-selection table keyed to the user's actual question, contextual bulk-action toolbars, and the popover-vs-modal-vs-dedicated-page decision for dashboard interactions.
 
