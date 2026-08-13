@@ -1,22 +1,22 @@
 ---
 name: vibe-ui
-description: Build, audit, improve, or validate product interfaces with evidence-led UI/UX engineering. Use for web or app screens, flows, components, dashboards, forms, onboarding, responsive layouts, design systems, visual polish, accessibility, typography, colour and contrast, spacing, hierarchy, consistency, UX writing, interaction states, motion, or conversion-sensitive journeys. Especially deep for Next.js, React, and Tailwind CSS projects, while remaining applicable to other stacks. Trigger on "use Vibe UI", "improve this UI/UX", "make this screen premium", "audit this interface", "fix the user experience", "review this design", "build this page", or "visually validate this flow".
+description: Audit or improve product interfaces with evidence-led UI/UX engineering, including building new components from the project's existing library and visually validating the result. Use for web or app screens, flows, components, dashboards, forms, onboarding, responsive layouts, design systems, visual polish, accessibility, typography, colour and contrast, spacing, hierarchy, consistency, UX writing, interaction states, data tables, motion, or conversion-sensitive journeys. Especially deep for Next.js, React, and Tailwind CSS projects, while remaining applicable to other stacks. Trigger on "use Vibe UI", "improve this UI/UX", "make this screen premium", "audit this interface", "fix the user experience", "review this design", "build this component", or "check this flow".
 ---
 
 # Vibe UI
 
-Treat the interface as a product system, not a styling exercise. Improve task success, comprehension, trust, accessibility, responsiveness, and visual craft together.
+Treat the interface as a product system, not a styling exercise. Improve task success, comprehension, trust, accessibility, responsiveness, and visual craft together. Default to a mobile-first reading of every layout, interaction, and component decision, then scale up deliberately for larger viewports.
 
 ## Choose the mode
 
 Resolve one mode from the request:
 
-- `audit`: inspect and report; do not edit unless the user also asks for implementation.
-- `improve`: diagnose, agree or infer a bounded scope, edit, and verify.
-- `build`: create a new interface from product intent, existing patterns, and evidence.
-- `validate`: test an implemented interface visually and behaviourally, then fix only when authorised.
+- `audit`: inspect and report; do not edit unless the user also asks for implementation. Covers review-only requests and requests to check a flow, a screenshot, or connected surfaces without changing code.
+- `improve`: diagnose, agree or infer a bounded scope, implement, and verify. This is the only mode that edits code, and it covers every kind of implementation work: fixing a diagnosed problem, building a new interface or component from product intent and the project's existing patterns, and validating an already-implemented surface visually and behaviourally before or after the change.
 
-If no mode is named, use `improve` for explicit change requests and `audit` for review requests.
+If no mode is named, use `audit` for review, feedback, "what's wrong with this", or "what do you think" requests, including a bare screenshot with no change request. Use `improve` for anything that asks to fix, build, create, redesign, or ship something. When a user shares a screenshot and asks for an opinion, audit it, then ask or infer whether they also want it implemented before editing code.
+
+`improve` always starts by running the `audit` steps on the current scope; do not implement a fix that skips diagnosis. There is no separate `build` or `validate` mode: creating a new component and validating a shipped one are both `improve` work, scoped by what the user asked for.
 
 ## Follow the workflow
 
@@ -48,11 +48,13 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 | Type systems, readability, wrapping, microcopy | [typography-and-content.md](references/typography-and-content.md) |
 | Keyboard, screen readers, semantics, hit areas, zoom | [accessibility-and-input.md](references/accessibility-and-input.md) |
 | Behavioural principles and all Laws of UX lenses | [ux-laws-and-behavior.md](references/ux-laws-and-behavior.md) |
-| Forms, onboarding, defaults, errors, loading and empty states | [forms-onboarding-and-states.md](references/forms-onboarding-and-states.md) |
+| Forms, onboarding, dialog vs sheet choice, defaults, errors, loading and empty states | [forms-onboarding-and-states.md](references/forms-onboarding-and-states.md) |
+| Data tables, row actions, sorting, filtering, truncation | [data-tables-and-controls.md](references/data-tables-and-controls.md) |
+| Dialogs, drawers, menus, and other surfaces opened from the target view | [connected-surfaces.md](references/connected-surfaces.md) |
 | Motion, transitions, feedback, reduced motion | [motion-and-feedback.md](references/motion-and-feedback.md) |
 | Mobile, tablet, desktop, touch, pointer and responsive logic | [responsive-and-platforms.md](references/responsive-and-platforms.md) |
 | Next.js, React, Tailwind CSS and component-system implementation | [next-react-tailwind.md](references/next-react-tailwind.md) |
-| Mobbin or Refero research when their MCP tools are available | [design-research-mcp.md](references/design-research-mcp.md) |
+| Detecting installed component libraries/registries, and Mobbin/Refero or registry MCP tools | [component-libraries-and-mcp.md](references/component-libraries-and-mcp.md) |
 | Browser matrix, state matrix, screenshots and comparison testing | [visual-validation.md](references/visual-validation.md) |
 
 ## Apply the operating rules
@@ -60,6 +62,22 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 ### Start with the audience and task
 
 Identify who is using the product, what they are trying to complete, their likely context, expertise, usage frequency, and the cost of error. Classify the product, journey stage, page archetype, dominant content, density, and device environment before choosing design patterns. Read `context-and-archetypes.md`. If evidence is missing, state a narrow assumption and avoid irreversible product decisions.
+
+### Default to mobile-first
+
+Unless the product is explicitly desktop-only (an internal expert tool with no mobile/tablet requirement, stated by the user or evident from the codebase), design and evaluate layout, navigation, controls, and typography from the narrowest supported width first, then scale up. Treat a desktop-only composition that was never checked at compact widths as an open risk, not a neutral default. Read `responsive-and-platforms.md`.
+
+### Look beyond the entry surface
+
+Do not limit an audit or improvement to the exact screenshot or route named in the request when it has an obvious next step. Identify the dialogs, drawers, menus, and filtered/sorted states it opens, and inspect those to the same standard. Read `connected-surfaces.md`. State explicitly which connected surfaces were inspected and which were left out of scope.
+
+### Build from what is already installed
+
+Detect the project's installed component library, style variant, and any additional component registries (for example a shadcn-registry-based library such as ReUI) before building or changing a component. Prefer composing or extending an installed primitive over inventing a parallel one; use an available component-registry MCP to search and install missing pieces when one is configured. Read `component-libraries-and-mcp.md`.
+
+### Remember what was already discovered
+
+After the first engagement on a project, record the detected stack, component library, registries, breakpoints, and design tokens in `.vibe-ui/PROJECT.md`. On later engagements, read that file first and only re-detect when the project's dependencies or configuration have visibly changed, instead of re-running full discovery or external research every time.
 
 ### Preserve the product before changing it
 
@@ -95,7 +113,7 @@ Do not add heavy animation libraries, oversized media, client-side rendering bou
 
 ### Use design-reference MCPs carefully
 
-Detect available tools from the actual tool registry or project configuration; never invent tool names. If Mobbin or Refero is available and enabled, use it only for a concrete pattern question. If configured but disabled, ask the user to enable it before relying on it. If absent or access fails, continue without it. Never imply these services are free; both currently require paid plans for MCP access.
+Detect available tools from the actual tool registry or project configuration; never invent tool names. If Mobbin or Refero is available and enabled, use it only for a concrete pattern question. If configured but disabled, ask the user to enable it before relying on it. If absent or access fails, continue without it. Never imply these services are free; both currently require paid plans for MCP access. Read `component-libraries-and-mcp.md` for this and for component-registry MCP tooling.
 
 ### Treat Transitions.dev as an optional companion
 

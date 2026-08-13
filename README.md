@@ -1,8 +1,8 @@
 # Vibe UI
 
-Current foundation: `v0.4.0`.
+Current foundation: `v0.5.0`.
 
-Vibe UI is an evidence-led UI and UX engineering skill for AI coding agents. It audits, builds, improves, and visually validates interfaces across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, forms, onboarding, UX writing, interaction states, and motion.
+Vibe UI is an evidence-led UI and UX engineering skill for AI coding agents. It audits and improves interfaces (including building new components and visually validating shipped ones) across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, forms, onboarding, UX writing, interaction states, and motion.
 
 It is stack-agnostic at the principle level and intentionally deeper for Next.js, React, and Tailwind CSS projects.
 
@@ -39,12 +39,12 @@ Ask the agent:
 
 > Use Vibe UI to audit and improve the restaurant booking flow on mobile, tablet, and desktop.
 
-Vibe UI resolves one of four modes:
+Vibe UI resolves one of two modes:
 
-- `audit`: evidence-backed review without edits;
-- `improve`: diagnose, implement, and verify a bounded change;
-- `build`: create a new interface in the existing product system;
-- `validate`: run visual, behavioural, responsive, and accessibility checks.
+- `audit`: evidence-backed review without edits, including a screenshot review or "what's wrong with this" request;
+- `improve`: diagnose, implement, and verify a bounded change. This covers building a new interface or component from the existing product system, and running visual, behavioural, responsive, and accessibility checks on shipped work, in addition to fixing a diagnosed problem.
+
+Every `improve` engagement audits its scope, and every audit follows the target's most obvious next step (a dialog, drawer, filter, or menu it opens) rather than stopping at the entry screenshot.
 
 ## Architecture
 
@@ -58,19 +58,23 @@ skills/vibe-ui/
 └── scripts/
 ```
 
-`SKILL.md` orchestrates the workflow. Dedicated references own contextual classification and page archetypes, colour, typography, layout, spacing, consistency, accessibility, behavioural UX laws, forms, motion, platforms, Next.js/React/Tailwind implementation, optional design-reference MCP research, and visual validation.
+`SKILL.md` orchestrates the workflow. Dedicated references own contextual classification and page archetypes, colour, typography, layout, spacing, consistency, accessibility, behavioural UX laws, forms, data tables, connected surfaces, motion, platforms, Next.js/React/Tailwind implementation, installed component-library detection and design-reference/registry MCP tooling, and visual validation.
 
 Before substantial design work, Vibe UI classifies the audience, task, product type, journey stage, page archetype, dominant content, density, environment, and stakes. This prevents application dashboards, landing pages, checkout flows, and expert tools from receiving the same generic AI visual treatment.
 
 The skill converts UX theory into practical diagnosis: observed signal, intervention, textual example, misuse warning, and verification. It does not use laws as conversion tricks or copy attached screenshots at runtime.
 
-Version 0.4 makes context and verification enforceable. It traces route dependencies and shared consumers, audits cognitive load and navigation architecture before panel polish, checks page-level experience performance, distinguishes Base UI from Radix composition, requires rendered evidence for visual approval, and expands the static auditor with diff-scoped Tailwind colour, image, mounting, fetching, and nested-interaction candidates.
+Version 0.4 made context and verification enforceable: it traces route dependencies and shared consumers, audits cognitive load and navigation architecture before panel polish, checks page-level experience performance, distinguishes Base UI from Radix composition, requires rendered evidence for visual approval, and expands the static auditor with diff-scoped Tailwind colour, image, mounting, fetching, and nested-interaction candidates.
 
-## Optional Mobbin and Refero research
+Version 0.5 collapses the four modes into `audit` and `improve`, so building a component and validating a shipped one are scoped `improve` work rather than separate modes. It also adds mobile-first as the explicit default, follows a target view into the dialogs, drawers, menus, and filtered states it opens instead of stopping at the entry surface, adds dedicated data-table guidance (real row-action buttons, sorting, filtering, and truncation only when content genuinely lacks room), adds dialog-vs-sheet and multi-step-dialog guidance for detail-heavy forms, adds a placeholder/label casing-consistency rule, detects installed component libraries and shadcn-style registries such as ReUI before building a new component, broadens MCP guidance to component-registry MCP servers, and caches first-run project discovery in `.vibe-ui/PROJECT.md` for reuse across engagements.
 
-If Mobbin or Refero MCP tools are already available and enabled, Vibe UI can use them for a narrow design-pattern question before building. If configured but disabled, the skill asks the user to enable the server. If unavailable, it continues without them.
+## Component libraries and optional MCP research
 
-These services are optional and currently require paid plans for MCP access. Vibe UI does not configure credentials or claim they are free.
+Vibe UI detects the project's installed component library (shadcn/ui, Radix, Base UI, and shadcn-registry-based libraries such as ReUI) and any configured component-registry MCP server before building a new component, preferring composition over invention. See `component-libraries-and-mcp.md`.
+
+If Mobbin or Refero MCP tools are already available and enabled, Vibe UI can also use them for a narrow design-pattern question before building. If configured but disabled, the skill asks the user to enable the server. If unavailable, it continues without them.
+
+These design-research services are optional and currently require paid plans for MCP access. Vibe UI does not configure credentials or claim they are free.
 
 ## Sources and acknowledgements
 

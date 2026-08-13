@@ -1,5 +1,17 @@
 # Forms, Onboarding, and States
 
+## Choose the right container before styling the form
+
+Do not default every "create" or "edit" action to a side sheet/drawer merely because it is a common component-library example. Choose the container by task weight and field count, then check the installed component library for the matching primitive:
+
+- **Inline or popover**: one or two low-stakes fields with an immediate, reversible effect (rename, quick note, single toggle).
+- **Dialog (modal)**: a focused, bounded task the user completes and confirms before returning to context — most create/edit forms with up to roughly seven to ten fields in one coherent group. A dialog keeps the user's attention on the task and communicates "this is a discrete decision," which a form with several required identity, contact, and address fields usually is.
+- **Multi-step dialog**: the same bounded task, but with enough fields that one screen would force scrolling past validation or hurt scannability — typically past ten to twelve fields, or fields with a natural sequence (identity, then contact, then address, then confirmation). Show step labels or a progress indicator, validate each step before advancing, keep entered values when the user goes back, and give the final step a clear summary or confirm action. Do not force steps onto data with no real sequential dependency merely to look sophisticated.
+- **Side sheet/drawer**: a task the user wants to keep doing alongside visible context behind it — reviewing or editing a record while still seeing the list or canvas it came from, long-form content with independent scroll, or a workflow the product already establishes this pattern for. A drawer is not a default replacement for a dialog; use it when peeking at the underlying page is part of the task, not merely because it feels lighter to implement.
+- **Full page or route**: the task is a primary journey on its own (checkout, onboarding, complex report builder) rather than a supporting action from a list.
+
+When a "create" action from a data table opens a form with many required fields grouped by topic (type, identity, contact, address), prefer a dialog — multi-step if the field count crosses the threshold above — over a side sheet. Reassess the choice if the project's design system has already standardised on one pattern; do not fragment an established convention for a single screen without discussing it.
+
 ## Reduce the work, not the clarity
 
 Ask only for information needed now. Derive or defer the rest. Group related fields, use visible labels, provide format examples, retain entered values after errors, and preserve drafts for meaningful work.

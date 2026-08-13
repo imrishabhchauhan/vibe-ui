@@ -26,8 +26,15 @@ for (const requiredRule of [
   'code-only, visually unverified',
   'context-dependencies-and-performance.md',
   'cognitive-load-and-information-architecture.md',
+  'connected-surfaces.md',
+  'data-tables-and-controls.md',
+  'component-libraries-and-mcp.md',
+  'mobile-first',
 ]) {
-  assert.ok(content.includes(requiredRule), `Missing v0.4 operating rule: ${requiredRule}`);
+  assert.ok(content.includes(requiredRule), `Missing operating rule: ${requiredRule}`);
 }
+
+assert.ok(/\baudit\b[\s\S]*\bimprove\b/.test(content), 'SKILL.md must define the audit and improve modes');
+assert.ok(!/-\s*`build`:|-\s*`validate`:/.test(content), 'SKILL.md must not reintroduce separate build/validate mode list entries');
 
 console.log(`Skill package validation passed (${new Set(references).size} reference modules).`);

@@ -21,6 +21,28 @@ const pkg = readJson('package.json') || {};
 const dependencies = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) };
 const has = (name) => Object.prototype.hasOwnProperty.call(dependencies, name);
 
+const componentsJson = readJson('components.json');
+
+function registryNamespaces(config) {
+  if (!config) return [];
+  const namespaces = new Set();
+  const registries = config.registries || {};
+  for (const key of Object.keys(registries)) {
+    if (key.startsWith('@')) namespaces.add(key);
+  }
+  // Older/simple configs sometimes reference a registry only through an alias URL or preset name.
+  const raw = JSON.stringify(config);
+  for (const match of raw.matchAll(/@([a-z0-9-]+)\/[a-z0-9-{}]+/gi)) {
+    namespaces.add(`@${match[1]}`);
+  }
+  return [...namespaces];
+}
+
+const registries = registryNamespaces(componentsJson);
+const knownRegistries = {
+  reui: registries.includes('@reui') || Object.keys(dependencies).some((name) => name.includes('reui')),
+};
+
 const result = {
   root,
   packageManager: exists('pnpm-lock.yaml') ? 'pnpm' : exists('yarn.lock') ? 'yarn' : exists('bun.lockb') || exists('bun.lock') ? 'bun' : exists('package-lock.json') ? 'npm' : null,
@@ -39,6 +61,10 @@ const result = {
   },
   components: {
     shadcn: exists('components.json'),
+    shadcnStyle: componentsJson?.style || null,
+    shadcnAliases: componentsJson?.aliases || null,
+    registries,
+    reui: knownRegistries.reui,
     radix: Object.keys(dependencies).some((name) => name.startsWith('@radix-ui/')),
     baseUi: has('@base-ui-components/react'),
     motion: has('motion') || has('framer-motion'),

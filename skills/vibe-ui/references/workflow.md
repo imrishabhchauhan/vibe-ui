@@ -10,34 +10,37 @@ Capture, from the request or repo:
 - business goal without treating it as permission for dark patterns;
 - supported devices, input modes, locales, themes, and browsers;
 - product constraints, brand rules, component library, and deadlines;
-- whether the task is an audit, bounded improvement, new build, or validation.
+- whether the task is an `audit` (review only) or an `improve` (implementation, which may include building a new component or validating a shipped one).
 
 State assumptions only when they materially affect the result. Prefer discovering facts from code, running UI, analytics, design files, or user-provided evidence.
 
-Read `context-and-archetypes.md` and create a compact design brief for `build` work, substantial redesigns, or scopes where product surfaces need different logic. Do not force the brief format on a small component fix.
+Read `context-and-archetypes.md` and create a compact design brief for new-component work, substantial redesigns, or scopes where product surfaces need different logic. Do not force the brief format on a small component fix.
 
 ## 2. Recon the project
 
-Inspect before editing:
+Check project memory first. Read `.vibe-ui/PROJECT.md` if it exists. If it already records the framework, styling system, component library, registries, breakpoints, and tokens for this project and nothing material has visibly changed (new dependencies, edited `components.json`, changed MCP configuration), reuse it instead of re-running full discovery.
+
+Otherwise, or to fill gaps, inspect before editing:
 
 1. repository structure and instructions;
 2. package versions and scripts;
 3. framework, routing, rendering, styling, components, icons, fonts, and motion dependencies;
-4. global tokens and theme variables;
-5. the target route, layouts, boundaries, imported sections, shared parents, and primitives;
-6. hooks, providers, stores, server actions, API routes, queries, caches, and permissions feeding the UI;
-7. consumers of any shared file likely to change;
-8. similar screens and established patterns;
-9. tests, Storybook, visual regression tooling, browser automation, and accessibility tooling;
-10. existing screenshots, specs, research, and analytics.
+4. global tokens and theme variables, and the supported breakpoints;
+5. the installed component library, style variant, and any additional component registries (see `component-libraries-and-mcp.md`);
+6. the target route, layouts, boundaries, imported sections, shared parents, and primitives;
+7. hooks, providers, stores, server actions, API routes, queries, caches, and permissions feeding the UI;
+8. consumers of any shared file likely to change;
+9. similar screens and established patterns;
+10. tests, Storybook, visual regression tooling, browser automation, and accessibility tooling;
+11. existing screenshots, specs, research, and analytics.
 
-Run `node scripts/detect-project.mjs <project-root>` when useful. Treat its output as discovery assistance, not proof of correctness.
+Run `node scripts/detect-project.mjs <project-root>` when useful. Treat its output as discovery assistance, not proof of correctness. After a first full recon, write the durable findings (framework, styling, component library, registries, breakpoints, tokens, and relevant MCP availability) into `.vibe-ui/PROJECT.md` so later engagements can skip re-detection.
 
 Load `context-dependencies-and-performance.md` for route-level work, shared components, data-driven surfaces, tabs, or reported slowness. Build a proportional UI blast-radius map and identify the likely root before proposing a fix.
 
 ## 3. Inspect the real experience
 
-For `audit`, `improve`, and `validate`, render the affected experience before making visual claims when runtime access is available, safe, and authorised. Reuse an existing preview when possible; do not start a server or browser when the user prohibits it. Walk the primary task as the target user would. Observe:
+For both `audit` and `improve`, render the affected experience before making visual claims when runtime access is available, safe, and authorised. Reuse an existing preview when possible; do not start a server or browser when the user prohibits it. Walk the primary task as the target user would. Observe:
 
 - what is visible first;
 - whether the next action is obvious;
@@ -51,7 +54,7 @@ For `audit`, `improve`, and `validate`, render the affected experience before ma
 
 Capture exact route, viewport, state, and component for every visual finding.
 
-Inspect the applicable tabs or navigation structure before individual panels. Capture a baseline at compact touch, tablet, and desktop widths or the product's supported equivalents. Inspect both themes when supported and exercise loading, empty, error, partial, and representative populated states.
+Read `connected-surfaces.md` and identify the dialogs, drawers, menus, and filtered/sorted states the target view opens. Inspect the applicable tabs or navigation structure before individual panels. Capture a baseline at compact touch, tablet, and desktop widths, starting from the narrowest, or the product's supported equivalents. Inspect both themes when supported and exercise loading, empty, error, partial, and representative populated states, on both the entry view and its connected surfaces.
 
 If runtime access is unavailable, unsafe, or prohibited, continue with source-backed accessibility, architecture, consistency, and performance candidates. Mark every visual conclusion `unverified`, state the limitation prominently, and do not return `Approve`.
 

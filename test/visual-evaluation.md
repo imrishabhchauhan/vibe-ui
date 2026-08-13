@@ -45,7 +45,7 @@ Pass evidence:
 
 ## Case 4 — Smart defaults in booking
 
-Prompt: `Use $vibe-ui build to create a restaurant booking step for mobile, tablet, and desktop.`
+Prompt: `Use $vibe-ui improve to build a restaurant booking step for mobile, tablet, and desktop.`
 
 Fixture: empty selects for date, time, guests, seating, and occasion.
 
@@ -59,7 +59,7 @@ Pass evidence:
 
 ## Case 5 — Professional dashboard system
 
-Prompt: `Use $vibe-ui audit full on this Next.js and Tailwind dashboard.`
+Prompt: `Use $vibe-ui audit on this Next.js and Tailwind dashboard.`
 
 Fixture: inconsistent page gutters, arbitrary colours, duplicated buttons, mixed icons, weak empty state, and a large page-level Client Component.
 
@@ -87,9 +87,9 @@ Pass evidence:
 
 ## Case 7 — Context changes the design logic
 
-Prompt A: `Use $vibe-ui build to create a homepage for a B2B reporting product.`
+Prompt A: `Use $vibe-ui improve to build a homepage for a B2B reporting product.`
 
-Prompt B: `Use $vibe-ui build to create the signed-in reporting workspace for the same product.`
+Prompt B: `Use $vibe-ui improve to build the signed-in reporting workspace for the same product.`
 
 Pass evidence:
 
@@ -131,7 +131,7 @@ Pass evidence:
 
 ## Case 10 — Framework composition and verification gate
 
-Prompt: `Use $vibe-ui validate on these Base UI and Radix tooltip changes.`
+Prompt: `Use $vibe-ui improve to validate these Base UI and Radix tooltip changes.`
 
 Fixture: one valid Radix `asChild` button, one invalid Base UI nested button, hardcoded Tailwind palette classes, a raw image, and a hydration error visible in the browser console.
 
@@ -143,6 +143,22 @@ Pass evidence:
 - compact touch, tablet, and desktop evidence covers affected states and full-page overflow;
 - new console or hydration errors block approval;
 - when runtime access is prohibited, the verdict is explicitly `code-only, visually unverified`, never `Approve`.
+
+## Case 11 — Operational table and its create flow
+
+Prompt: `Use $vibe-ui audit on this Client Master table and its Add Client action.`
+
+Fixture: a data table toolbar split across two rows (a period filter row beneath a separate primary-action row), row actions rendered as plain coloured text links, a name column that truncates with visible empty space before the next column, no sort or filter controls on the table, an Add Client action that opens a wide multi-field side sheet, and placeholders mixing full-caps ("15-CHARACTER GSTIN") with sentence case ("Organization or legal name") inconsistently.
+
+Pass evidence:
+
+- the audit flags the split toolbar and proposes one consolidated control row ordered by frequency and reading direction;
+- row actions are flagged as needing real button semantics, not bare clickable text;
+- the truncated column is confirmed against actual rendered width before being flagged, and remains flagged as premature since space is visibly available;
+- missing sort/filter controls are identified against `data-tables-and-controls.md`, not invented as generic advice;
+- the audit follows the Add Client action into its own surface per `connected-surfaces.md` and evaluates it against `forms-onboarding-and-states.md`'s dialog-vs-sheet guidance, given the field count and grouped topics;
+- placeholder casing inconsistency is flagged as a single systemic finding, not scattered per-field noise;
+- the audit remains read-only unless the user also asked for implementation.
 
 ## Scoring rubric
 
