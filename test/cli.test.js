@@ -24,6 +24,7 @@ try {
   assert.ok(fs.existsSync(path.join(temp, '.agents', 'skills', 'vibe-ui', 'SKILL.md')));
   assert.ok(fs.existsSync(path.join(temp, '.cursor', 'skills', 'vibe-ui', 'SKILL.md')));
   assert.ok(fs.existsSync(path.join(temp, '.vibe-ui', 'PROJECT.md')));
+  assert.ok(fs.existsSync(path.join(temp, '.vibe-ui', 'TASTE.md')));
   assert.match(fs.readFileSync(path.join(temp, 'AGENTS.md'), 'utf8'), /Existing project rules/);
   assert.strictEqual((fs.readFileSync(path.join(temp, 'AGENTS.md'), 'utf8').match(/<!-- vibe-ui:start -->/g) || []).length, 1);
 

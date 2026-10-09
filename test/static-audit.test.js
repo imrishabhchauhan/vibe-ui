@@ -21,6 +21,8 @@ try {
     export function Fixture() {
       useEffect(() => { fetch('/api/settings'); }, []);
       return <div className="bg-amber-50 text-rose-600 transition-all">
+        <button className="bg-black text-white">Save</button>
+        <h1 className="text-6xl">Overview</h1>
         <img src="/hero.png" />
         <button><a href="/settings">Settings</a></button>
         <Tabs.Panel keepMounted />
@@ -34,7 +36,7 @@ try {
   const report = JSON.parse(result.stdout);
   const ids = new Set(report.findings.map((finding) => finding.check));
 
-  for (const expected of ['tailwind-palette-colour', 'transition-all', 'raw-img', 'forced-mount', 'effect-fetch', 'nested-interactive']) {
+  for (const expected of ['tailwind-palette-colour', 'transition-all', 'raw-img', 'forced-mount', 'effect-fetch', 'nested-interactive', 'near-black-fill', 'oversized-text']) {
     assert.ok(ids.has(expected), `Expected ${expected} finding`);
   }
   assert.ok(!report.findings.some((finding) => finding.file === 'semantic.tsx' && finding.check === 'tailwind-palette-colour'));

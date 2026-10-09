@@ -81,6 +81,7 @@ function scaffoldMemory() {
   const today = new Date().toISOString().slice(0, 10);
   fs.mkdirSync(path.join(memoryDir, 'evidence'), { recursive: true });
   fs.mkdirSync(path.join(memoryDir, 'reports'), { recursive: true });
+  writeIfMissing(path.join(memoryDir, 'TASTE.md'), `# Taste ledger\n\nLast updated: ${today}\n\nOwner design feedback, written as numbered, testable rules. Read before every design task; update after every review. See the Vibe UI taste-memory module.\n\n## Active rules\n\n## Liked references (what exactly)\n\n## Rejected (and why)\n\n## Retired\n`);
   writeIfMissing(path.join(memoryDir, 'PROJECT.md'), `# Vibe UI Project Context\n\nLast verified: ${today}\n\n## Audience and jobs\n\n## Supported platforms and viewports\n\n## Design system and conventions\n\n## Research and analytics\n`);
   writeIfMissing(path.join(memoryDir, 'STATE.md'), '# Current Vibe UI Engagement\n\nMode: idle\nScope: none\n\n## Checklist\n\n## Evidence\n\n## Decisions\n');
 }

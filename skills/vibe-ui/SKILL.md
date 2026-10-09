@@ -1,6 +1,6 @@
 ---
 name: vibe-ui
-description: Audit or improve product interfaces with evidence-led UI/UX engineering, including building new components from the project's existing library and visually validating the result. Use for web or app screens, flows, components, dashboards, forms, onboarding, responsive layouts, design systems, visual polish, accessibility, typography, colour and contrast, spacing, hierarchy, consistency, UX writing, interaction states, data tables, motion, or conversion-sensitive journeys. Especially deep for Next.js, React, and Tailwind CSS projects, while remaining applicable to other stacks. Trigger on "use Vibe UI", "improve this UI/UX", "make this screen premium", "audit this interface", "fix the user experience", "review this design", "build this component", or "check this flow".
+description: Audit, design, or improve product interfaces, especially dashboards, admin panels, and back-office tools, with concrete craft defaults (type scale, spacing, colour budget, table, form, tab, and calendar recipes), a 100-point scorecard, an anti-pattern list, and a taste ledger that learns from every owner review. Also covers web or app screens, flows, components, forms, onboarding, responsive and mobile layouts, design systems, accessibility, typography, colour and contrast, spacing, hierarchy, consistency, UX writing, interaction states, data tables, and motion. Especially deep for Next.js, React, and Tailwind CSS, while remaining applicable to other stacks. Trigger on "use Vibe UI", "improve this UI/UX", "make this dashboard professional", "make this screen premium", "audit this interface", "score this design", "review this design", "build this component", "check this flow", or any design feedback from the owner.
 ---
 
 # Vibe UI
@@ -33,12 +33,43 @@ Read [workflow.md](references/workflow.md) for every engagement and follow it in
 
 Do not infer a visual defect from code alone when rendering determines the result. Do not infer a code defect from a screenshot alone. If rendering is unavailable, unsafe, or prohibited, continue with source-backed findings but label the work `code-only, visually unverified`; never issue an `Approve` verdict.
 
+## Know what good looks like
+
+Process alone does not produce good interfaces. Before you design or judge any dashboard or logged-in product screen, read [dashboard-craft.md](references/dashboard-craft.md) for concrete defaults, and [anti-patterns.md](references/anti-patterns.md) for what to never ship. The short version:
+
+| Decision | Default |
+| --- | --- |
+| Page title / section title / body | 20 to 24px / 16 to 18px / 14 to 15px |
+| KPI value | 22 to 28px, never above 32px, tabular numbers |
+| Gutter / card gap / section gap | 24 to 32px / 16 to 24px / 32 to 40px (phone: 16 / 12 to 16 / 24) |
+| Surfaces | Light neutral canvas, white cards, 1px light border, 10 to 14px radius |
+| Colour | About 90% neutral; brand accent under about 5% (primary action, current place, focus); blue links when the accent is warm |
+| Primary action | One filled button per region; never black or near-black on a light UI |
+| Navigation | Collapsed icon rail, 9 or fewer modules; sub-pages as tabs with count badges |
+| Tables | Count, search, quick filters, refresh, filter icon, export, add; sort only useful columns; link-coloured names; kebab row menu; zebra rows |
+| Forms | Titled sections, label above, red asterisk for required, segmented control for 2 to 4 options, "Select" placeholders |
+| Mobile | Re-form, never drop: 2 by 2 tiles, card lists, filter sheets, bottom nav, no horizontal scroll |
+
+Run `node scripts/check-colour.mjs <accent> --brand <brand-hex>` whenever you pick or adjust an accent, so a brand orange never drifts into brown and no button goes near-black.
+
+## Apply the taste ledger
+
+Every owner has taste the skill cannot guess. Read [taste-memory.md](references/taste-memory.md). At the start of every engagement, read the project's `.vibe-ui/TASTE.md` and treat its active rules as hard constraints (only accessibility floors outrank them). After every piece of design feedback, turn it into a numbered, testable rule with a why, a source, and a check, and log rejected work with the reason. Report which rules you applied. When a rule proves general across projects, propose upstreaming it into this skill.
+
+## Score before you show
+
+Score every dashboard or admin screen with [scorecard.md](references/scorecard.md) at desktop and phone widths before presenting it, and score the before state in audits. Present only at 85 or more; any hard fail caps the score at 60. A design you have not rendered is `unverified`, not scored.
+
 ## Load only relevant references
 
 Always read `workflow.md`. Then load the modules needed for the scope:
 
 | Need | Read |
 | --- | --- |
+| Concrete dashboard defaults: type scale, spacing, colour budget, shell, tabs, KPI, table, form, calendar, mobile translation | [dashboard-craft.md](references/dashboard-craft.md) |
+| Patterns that get designs rejected, with fixes | [anti-patterns.md](references/anti-patterns.md) |
+| Capturing owner feedback as durable, testable taste rules | [taste-memory.md](references/taste-memory.md) |
+| 100-point scorecard, gates, and hard fails | [scorecard.md](references/scorecard.md) |
 | Audience, product type, journey stage, page archetype, content type, density | [context-and-archetypes.md](references/context-and-archetypes.md) |
 | Dashboard hierarchy, sidebar structure, KPI cards, chart selection, contextual actions | [dashboards-and-kpis.md](references/dashboards-and-kpis.md) |
 | Dependency tracing, shared consumers, data paths, and experience performance | [context-dependencies-and-performance.md](references/context-dependencies-and-performance.md) |
@@ -128,7 +159,7 @@ If `transitions-dev` is installed, use it for matching transition patterns. If u
 
 For audits, provide:
 
-1. scope and evidence inspected;
+1. scope and evidence inspected, plus the scorecard result (before) and taste rules checked;
 2. findings ordered by user impact;
 3. exact location, current behaviour, proposed change, and reason;
 4. considered but rejected changes;
@@ -137,7 +168,7 @@ For audits, provide:
 
 For implementations, provide:
 
-1. what changed and why;
+1. what changed and why, with the scorecard result before and after and the taste rules applied or captured;
 2. files changed;
 3. checks run and observed results;
 4. checks not run;

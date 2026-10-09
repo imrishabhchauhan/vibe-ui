@@ -6,6 +6,10 @@ Define a compact semantic type scale for page titles, section headings, componen
 
 Use few families and weights. Load only intended web faces, preferably WOFF2. Avoid thin weights for small UI text. Use variable axes through high-level CSS properties when available.
 
+## Dashboard scale
+
+Working screens need a compact scale: page title 20 to 24px, section title 16 to 18px, card title 15 to 16px, body and table text 14 to 15px, meta 12 to 13px, KPI values 22 to 28px (never above 32px). Large display sizes belong on marketing pages, not admin tools. See `dashboard-craft.md` §2.
+
 ## Shape hierarchy
 
 - headings: tighter line-height, restrained negative tracking only at display sizes;

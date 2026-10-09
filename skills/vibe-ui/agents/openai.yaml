@@ -1,4 +1,4 @@
 interface:
   display_name: "Vibe UI"
-  short_description: "Build and improve evidence-led product interfaces"
+  short_description: "Design, score, and improve calm, professional dashboards"
   default_prompt: "Use $vibe-ui to audit and improve this interface across UX, accessibility, layout, typography, colour, consistency, responsive behaviour, and motion."

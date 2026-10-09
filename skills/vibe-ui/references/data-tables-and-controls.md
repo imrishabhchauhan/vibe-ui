@@ -2,9 +2,11 @@
 
 Use this module for any table, list, or record grid: clients, invoices, users, transactions, or similar operational records.
 
-## Consolidate the toolbar into one row
+For a complete, drawn table recipe (toolbar anatomy, zebra rows, link-coloured names, kebab menus, quality-of-life controls), read `dashboard-craft.md` §9 and §12.
 
-A table needs at most one control row above it, not a header action row plus a separate filter row beneath. Put the primary create action, view-mode tabs, and the most-used filters (date range, status, type, search) in the same row, ordered by frequency and reading direction: high-use filters first, primary action last on the trailing edge.
+## Consolidate the toolbar
+
+A table needs one clear control area above it. Use one row when everything fits. When it does not, use exactly two rows with fixed jobs: row one carries the list identity (icon, count such as "13 Students") and the list actions (export, the primary add); row two carries search on the leading edge and filters on the trailing edge. Never scatter controls across three or more rows. Put the primary create action, view-mode tabs, and the most-used filters (date range, status, type, search) in the same row, ordered by frequency and reading direction: high-use filters first, primary action last on the trailing edge.
 
 - Do not stack "tabs on one row, primary button on a second far row, filter chip on a third row" when they all act on the same list. Merge them.
 - On narrow widths, keep the primary action and search visible; move secondary filters into a labelled disclosure (filter sheet or popover) rather than wrapping every control into a second row by default.
@@ -29,10 +31,20 @@ Ellipsis or `truncate` classes are a last resort for a column whose rendered wid
 
 ## Provide sorting and filtering as real controls
 
-- Give every meaningfully comparable column (amounts, dates, counts, alphabetic identifiers) a sort control: a clickable header with a visible direction indicator, `aria-sort` on the header cell, and keyboard operability.
+- Do not add sort controls to columns where order means nothing to the user (phone numbers, free-text notes, actions). Sort icons on every column are noise.
+- Give every meaningfully comparable column (names, amounts, dates, counts, status) a sort control: a clickable header with a visible direction indicator, `aria-sort` on the header cell, and keyboard operability.
 - Provide filtering for the facets users actually narrow by (status, type, date range, owner). Show active filters as removable chips or a visible control state, keep the result count visible, and never blank the table while filters resolve; use the loading and stale-response guidance in `forms-onboarding-and-states.md`.
 - Persist sort and filter state in the URL or component state consistent with the project's existing list patterns, so back navigation and reload preserve the user's context.
 - When both a global scope filter (for example a financial year) and table-local filters exist, make it visually and semantically clear which one is which, and confirm the global filter actually changes the values shown beneath it.
+
+## Make tables easy to scan and act on
+
+- Show clickable names in the link colour, with an avatar and a muted secondary line (ID, roll number), so users know the name opens a record.
+- Alternate row backgrounds with a barely visible tint (2 to 4%) or use clear separators; keep the header on a light neutral.
+- Put the total count in the toolbar and on the tab that leads to the table.
+- Offer quick filters as "Label: Value" dropdowns for the 3 to 4 most used facets, and an advanced filter icon that opens a drawer for the rest. Show the active filter count on that icon.
+- Add a refresh button when other people change the data, an export button on every operational table, and a column chooser when there are more than six columns.
+- On phones, turn each row into a card (name, two key fields, status, kebab menu) instead of shrinking the table.
 
 ## Verification
 

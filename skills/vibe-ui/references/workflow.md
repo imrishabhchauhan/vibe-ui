@@ -18,7 +18,7 @@ Read `context-and-archetypes.md` and create a compact design brief for new-compo
 
 ## 2. Recon the project
 
-Check project memory first. Read `.vibe-ui/PROJECT.md` if it exists. If it already records the framework, styling system, component library, registries, breakpoints, and tokens for this project and nothing material has visibly changed (new dependencies, edited `components.json`, changed MCP configuration), reuse it instead of re-running full discovery.
+Check project memory first. Read `.vibe-ui/TASTE.md` if it exists and list the active rules that apply to this scope (see `taste-memory.md`); they are hard constraints. Read `.vibe-ui/PROJECT.md` if it exists. If it already records the framework, styling system, component library, registries, breakpoints, and tokens for this project and nothing material has visibly changed (new dependencies, edited `components.json`, changed MCP configuration), reuse it instead of re-running full discovery.
 
 Otherwise, or to fill gaps, inspect before editing:
 
@@ -102,7 +102,7 @@ Do not redesign unrelated surfaces. Do not replace a design system because one c
 
 ## 7. Verify
 
-Load `visual-validation.md`. Run proportional checks: typecheck, lint, tests, build, targeted accessibility checks, browser journeys, and visual comparisons. Validate source and rendered behaviour.
+Load `visual-validation.md`. For dashboards and admin screens, score the rendered result with `scorecard.md` at desktop and phone widths; present only at 85 or more with no hard fail. Run proportional checks: typecheck, lint, tests, build, targeted accessibility checks, browser journeys, and visual comparisons. Validate source and rendered behaviour.
 
 Treat source review as verification of source only. For rendered work, inspect relevant browser-console errors, responsive screenshots, full-page overflow, focus/hover/selected behaviour, and applicable loading, empty, error, and partial states. New or changed runtime errors block completion. Record unrelated pre-existing errors rather than hiding them.
 
@@ -114,6 +114,11 @@ Distinguish:
 - implemented changes;
 - recommendations not implemented;
 - unverified assumptions;
-- risks and follow-up experiments.
+- risks and follow-up experiments;
+- scorecard before and after, taste rules applied, and any new taste rules captured.
+
+## 9. Learn
+
+When the owner reacts to the work (approves, rejects, ranks, comments, or annotates a screenshot), update `.vibe-ui/TASTE.md` in the same engagement, following `taste-memory.md`. A review that is not written down will be repeated.
 
 Never state that a UI is "better" only because it looks more decorated. Tie the result to clarity, task success, accessibility, consistency, responsiveness, or measured outcomes.

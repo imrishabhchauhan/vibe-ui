@@ -77,3 +77,16 @@ Confirm what happened, show important identifiers or next timing, and offer the 
 
 Use disabled controls for genuine temporary unavailability, not to hide validation. Explain prerequisites near the control. Ensure disabled appearance is distinguishable without looking like broken low-contrast text.
 
+## Field-level craft
+
+See `dashboard-craft.md` §10 for the drawn recipe. In short:
+
+- Split long forms into titled sections, each a card with a light header band.
+- Put a visible label above every field; mark required fields with a red asterisk after the label.
+- Use a segmented control for two to four fixed options (for example gender: Male, Female, Not specified).
+- Join a country code picker (flag and dial code) to phone inputs.
+- Show accepted file types and size limits under file inputs, next to a clear "Choose file" button and the chosen file name.
+- Use "Select" as the placeholder for selects; never pre-fill a fake real value.
+- Show the expected format under date and code fields, in the user's locale.
+- Use three columns on wide screens, two on tablets, and one on phones, keeping the same sections.
+

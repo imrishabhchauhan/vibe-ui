@@ -24,6 +24,9 @@ const checks = [
   { id: 'tailwind-palette-colour', re: /\b(?:bg|text|border|ring|outline|fill|stroke)-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|[1-9]00|950)\b/g, note: 'Tailwind palette candidate; prefer a semantic token unless colour itself is content or the exception is documented.' },
   { id: 'raw-img', re: /<img\b/g, note: 'Raw image candidate; verify optimisation, dimensions, loading, and framework image conventions.' },
   { id: 'forced-mount', re: /\b(?:forceMount|keepMounted)\b/g, note: 'Forced-mount candidate; verify hidden panels do not eagerly run heavy rendering, requests, observers, or subscriptions.' },
+  { id: 'near-black-fill', re: /\bbg-(?:black|(?:gray|zinc|neutral|slate|stone)-(?:900|950))\b|background(?:-color)?\s*:\s*#(?:000|000000|0a0a0a|111|111111|171717|18181b|1a1a1a)\b/gi, note: 'Near-black fill candidate; on a light product UI do not use it for primary buttons. Use the brand accent.' },
+  { id: 'oversized-text', re: /\btext-(?:5xl|6xl|7xl|8xl|9xl)\b|\btext-\[(?:3[3-9]|[4-9]\d)px\]|font-size\s*:\s*(?:3[3-9]|[4-9]\d)px/g, note: 'Oversized text candidate; dashboards rarely need text above 32px (page title 20 to 24px, KPI 22 to 28px).' },
+  { id: 'dark-by-default', re: /<html[^>]*class(?:Name)?=["'{][^"'}]*\bdark\b|defaultTheme\s*=\s*["']dark["']|forcedTheme\s*=\s*["']dark["']/g, note: 'Dark-by-default candidate; confirm the owner wants dark as the default look.' },
   { id: 'physical-direction', re: /\b(?:margin|padding|border)-(?:left|right)\b|\b(?:ml|mr|pl|pr)-/g, note: 'Physical direction candidate; verify RTL/localisation requirements.' },
 ];
 
