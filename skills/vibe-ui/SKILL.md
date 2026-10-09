@@ -40,15 +40,21 @@ Process alone does not produce good interfaces. Before you design or judge any d
 | Decision | Default |
 | --- | --- |
 | Page title / section title / body | 20 to 24px / 16 to 18px / 14 to 15px |
+| Weight | 400 body, 500 titles, labels, buttons; 600 only for KPI values; never 700+ |
 | KPI value | 22 to 28px, never above 32px, tabular numbers |
 | Gutter / card gap / section gap | 24 to 32px / 16 to 24px / 32 to 40px (phone: 16 / 12 to 16 / 24) |
 | Surfaces | Light neutral canvas, white cards, 1px light border, 10 to 14px radius |
 | Colour | About 90% neutral; brand accent under about 5% (primary action, current place, focus); blue links when the accent is warm |
 | Primary action | One filled button per region; never black or near-black on a light UI |
-| Navigation | Collapsed icon rail, 9 or fewer modules; sub-pages as tabs with count badges |
+| Navigation | Sticky slim top bar; collapsed icon rail, 9 or fewer modules; sub-pages as tabs with count badges |
 | Tables | Count, search, quick filters, refresh, filter icon, export, add; sort only useful columns; link-coloured names; kebab row menu; zebra rows |
-| Forms | Titled sections, label above, red asterisk for required, segmented control for 2 to 4 options, "Select" placeholders |
+| Forms | Titled sections, label above, red asterisk for required, "e.g." placeholders, "Select" for selects, segmented control for 2 to 4 options, search only in long lists |
+| Dialogs | Short task title, close icon, concise body, outcome-named primary; light backdrop, no heavy blur; nested dialog dims the one below without blur |
+| Onboarding | One kind of info per screen, smart defaults from country, first-run wizard over a visible dashboard, setup checklist, teaching empty states |
+| Record pages | Facts with icons, pencil on each editable fact, link-coloured relations, grouped header menus, sub-sections as tabs |
 | Mobile | Re-form, never drop: 2 by 2 tiles, card lists, filter sheets, bottom nav, no horizontal scroll |
+
+To correct an existing dashboard of any kind, follow [fix-playbook.md](references/fix-playbook.md): ten ordered passes from structure to mobile, with find-and-replace tables.
 
 Run `node scripts/check-colour.mjs <accent> --brand <brand-hex>` whenever you pick or adjust an accent, so a brand orange never drifts into brown and no button goes near-black.
 
@@ -68,6 +74,10 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 | --- | --- |
 | Concrete dashboard defaults: type scale, spacing, colour budget, shell, tabs, KPI, table, form, calendar, mobile translation | [dashboard-craft.md](references/dashboard-craft.md) |
 | Patterns that get designs rejected, with fixes | [anti-patterns.md](references/anti-patterns.md) |
+| Correcting any existing dashboard in ordered passes | [fix-playbook.md](references/fix-playbook.md) |
+| Sign-up, workspace setup, first-run wizard, setup checklist, empty states, announcements | [onboarding-and-activation.md](references/onboarding-and-activation.md) |
+| Dialog anatomy, backdrops, nested dialogs, wizard dialogs, two-list transfer, side sheets | [dialogs-and-overlays.md](references/dialogs-and-overlays.md) |
+| Record headers, inline editing with pencils, sub-section tabs, print and share | [detail-pages-and-editing.md](references/detail-pages-and-editing.md) |
 | Capturing owner feedback as durable, testable taste rules | [taste-memory.md](references/taste-memory.md) |
 | 100-point scorecard, gates, and hard fails | [scorecard.md](references/scorecard.md) |
 | Audience, product type, journey stage, page archetype, content type, density | [context-and-archetypes.md](references/context-and-archetypes.md) |

@@ -106,7 +106,7 @@ This is a different axis from the dialog-vs-drawer choice in `forms-onboarding-a
 
 - **Popover**: a lightweight, non-blocking, quickly reversible interaction the user can dismiss by clicking away — sort options, column visibility, a small filter, a date picker, a quick single-field edit.
 - **Modal (dialog)**: the task needs the user's full attention, belongs directly to the surface they are on, and sending them to a new page would interrupt a short workflow unnecessarily. See `forms-onboarding-and-states.md` for choosing single-step vs multi-step dialogs by field count.
-- **Dedicated page**: the task is too large for a dropdown, popover, or modal — a full record profile, a report builder, advanced settings, or anything with its own sub-navigation. Give every dedicated page reached from a list a visible way back (breadcrumb or back control) that names the parent context, e.g. "Schools › Shemrock Zirakpur › Class 8 › Student profile."
+- **Dedicated page**: the task is too large for a dropdown, popover, or modal — a full record profile, a report builder, advanced settings, or anything with its own sub-navigation. Give every dedicated page reached from a list a visible way back (breadcrumb or back control) that names the parent context, e.g. "Schools › Northfield Academy › Class 8 › Student profile."
 
 ## 9. Apply optimistic UI carefully
 

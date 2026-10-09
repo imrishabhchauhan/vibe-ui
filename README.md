@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/vibe-ui-skill.svg)](https://www.npmjs.com/package/vibe-ui-skill)
 [![license](https://img.shields.io/npm/l/vibe-ui-skill.svg)](./LICENSE)
 
-Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.7.0`.
+Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.8.0`.
 
 Vibe UI audits and improves product interfaces — including building new components from a project's existing library and visually validating shipped work — across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, dashboards, forms, onboarding, UX writing, interaction states, and motion.
 
@@ -63,6 +63,8 @@ Most UI skills tell an agent how to review. Vibe UI also tells it what good look
 
 - **Craft defaults with numbers** (`dashboard-craft.md`): a compact dashboard type scale (page title 20 to 24px, KPI 22 to 28px), spacing, a colour budget (about 90% neutral, accent under about 5%), and drawn recipes for the app shell, module tabs with counts, KPI tiles, data tables, forms, calendars, and their mobile versions.
 - **Anti-patterns** (`anti-patterns.md`): black buttons, brand colour on everything, brand orange darkened into brown, giant titles, kiddish illustrations on staff screens, dark mode by default, sort icons on every column, and hiding information on phones.
+- **A fix playbook** (`fix-playbook.md`): ten ordered passes that correct any existing dashboard, from structure and shell to type, colour, components, states, quality of life, and mobile, with find-and-replace tables.
+- **Onboarding, dialog, and record-page recipes**: account and workspace setup with smart defaults, a first-run wizard over a visible dashboard, setup checklists, teaching empty states, dialog anatomy and backdrops, nested dialogs, inline editing with pencil icons.
 - **A 100-point scorecard** (`scorecard.md`) with hard fails, used before any design is shown.
 - **A taste ledger** (`taste-memory.md` and `.vibe-ui/TASTE.md`): every owner review becomes a numbered, testable rule that later sessions read first, so the agent stops repeating rejected work.
 - **A colour checker** (`scripts/check-colour.mjs`): flags near-black primaries and brand colours that drift into brown or maroon, and reports contrast.
@@ -80,6 +82,10 @@ Loaded on demand from `skills/vibe-ui/references/`:
 | Module | Covers |
 | --- | --- |
 | `dashboard-craft.md` | Concrete dashboard defaults: type scale, spacing, colour budget, app shell, module tabs with counts, KPI tiles, tables, forms, calendars, quality-of-life toolkit, and the mobile translation of each. |
+| `fix-playbook.md` | Ten ordered passes for correcting any existing dashboard, with find-and-replace tables. |
+| `onboarding-and-activation.md` | Sign-up and workspace setup, smart defaults, placeholders and selector choice, first-run wizard, setup checklist, empty states, announcements. |
+| `dialogs-and-overlays.md` | Dialog anatomy, backdrops, nested dialogs, wizard dialogs, two-list transfer, confirmations, side sheets. |
+| `detail-pages-and-editing.md` | Record headers, inline editing with pencil icons, sub-section tabs, status, print and share. |
 | `anti-patterns.md` | Patterns that get dashboards rejected, each with the reason and the fix. |
 | `scorecard.md` | 100-point dashboard scorecard with presentation gate (85) and hard fails. |
 | `taste-memory.md` | Turning owner feedback into numbered, testable rules in `.vibe-ui/TASTE.md`, and upstreaming general ones. |
@@ -140,6 +146,8 @@ node .agents/skills/vibe-ui/scripts/check-colour.mjs "#CF4A0C" --brand "#FA4B09"
 ```
 
 ## Changelog
+
+**0.8.0**: Adds `fix-playbook.md` (ten ordered passes to correct any dashboard), `onboarding-and-activation.md`, `dialogs-and-overlays.md`, and `detail-pages-and-editing.md`. Lightens the type rules (500 for titles, never 700+), adds the sticky top bar, "e.g." placeholders, selector choice by list length, scorecard add-ons for dialogs, onboarding, and record pages, and two static audit candidates (`heavy-weight`, `heavy-backdrop`). Removes product and real place names from the skill: it keeps patterns, never brands.
 
 **0.7.0**: Gives the skill taste. Adds `dashboard-craft.md` (numeric type, spacing, and colour defaults plus drawn recipes for shell, tabs with counts, KPI tiles, tables, forms, calendars, quality-of-life features, and mobile translation), `anti-patterns.md`, a 100-point `scorecard.md` with hard fails, and `taste-memory.md` with a project `.vibe-ui/TASTE.md` ledger created by `init`. Adds `scripts/check-colour.mjs` for brand drift and contrast, and three static audit candidates (`near-black-fill`, `oversized-text`, `dark-by-default`). Workflow now reads the taste ledger first, scores before presenting, and ends with a learn step.
 

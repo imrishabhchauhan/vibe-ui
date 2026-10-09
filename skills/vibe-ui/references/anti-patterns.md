@@ -10,6 +10,7 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Brand colour on everything (buttons, icons, charts, badges, headings) | "Too orange / too purple"; nothing stands out because everything does | Spend the accent on primary action, current place, focus only (`dashboard-craft.md` §4) |
 | Brand colour darkened until it changes family (orange to brown, red to maroon) | The product no longer looks like its brand | Keep the brand fill; fix contrast with label weight or size; check with `scripts/check-colour.mjs` |
 | Huge page titles (32px+) and giant KPI numbers (40px+) | Reads like a landing page; wastes the first screen | Page title 20 to 24px, KPI 22 to 28px |
+| Bold or heavy text (700+) on titles, labels, and numbers | Looks shouty and cheap; the most common amateur tell | 400 body, 500 titles and labels, 600 only for KPI values |
 | Tiny meta text (under 12px) | Unreadable for many users | 12 to 13px minimum for meta |
 | Dark mode as the default look of a staff tool | Owners of calm admin products rarely want it; it changes the brand feel | Light by default; dark only on request, designed separately |
 | Illustrations, mascots, or 3D art on staff dashboards | Looks kiddish, adds no information | Line icons in tinted chips; illustrations only in empty states if allowed |
@@ -41,6 +42,22 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Fake example value pre-filled in a select | Users submit it by mistake | Placeholder "Select" |
 | Required fields not marked | Users find out only on submit | Red asterisk after the label |
 | File input without accepted types | Users upload the wrong file and fail | Accepted types and size limit under the input |
+
+## Onboarding, dialogs, and records
+
+| Anti-pattern | Why it fails | Do instead |
+| --- | --- | --- |
+| One long sign-up form mixing personal and workspace details | Feels like paperwork; people abandon it | One kind of information per screen |
+| Asking for time zone, currency, and date format separately | Three decisions the product could make | Derive them from the country, editable |
+| Placeholder that looks like a real value ("My School") | Users think it is already filled | "e.g. My Learning Centre", muted |
+| Blank dashboard after sign-up | The user does not know what to do next | First-run wizard plus a setup checklist |
+| Wizard with all steps looking equal | The user cannot see where they are | Current step in accent, future steps dimmed, done steps checked |
+| Heavy blur or black backdrop behind dialogs | Hides context; feels like an error | Light dim, no blur or 2 to 4px at most |
+| Nested dialog that blurs the one below | The user loses track of where they are | Dim the lower dialog, do not blur it |
+| Dialog without a close icon, or with "OK" / "Submit" buttons | Unclear exit; unclear outcome | Close icon plus Esc; primary names the outcome ("Copy students") |
+| Separate "Edit mode" for a record page | Extra step; users do not find it | Pencil icon next to each editable fact |
+| "No data" as an empty state | Dead end | Icon, title, one line, one action |
+| Header that scrolls away | Search, menu, and sign out disappear | Sticky slim top bar |
 
 ## Mobile
 

@@ -1,6 +1,6 @@
 # Dashboard Craft: What Good Looks Like
 
-Use this module whenever you build, redesign, or audit a dashboard, admin panel, back-office tool, or any logged-in product screen. Other modules explain *how to reason*. This one says *what to ship*: concrete sizes, layouts, and component recipes taken from mature, calm, professional products (for example all-in-one school management systems such as Teach 'n Go, analysed from screenshots; no assets copied).
+Use this module whenever you build, redesign, or audit a dashboard, admin panel, back-office tool, or any logged-in product screen. Other modules explain *how to reason*. This one says *what to ship*: concrete sizes, layouts, and component recipes distilled from mature, calm, professional products. The skill never names or copies a specific product; it keeps only the patterns.
 
 These are defaults, not laws. A project's `.vibe-ui/TASTE.md` (see `taste-memory.md`) outranks them. Accessibility floors outrank both.
 
@@ -37,17 +37,19 @@ Dashboards read at arm's length for hours. Use a compact scale. Measured on calm
 
 | Role | Size | Weight | Notes |
 | --- | --- | --- | --- |
-| Page title | 20 to 24px | 600 | One per page. Never 32px+ on a working screen. |
-| Section title | 16 to 18px | 600 | With an optional 13 to 14px muted subtitle under it. |
-| Card / panel title | 15 to 16px | 500 to 600 | |
+| Page title | 20 to 24px | 500 | One per page. Never 32px+ on a working screen. |
+| Section title | 16 to 18px | 500 | With an optional 13 to 14px muted subtitle under it. |
+| Card / panel title | 15 to 16px | 500 | |
 | Body, table cells, inputs | 14 to 15px | 400 | Inputs at least 16px on phones to stop iOS zoom. |
 | Labels, tab text, buttons | 14 to 15px | 500 | |
 | Meta, helper, captions | 12 to 13px | 400 | Muted colour, but still 4.5:1 contrast. |
-| KPI value | 22 to 28px | 600 | 32px is the ceiling. Use tabular numbers. |
+| KPI value | 22 to 28px | 500 to 600 | 32px is the ceiling. Use tabular numbers. |
 
 Rules:
 
-- One family for the product UI. Two weights do most of the work (400 and 600, plus 500 for labels).
+- One family for the product UI, preferably a soft, rounded-geometric or neo-grotesque sans with open letter shapes.
+- **Light hand on weight.** 400 for body, 500 for titles, labels, tabs, and buttons. 600 only for KPI values or a single emphasised word. Never 700 to 900 anywhere in a working screen: thick text looks shouty and cheap, and it is the most common reason a dashboard feels amateur.
+- Primary text is a soft near-black (around `#1F2329`), not pure black. Secondary text is a calm grey (around `#5B6370`).
 - If everything is big, nothing is important. Size alone should never be the only hierarchy tool; use weight, colour, and position too.
 - Line-height 1.4 to 1.5 for body, 1.2 to 1.3 for titles.
 - Never go below 12px for any text a user must read.
@@ -98,7 +100,7 @@ Desktop shell, top to bottom:
 [rail]  page content
 ```
 
-- **Top bar (56 to 64px):** logo, global search (280 to 420px wide, placeholder "Search"), a quiet status text if relevant ("Trial ends in 14 days"), one primary quick-create button ("Add new" opening a menu of create actions), a workspace or school switcher showing the current workspace name, and the user avatar.
+- **Sticky top bar (56 to 64px):** it stays in place while the page scrolls, so search, quick-create, the workspace switcher, the menu, and sign out are always one click away. Keep it slim so it does not eat the viewport. It holds logo, global search (280 to 420px wide, placeholder "Search"), a quiet status text if relevant ("Trial ends in 14 days"), one primary quick-create button ("Add new" opening a menu of create actions), a workspace or school switcher showing the current workspace name, and the user avatar.
 - **Workspace switcher** sits in the top bar in a normal, quiet style (bordered button with an icon, name, and up/down chevron). It must be visible but must not pull the eye.
 - **Navigation rail:** collapsed by default to 64 to 72px with line icons only, each with a tooltip. It expands to 240 to 260px with labels on hover or on a pin toggle at the bottom. The active item gets a soft tinted square behind the icon.
 - **Keep the rail short.** 6 to 9 top-level modules. Sub-pages go into module tabs (section 6), not into the rail.
@@ -130,7 +132,7 @@ People
 ┌───────────────────────┐
 │ [tinted icon chip]    │
 │ Lessons               │  ← 15 to 16px, 500
-│ 128                   │  ← 22 to 28px, 600, tabular
+│ 128                   │  ← 22 to 28px, 500 to 600, tabular
 │ 12 unenrolments       │  ← optional 13px muted sub-metric
 └───────────────────────┘
 ```

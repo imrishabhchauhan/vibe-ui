@@ -27,7 +27,7 @@ Scoring needs the rendered screen at desktop width and at a phone width (360 to 
 - [ ] Page title 20 to 24px; section titles 16 to 18px.
 - [ ] KPI values 22 to 28px (never above 32px), tabular numbers.
 - [ ] Body and table text 14 to 15px; meta text 12 to 13px or more.
-- [ ] Two or three weights at most; hierarchy also uses colour and position.
+- [ ] No text heavier than 600; titles and labels at 500; hierarchy also uses colour and position.
 - [ ] Casing is consistent per role (labels, buttons, tabs).
 
 ## 3. Spacing and grouping
@@ -51,7 +51,7 @@ Scoring needs the rendered screen at desktop width and at a phone width (360 to 
 - [ ] The rail or sidebar has 9 or fewer top-level items.
 - [ ] Module sub-pages are tabs, and list tabs show counts.
 - [ ] The current location is obvious (one active treatment).
-- [ ] The workspace or account switcher is visible but quiet.
+- [ ] The top bar is sticky and the workspace or account switcher is visible but quiet.
 - [ ] Every detail page has a way back that names the parent.
 
 ## 6. Tables and lists
@@ -93,6 +93,31 @@ Scoring needs the rendered screen at desktop width and at a phone width (360 to 
 - [ ] Tables become card lists; filters move to a sheet.
 - [ ] Touch targets are 44px or more.
 - [ ] Navigation is a bottom bar or a menu sheet, and the add action stays reachable.
+
+## Surface add-ons
+
+Score each add-on that applies, 2 points per check, and report the result as a percentage next to the main score: `Main 88 / 100 · Dialogs 8 / 10 · Onboarding 10 / 10`. Any add-on under 7 / 10 blocks presentation.
+
+**Dialogs**
+- [ ] Short task title, close icon, Esc support.
+- [ ] Concise body; primary button names the outcome; secondary is tinted or outline.
+- [ ] Light backdrop (no blur, or 2 to 4px at most).
+- [ ] Nested dialogs dim the one below without blur; never more than two levels.
+- [ ] Focus moves in on open and back to the trigger on close.
+
+**Onboarding**
+- [ ] One kind of information per screen, one primary action.
+- [ ] Country-dependent fields filled from the country.
+- [ ] Placeholders start with "e.g."; selects say "Select"; search only in long lists.
+- [ ] First-run wizard over a visible dashboard, current step marked, future steps dimmed.
+- [ ] A setup checklist with progress that disappears when done.
+
+**Record pages**
+- [ ] Title, status, and key facts readable in five seconds.
+- [ ] A pencil on every editable fact, and only there.
+- [ ] Linked records in the link colour.
+- [ ] Header actions grouped into a few menus by job.
+- [ ] Sub-sections as tabs kept in the URL; empty panels teach the next action.
 
 ## Report format
 

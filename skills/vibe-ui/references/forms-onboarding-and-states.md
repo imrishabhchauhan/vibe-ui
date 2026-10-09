@@ -89,4 +89,5 @@ See `dashboard-craft.md` §10 for the drawn recipe. In short:
 - Use "Select" as the placeholder for selects; never pre-fill a fake real value.
 - Show the expected format under date and code fields, in the user's locale.
 - Use three columns on wide screens, two on tablets, and one on phones, keeping the same sections.
-
+- Choose the selector by list length: segmented control for 2 to 4 options, a plain dropdown for about 5 to 12, a searchable dropdown for longer lists or names people type faster than they scroll (countries, time zones, currencies, people). See `onboarding-and-activation.md` §4.
+- Start text placeholders with "e.g." so they never look like a value already entered.

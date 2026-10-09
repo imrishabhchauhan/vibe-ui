@@ -26,6 +26,8 @@ const checks = [
   { id: 'forced-mount', re: /\b(?:forceMount|keepMounted)\b/g, note: 'Forced-mount candidate; verify hidden panels do not eagerly run heavy rendering, requests, observers, or subscriptions.' },
   { id: 'near-black-fill', re: /\bbg-(?:black|(?:gray|zinc|neutral|slate|stone)-(?:900|950))\b|background(?:-color)?\s*:\s*#(?:000|000000|0a0a0a|111|111111|171717|18181b|1a1a1a)\b/gi, note: 'Near-black fill candidate; on a light product UI do not use it for primary buttons. Use the brand accent.' },
   { id: 'oversized-text', re: /\btext-(?:5xl|6xl|7xl|8xl|9xl)\b|\btext-\[(?:3[3-9]|[4-9]\d)px\]|font-size\s*:\s*(?:3[3-9]|[4-9]\d)px/g, note: 'Oversized text candidate; dashboards rarely need text above 32px (page title 20 to 24px, KPI 22 to 28px).' },
+  { id: 'heavy-weight', re: /\bfont-(?:bold|extrabold|black)\b|font-weight\s*:\s*(?:[7-9]00|bold|bolder)\b/g, note: 'Heavy weight candidate; product UI rarely needs more than 500 for titles and 600 for KPI values.' },
+  { id: 'heavy-backdrop', re: /\bbackdrop-blur-(?:md|lg|xl|2xl|3xl)\b|backdrop-filter\s*:\s*blur\(\s*(?:[5-9]|\d{2,})px|\bbg-black\/(?:[6-9]\d|100)\b/g, note: 'Heavy backdrop candidate; dialogs should keep context visible (light dim, no blur or 2 to 4px).' },
   { id: 'dark-by-default', re: /<html[^>]*class(?:Name)?=["'{][^"'}]*\bdark\b|defaultTheme\s*=\s*["']dark["']|forcedTheme\s*=\s*["']dark["']/g, note: 'Dark-by-default candidate; confirm the owner wants dark as the default look.' },
   { id: 'physical-direction', re: /\b(?:margin|padding|border)-(?:left|right)\b|\b(?:ml|mr|pl|pr)-/g, note: 'Physical direction candidate; verify RTL/localisation requirements.' },
 ];

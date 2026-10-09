@@ -14,7 +14,7 @@ A table needs one clear control area above it. Use one row when everything fits.
 
 ## Make row actions real controls
 
-Never render a row action as bare coloured or underlined text with an `onClick`. Use an actual `<button>` (icon button, text button, or a trailing overflow menu) with a visible affordance: border, filled/ghost background, or a recognisable icon plus label. It needs hover, focus-visible, active, and disabled states like any other button, an accessible name (e.g. "View Geeta University, Panipat"), and a touch target that meets the accessibility baseline.
+Never render a row action as bare coloured or underlined text with an `onClick`. Use an actual `<button>` (icon button, text button, or a trailing overflow menu) with a visible affordance: border, filled/ghost background, or a recognisable icon plus label. It needs hover, focus-visible, active, and disabled states like any other button, an accessible name (e.g. "View Northfield Academy"), and a touch target that meets the accessibility baseline.
 
 - A single dominant row action ("View", "Open") can be a small button or icon-button at the trailing edge.
 - Two or more row actions belong in a consistent action cluster or an overflow menu, not a widening list of separate links.

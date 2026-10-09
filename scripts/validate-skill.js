@@ -13,7 +13,7 @@ assert.ok(!/\bTODO\b/.test(content), 'SKILL.md contains TODO markers');
 assert.ok(content.split(/\r?\n/).length < 500, 'SKILL.md must stay under 500 lines');
 
 const references = [...content.matchAll(/\]\((references\/[^)]+\.md)\)/g)].map((match) => match[1]);
-assert.ok(new Set(references).size >= 23, 'Expected all progressive-disclosure reference modules');
+assert.ok(new Set(references).size >= 27, 'Expected all progressive-disclosure reference modules');
 for (const relative of references) {
   assert.ok(fs.existsSync(path.join(skillRoot, relative)), `Missing reference: ${relative}`);
 }
@@ -37,6 +37,10 @@ for (const requiredRule of [
   'scorecard.md',
   '.vibe-ui/TASTE.md',
   'check-colour.mjs',
+  'fix-playbook.md',
+  'onboarding-and-activation.md',
+  'dialogs-and-overlays.md',
+  'detail-pages-and-editing.md',
 ]) {
   assert.ok(content.includes(requiredRule), `Missing operating rule: ${requiredRule}`);
 }

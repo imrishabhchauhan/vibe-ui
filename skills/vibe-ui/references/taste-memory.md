@@ -36,7 +36,7 @@ When the owner reviews a design (comments, screenshots with arrows, "I like this
 3. **Find the principle behind it.** Ask why the owner reacted. "Black buttons rejected" is about harsh contrast and a consumer feel on a calm admin tool, so the rule also covers near-black fills.
 4. **Set the scope.** Which roles, surfaces, or platforms does it apply to? ("Staff screens only; student screens may be playful.")
 5. **Merge, do not pile up.** If a similar rule exists, sharpen it instead of adding a duplicate.
-6. **Record liked references precisely.** Not "likes Teach 'n Go", but "likes: tabs with count badges; segmented control for gender; today column in soft yellow".
+6. **Record liked references precisely.** Not "likes product X", but "likes: tabs with count badges; segmented control for gender; today column in soft yellow".
 7. **Log the rejection.** Keep what was rejected and why, so the same mistake is not made in a new costume.
 
 ## TASTE.md format
@@ -56,7 +56,7 @@ Last updated: YYYY-MM-DD
 
 ## Liked references (what exactly)
 
-- Teach 'n Go: page title 20px, card title 16px, value 14px; tabs with counts; zebra rows; kebab menus;
+- Reference school management app: page title 20px, card title 16px, value 14px; tabs with counts; zebra rows; kebab menus;
   quick filters plus a filter icon; refresh; print on timetables; today column in soft yellow.
 
 ## Rejected (and why)
