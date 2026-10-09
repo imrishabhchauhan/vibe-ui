@@ -2,6 +2,8 @@
 
 Use this module when asked to fix, polish, or "make professional" an existing dashboard or admin product, whatever its stack or current state. It turns the rest of the skill into an ordered set of passes. Work top to bottom: structure problems make polish useless, so never start with colours.
 
+Passes fix defects directly. For taste-level changes (accent, second colour, typeface, surface model, density, illustrations), propose options with a preview and wait for the owner's choice unless `.vibe-ui/TASTE.md` already decides it.
+
 Before pass 1: read `.vibe-ui/TASTE.md`, render the current screens at desktop and 390px, and score them with `scorecard.md`. Keep the screenshots; you will compare against them at the end.
 
 ## Pass 1: Job and structure

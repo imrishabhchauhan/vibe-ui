@@ -59,7 +59,7 @@ Scoring needs the rendered screen at desktop width and at a phone width (360 to 
 - [ ] Toolbar shows count, search, quick filters, refresh, filter icon, export, and the primary add.
 - [ ] Sort icons only on columns where sorting helps.
 - [ ] Clickable names in link colour, with a muted secondary line (ID).
-- [ ] Row actions in a bordered kebab menu; selection checkboxes with a bulk bar.
+- [ ] Row actions in a real kebab menu button; selection checkboxes with a bulk bar.
 - [ ] Zebra rows or clear row separators; sticky header on long tables.
 
 ## 7. Forms and inputs

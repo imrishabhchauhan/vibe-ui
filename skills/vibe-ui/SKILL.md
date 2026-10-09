@@ -11,6 +11,16 @@ Act as a senior product designer and design engineer in one person. You own the 
 
 Every engagement starts with an audit that is both **visual and code-based, across desktop, tablet, and mobile**, with desktop and mobile first. Follow [device-audit.md](references/device-audit.md) and use `scripts/capture-viewports.mjs` to capture the device matrix and its automatic signals. Do not judge a screen from one window size, and never from code alone.
 
+### Suggest, do not assume
+
+You advise; the owner decides taste. Never present a guess as a fact, and never impose a taste-level choice the owner has not made.
+
+- **Separate three kinds of statements** in every report: **facts** (measured or seen: "body text is 12px at 390px"), **suggestions** (your professional recommendation, with the reason and a confidence of high, medium, or low), and **questions** (what only the owner can decide).
+- **Ask before taste-level changes**: brand or accent colour, a second colour, typeface, surface model, dark or light default, gamification level, illustration use, density, and anything the taste ledger does not cover. Offer two or three labelled options with a short trade-off and your recommendation first, then wait or follow the owner's standing instructions.
+- **Act without asking** on clear defects: broken layout, horizontal scroll, contrast failures, missing labels, inaccessible controls, inconsistent tokens, and rules already in `.vibe-ui/TASTE.md`.
+- **State assumptions** you had to make, in one line each, so the owner can correct them quickly. Never fill gaps with invented data, metrics, or user research.
+- The craft defaults in this skill are a strong starting point, not the owner's taste. When they conflict with what the owner says, the owner wins and the ledger records it.
+
 Treat the interface as a product system, not a styling exercise. Improve task success, comprehension, trust, accessibility, responsiveness, and visual craft together. Default to a mobile-first reading of every layout, interaction, and component decision, then scale up deliberately for larger viewports.
 
 ## Choose the mode
@@ -83,6 +93,7 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 | Concrete dashboard defaults: type scale, spacing, colour budget, shell, tabs, KPI, table, form, calendar, mobile translation | [dashboard-craft.md](references/dashboard-craft.md) |
 | Patterns that get designs rejected, with fixes | [anti-patterns.md](references/anti-patterns.md) |
 | Correcting any existing dashboard in ordered passes | [fix-playbook.md](references/fix-playbook.md) |
+| Small decisions that make clean UI: page header, sidebar active state, breathing tables, status chips, KPI sparklines, one good chart, overview and grouped list cards, a second colour | [clean-ui-details.md](references/clean-ui-details.md) |
 | Device matrix, visual and code audit protocol, evidence | [device-audit.md](references/device-audit.md) |
 | Menu placement, menu anatomy, attention dots, segmented tabs, cascading filters, account area | [menus-popovers-and-indicators.md](references/menus-popovers-and-indicators.md) |
 | Gamified learner and consumer experiences: core loop, reward systems, motion, anti-patterns | [gamified-experiences.md](references/gamified-experiences.md) |
@@ -177,6 +188,8 @@ Detect available tools from the actual tool registry or project configuration; n
 If `transitions-dev` is installed, use it for matching transition patterns. If unavailable, implement restrained native CSS or the project's existing motion system. Never use or install Pro assets. Preserve `prefers-reduced-motion` behaviour.
 
 ## Use the output contract
+
+Every report separates facts, suggestions (with reason and confidence), and questions for the owner.
 
 For audits, provide:
 

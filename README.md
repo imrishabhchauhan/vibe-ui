@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/vibe-ui-skill.svg)](https://www.npmjs.com/package/vibe-ui-skill)
 [![license](https://img.shields.io/npm/l/vibe-ui-skill.svg)](./LICENSE)
 
-Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.9.0`.
+Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.10.0`.
 
 Vibe UI audits and improves product interfaces — including building new components from a project's existing library and visually validating shipped work — across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, dashboards, forms, onboarding, UX writing, interaction states, and motion.
 
@@ -69,6 +69,8 @@ Most UI skills tell an agent how to review. Vibe UI also tells it what good look
 - **Onboarding, dialog, and record-page recipes**: account and workspace setup with smart defaults, a first-run wizard over a visible dashboard, setup checklists, teaching empty states, dialog anatomy and backdrops, nested dialogs, inline editing with pencil icons.
 - **A device audit** (`device-audit.md`, `scripts/capture-viewports.mjs`): captures 10 viewports from 360px phones to 1920px screens and flags horizontal scroll, missing viewport tags, tiny text, small touch targets, heavy weights, and console errors.
 - **Menus, dots, and gamification** (`menus-popovers-and-indicators.md`, `gamified-experiences.md`): menus that open beside their trigger, calm attention dots, role and personalisation onboarding, and honest gamified learner experiences.
+- **Clean UI details** (`clean-ui-details.md`): the small decisions behind calm, premium screens, from the sidebar's active state to status chips, sparkline KPI tiles, one well-made chart, grouped list cards, and an optional companion colour.
+- **Suggestion-oriented by design**: reports separate facts, suggestions with confidence, and questions; taste-level choices are offered as options, never assumed.
 - **A 100-point scorecard** (`scorecard.md`) with hard fails, used before any design is shown.
 - **A taste ledger** (`taste-memory.md` and `.vibe-ui/TASTE.md`): every owner review becomes a numbered, testable rule that later sessions read first, so the agent stops repeating rejected work.
 - **A colour checker** (`scripts/check-colour.mjs`): flags near-black primaries and brand colours that drift into brown or maroon, and reports contrast.
@@ -89,6 +91,7 @@ Loaded on demand from `skills/vibe-ui/references/`:
 | `device-audit.md` | The device matrix (desktop and mobile first, then tablet and wide), visual and code passes, and evidence rules. |
 | `menus-popovers-and-indicators.md` | Menu placement and anatomy, attention dots versus counts, segmented tabs, cascading filters, the account area. |
 | `gamified-experiences.md` | Core loop, choosing reward systems, visual language, feedback and motion, and gamification anti-patterns. |
+| `clean-ui-details.md` | Page header, sidebar active state, breathing tables, status chips, KPI sparklines, charts, gauges, overview and grouped list cards, companion colour. |
 | `fix-playbook.md` | Ten ordered passes for correcting any existing dashboard, with find-and-replace tables. |
 | `onboarding-and-activation.md` | Sign-up and workspace setup, smart defaults, placeholders and selector choice, first-run wizard, setup checklist, empty states, announcements. |
 | `dialogs-and-overlays.md` | Dialog anatomy, backdrops, nested dialogs, wizard dialogs, two-list transfer, confirmations, side sheets. |
@@ -153,7 +156,18 @@ node .agents/skills/vibe-ui/scripts/check-colour.mjs "#CF4A0C" --brand "#FA4B09"
 node .agents/skills/vibe-ui/scripts/capture-viewports.mjs http://localhost:3000/dashboard --only desktop,mobile
 ```
 
+## Publishing
+
+Publishing needs an npm token with publish rights for `vibe-ui-skill`, available as the `NPM_TOKEN` environment variable. Never commit a token.
+
+```bash
+npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+npm publish   # prepublishOnly runs the tests and the skill validation first
+```
+
 ## Changelog
+
+**0.10.0**: Adds `clean-ui-details.md` and a "Suggest, do not assume" operating rule: reports separate facts, suggestions, and questions, and taste-level changes (colour, type, surfaces, density, gamification) are offered as options. Adds the all-white surface model, divider-separated rows, ghost kebab menus, and an optional companion colour.
 
 **0.9.0**: Gives the agent the role of a senior product designer and design engineer. Adds `device-audit.md` and `scripts/capture-viewports.mjs` (10-viewport capture with automatic signals), `menus-popovers-and-indicators.md` (menu placement, attention dots, segmented tabs, cascading filters), and `gamified-experiences.md`. Extends onboarding with log-in pages, role cards, and personalisation questions, and typography with clean product typefaces and content-hub titles.
 

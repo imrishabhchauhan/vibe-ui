@@ -39,6 +39,10 @@ Textual example:
 
 On dashboards and admin tools, keep about 90% of the screen neutral and the brand accent under about 5%: the primary action, the current tab or nav item, focus, and selection. Drawing icons, charts, headings, and badges in the brand colour makes a screen look "too orange" (or too purple) and removes emphasis from what matters. Use soft category tints (8 to 12%) for icon chips and calendar events instead. When the brand accent is warm (orange, red, pink), use a calm blue for links and clickable names. See `dashboard-craft.md` §4.
 
+## Offer a companion colour
+
+Clean products often pair the brand accent with one companion hue (purple with cyan, orange with blue or teal) for second chart series, sparklines, status dots, and feature icons, never for buttons. Offer it as an option with a preview; record the owner's choice in `.vibe-ui/TASTE.md`. Check that the companion keeps 3:1 against white for chart marks and does not compete with the accent.
+
 ## Keep the brand recognisable
 
 Do not darken a brand colour until it leaves its colour family. A brand orange darkened to pass white-label contrast turns brown or rust; a red turns maroon. Keep large fills close to the brand value and fix contrast with a heavier or larger label (white text at 3:1 is allowed for 18px+ or 14px+ bold), or use the darker shade only for small text. Never use black or near-black as a filled primary button on a light UI. Check with `node scripts/check-colour.mjs <colour> --brand <brand-hex>`.

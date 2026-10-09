@@ -31,7 +31,7 @@ Each item below has been seen in real rejected designs. Check every screen again
 
 | Anti-pattern | Why it fails | Do instead |
 | --- | --- | --- |
-| Bare coloured text as a row action | Not obviously clickable; poor keyboard support | Bordered kebab button or a small real button |
+| Bare coloured text as a row action | Not obviously clickable; poor keyboard support | A real kebab button (ghost or bordered, with hover and focus) or a small real button |
 | Sort icons on every column | Noise; sorting phone numbers helps no one | Sort only names, dates, amounts, counts, status |
 | No count on list tabs | The user must open each tab to know its size | Count badge on every list tab |
 | No export on an operational table | Users copy data by hand | Export button in the table toolbar |

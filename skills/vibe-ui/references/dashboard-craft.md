@@ -23,11 +23,11 @@ These are defaults, not laws. A project's `.vibe-ui/TASTE.md` (see `taste-memory
 
 ## 1. The feel to aim for
 
-- **Calm, not empty.** White cards on a very light grey canvas, thin borders, generous gaps. Many features are present, but each sits in its own clear place.
+- **Calm, not empty.** White cards on a very light grey canvas, or an all-white page held together by thin borders and dividers. Generous gaps either way. Many features are present, but each sits in its own clear place.
 - **Focused.** Each screen has one job. The user never sees ten options when the task needs two. Rare actions live behind a menu, a tab, or a filter icon.
 - **Quiet type.** Headings are small and confident. Numbers are readable, not shouted. Nothing looks like a landing page.
 - **One accent, used with intent.** Neutrals carry the screen. The accent marks the primary action, the current place, and focus. Little else.
-- **Obvious affordances.** Clickable text looks clickable (link colour). Menus look like menus (bordered kebab button). Inputs look like inputs.
+- **Obvious affordances.** Clickable text looks clickable (link colour). Menus look like menus (a real kebab button with a hover state). Inputs look like inputs.
 
 If a screen looks impressive in a screenshot but makes the user stop and think, it has failed.
 
@@ -69,7 +69,7 @@ Use a 4px base. Typical values:
 
 Surfaces:
 
-- Canvas: very light neutral (around `#F6F7F9`). Cards: white. Border: 1px light neutral (around `#E5E7EB`). Radius 10 to 14px for cards, 8 to 10px for inputs and buttons.
+- Choose one surface model per product and keep it everywhere. **Tinted canvas:** very light neutral page (around `#F6F7F9`) with white cards. **All-white:** white page, content grouped by 1px dividers and bordered white cards, with light grey only for table headers, segmented-tab tracks, and the active nav item. The all-white model reads the cleanest when spacing is generous. Cards: white. Border: 1px light neutral (around `#E5E7EB`). Radius 10 to 14px for cards, 8 to 10px for inputs and buttons.
 - Shadows are optional and faint (y 1 to 2px, blur 2 to 6px, 4 to 6% black). Never shadow plus heavy border plus gradient on one card.
 - A card holds one concept. If a card needs two titles, it is two cards.
 - Respect section gaps. A thin seam between two tinted blocks reads like a bug.
@@ -90,6 +90,16 @@ Hard limits:
 - No black or near-black filled buttons (`#000` to about `#2A2A2A`) as the primary action on a light product UI. They read harsh and compete with text. Use the accent.
 - Do not darken a brand colour until it changes family. Orange darkened for contrast turns brown or rust; check with `scripts/check-colour.mjs`. Fix contrast with a heavier or larger label, or use the darker shade only for small text, not for the large fill.
 - No dark mode as the default for an admin or staff product unless the owner asks for it. Offer it as an option, design it separately.
+
+### A second colour, used with care
+
+Many clean products pair the brand accent with one **companion hue** and a few soft supporting hues. The companion appears where a second colour helps reading, never on buttons:
+
+- second chart series and comparison lines (purple brand with cyan or sky blue; orange brand with blue or teal; green brand with indigo);
+- sparklines on KPI tiles, each tile its own soft hue so the row is easy to tell apart;
+- filled feature icons on overview cards (one hue per card), status dots in chips, avatar rings.
+
+This is a suggestion, not a rule. Offer it to the owner with a preview; some prefer a single accent. Record the decision in `.vibe-ui/TASTE.md`. See `clean-ui-details.md` for examples.
 
 ## 5. App shell: top bar, rail, workspace
 
@@ -162,9 +172,9 @@ Anatomy, desktop:
 - **Checkbox column** (40px) with a select-all in the header. Selecting rows shows a contextual bulk bar ("3 selected: Message, Export, Archive").
 - **Sort icons only where sorting helps:** names, dates, amounts, counts, status. Not on phone numbers, free-text notes, or the actions column. Sort icon is a small muted up/down pair; the active direction turns dark.
 - **Clickable names in link colour,** with avatar and a muted 12px secondary line (ID or roll number). This tells the user the name opens a record.
-- **Zebra striping:** alternate white and a barely tinted row (2 to 4% tint of the link hue, around `#F8FAFD`). Header row on light neutral grey. Row height 52 to 60px with an avatar, 44 to 48px without.
+- **Row separation:** either thin 1px dividers between rows (cleanest, works best with generous row height) or zebra striping with a barely tinted row (2 to 4% tint of the link hue, around `#F8FAFD`). Pick one per product. A soft hover tint on the row helps either way. Header row on a light neutral grey band. Row height 52 to 60px with an avatar, 44 to 48px without.
 - **Semantic values:** money owed in red, settled in green, both with the currency sign. Status as a chip or a small dot on the avatar with a tooltip.
-- **Row menu:** a 32 to 36px bordered, rounded kebab button (⋯) at the trailing edge, for all secondary row actions. Never bare coloured text links as actions.
+- **Row menu:** a 32 to 36px kebab button (⋮ or ⋯) at the trailing edge, ghost or lightly bordered, with a visible hover and focus state, for all secondary row actions. Never bare coloured text links as actions.
 - **Long tables:** pagination or "Load more" with page size, the count kept in the toolbar, and the header sticky on scroll.
 
 ## 10. Forms
