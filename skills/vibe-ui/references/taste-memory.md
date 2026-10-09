@@ -17,6 +17,8 @@ Order of authority when they disagree:
 4. This skill's defaults.
 5. Your own judgement.
 
+Keep `.vibe-ui/TASTE.md` in version control. It is shared design knowledge, and cloud sessions start from a fresh clone. If the project ignores `.vibe-ui/`, change the ignore rule to `.vibe-ui/*` plus `!.vibe-ui/TASTE.md` rather than leaving the ledger local.
+
 ## Read before you design
 
 At the start of every `audit` or `improve` engagement:
