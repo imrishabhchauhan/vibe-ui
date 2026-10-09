@@ -13,7 +13,7 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Bold or heavy text (700+) on titles, labels, and numbers | Looks shouty and cheap; the most common amateur tell | 400 body, 500 titles and labels, 600 only for KPI values |
 | Tiny meta text (under 12px) | Unreadable for many users | 12 to 13px minimum for meta |
 | Dark mode as the default look of a staff tool | Owners of calm admin products rarely want it; it changes the brand feel | Light by default; dark only on request, designed separately |
-| Illustrations, mascots, or 3D art on staff dashboards | Looks kiddish, adds no information | Line icons in tinted chips; illustrations only in empty states if allowed |
+| Illustrations, mascots, or 3D art on staff dashboards | Looks kiddish, adds no information | Line icons in tinted chips. Small, consistent illustrations are fine on role cards, personalisation tiles, and empty states, not on working dashboards |
 | Gradients, glows, and heavy shadows on cards | Noise; looks dated | White card, 1px border, optional faint shadow |
 
 ## Structure and focus
@@ -57,6 +57,9 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Dialog without a close icon, or with "OK" / "Submit" buttons | Unclear exit; unclear outcome | Close icon plus Esc; primary names the outcome ("Copy students") |
 | Separate "Edit mode" for a record page | Extra step; users do not find it | Pencil icon next to each editable fact |
 | "No data" as an empty state | Dead end | Icon, title, one line, one action |
+| A menu that opens over its own trigger or over the content being used | Hides context; feels clumsy | Anchor beside the trigger, open toward free space (`menus-popovers-and-indicators.md`) |
+| Red count badges for "something new" | Feels like an alarm | A small calm dot on the trigger and on the exact item |
+| Onboarding questions whose answers change nothing | Wasted effort; users notice | Ask only what personalises the product |
 | Header that scrolls away | Search, menu, and sign out disappear | Sticky slim top bar |
 
 ## Mobile

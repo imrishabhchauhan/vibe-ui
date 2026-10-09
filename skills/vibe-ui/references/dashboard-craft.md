@@ -37,7 +37,7 @@ Dashboards read at arm's length for hours. Use a compact scale. Measured on calm
 
 | Role | Size | Weight | Notes |
 | --- | --- | --- | --- |
-| Page title | 20 to 24px | 500 | One per page. Never 32px+ on a working screen. |
+| Page title | 20 to 24px | 500 | One per page. Never 32px+ on a working screen. Content hubs (library, learn, gallery) may use 28 to 36px. |
 | Section title | 16 to 18px | 500 | With an optional 13 to 14px muted subtitle under it. |
 | Card / panel title | 15 to 16px | 500 | |
 | Body, table cells, inputs | 14 to 15px | 400 | Inputs at least 16px on phones to stop iOS zoom. |

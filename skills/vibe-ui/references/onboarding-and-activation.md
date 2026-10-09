@@ -6,6 +6,9 @@ Use this module for sign-up, first-time workspace setup, the first visit to an e
 
 1. The activation path
 2. Account and workspace setup screens
+2a. Authentication pages
+2b. Choose your role
+2c. Personalise with one question
 3. Smart defaults
 4. Placeholders and selectors in setup forms
 5. The first-run wizard
@@ -50,6 +53,53 @@ Desktop layout: a split screen.
 - **Group fields with small muted sub-headings** inside the card ("Select your local settings") instead of extra cards.
 - Two columns for short related fields (type and size, country and time zone). One column on phones.
 - Typography stays light: regular body, medium titles, nothing bold, nothing huge.
+
+## 2a. Authentication pages
+
+- One centred column, max width 400 to 440px (or a split screen as above). Logo at the top, a short title ("Log in", "Create your account"), one muted line, the fields, one primary button, then a quiet line to switch ("Have an account? Log in").
+- Labels above fields, a visible "Show password" toggle, "Forgot password?" next to the password label or under the field, and errors under the field.
+- Social or single sign-on buttons, if offered, sit above the email form, all the same size and style, with a thin "or" divider.
+- No navigation, no marketing, no animations. Fast, calm, done.
+- A help line at the bottom for people who are stuck ("No invite code? Write to help@…"), with a real address.
+
+## 2b. Choose your role
+
+When different people need different products (learner, advisor, administrator), ask first, with role cards:
+
+```text
+                 Create your account
+     Select the user type that best describes you.
+┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+│ [picture] │ │ [picture] │ │ [picture] │ │ [picture] │
+│ Learner   │ │ In a group│ │ Advisor   │ │ Admin     │
+│ one line  │ │ one line  │ │ one line  │ │ one line  │
+└───────────┘ └───────────┘ └───────────┘ └───────────┘
+         Have an account? Log in.
+```
+
+- 2 to 4 cards in one row on desktop, stacked on phones. Each card: one picture in a consistent style, a title (16 to 18px, 500), one line in plain first-person words ("I have an invite code from my advisor").
+- The whole card is the button, with a clear hover and focus state.
+- Pictures are welcome here, because they help people recognise themselves quickly. Keep one style, soft colours, no clutter. They do not belong on the working dashboards that follow.
+
+## 2c. Personalise with one question
+
+Ask what the user wants to do, then shape their dashboard around it:
+
+```text
+What would you like to do with <product>?
+Select all that apply
+[tile] [tile] [tile] [tile] [tile]
+[tile] [tile] [tile] [tile] [tile]
+            Back      Skip
+               • • • ▬ •
+```
+
+- One question per screen, with a plain instruction under it ("Select all that apply", or "Choose one").
+- Square tiles (140 to 170px) with a small, soft illustration of the task and a short label. Selected tiles show the accent border and a check. All tiles share one illustration style and palette; generated images are fine if they are calm, small, and consistent.
+- Quiet text buttons: "Back" and "Skip". The primary "Continue" appears once something is selected.
+- Step dots at the bottom show progress; the current step is a wider pill.
+- Use every answer. Pre-arrange the dashboard, default filters, starter templates, and the setup checklist from the choices. Never ask a question whose answer changes nothing.
+- Keep it to 2 to 4 questions in total. Every extra question costs sign-ups.
 
 ## 3. Smart defaults
 

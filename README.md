@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/vibe-ui-skill.svg)](https://www.npmjs.com/package/vibe-ui-skill)
 [![license](https://img.shields.io/npm/l/vibe-ui-skill.svg)](./LICENSE)
 
-Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.8.0`.
+Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.9.0`.
 
 Vibe UI audits and improves product interfaces — including building new components from a project's existing library and visually validating shipped work — across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, dashboards, forms, onboarding, UX writing, interaction states, and motion.
 
@@ -59,12 +59,16 @@ Every `improve` engagement audits its own scope first; there is no way to skip d
 
 ## What makes it opinionated
 
+Vibe UI gives your agent the role of a senior product designer and design engineer. It audits every screen visually and in code, across desktop, tablet, and mobile (desktop and mobile first), before it changes anything.
+
 Most UI skills tell an agent how to review. Vibe UI also tells it what good looks like:
 
 - **Craft defaults with numbers** (`dashboard-craft.md`): a compact dashboard type scale (page title 20 to 24px, KPI 22 to 28px), spacing, a colour budget (about 90% neutral, accent under about 5%), and drawn recipes for the app shell, module tabs with counts, KPI tiles, data tables, forms, calendars, and their mobile versions.
 - **Anti-patterns** (`anti-patterns.md`): black buttons, brand colour on everything, brand orange darkened into brown, giant titles, kiddish illustrations on staff screens, dark mode by default, sort icons on every column, and hiding information on phones.
 - **A fix playbook** (`fix-playbook.md`): ten ordered passes that correct any existing dashboard, from structure and shell to type, colour, components, states, quality of life, and mobile, with find-and-replace tables.
 - **Onboarding, dialog, and record-page recipes**: account and workspace setup with smart defaults, a first-run wizard over a visible dashboard, setup checklists, teaching empty states, dialog anatomy and backdrops, nested dialogs, inline editing with pencil icons.
+- **A device audit** (`device-audit.md`, `scripts/capture-viewports.mjs`): captures 10 viewports from 360px phones to 1920px screens and flags horizontal scroll, missing viewport tags, tiny text, small touch targets, heavy weights, and console errors.
+- **Menus, dots, and gamification** (`menus-popovers-and-indicators.md`, `gamified-experiences.md`): menus that open beside their trigger, calm attention dots, role and personalisation onboarding, and honest gamified learner experiences.
 - **A 100-point scorecard** (`scorecard.md`) with hard fails, used before any design is shown.
 - **A taste ledger** (`taste-memory.md` and `.vibe-ui/TASTE.md`): every owner review becomes a numbered, testable rule that later sessions read first, so the agent stops repeating rejected work.
 - **A colour checker** (`scripts/check-colour.mjs`): flags near-black primaries and brand colours that drift into brown or maroon, and reports contrast.
@@ -82,6 +86,9 @@ Loaded on demand from `skills/vibe-ui/references/`:
 | Module | Covers |
 | --- | --- |
 | `dashboard-craft.md` | Concrete dashboard defaults: type scale, spacing, colour budget, app shell, module tabs with counts, KPI tiles, tables, forms, calendars, quality-of-life toolkit, and the mobile translation of each. |
+| `device-audit.md` | The device matrix (desktop and mobile first, then tablet and wide), visual and code passes, and evidence rules. |
+| `menus-popovers-and-indicators.md` | Menu placement and anatomy, attention dots versus counts, segmented tabs, cascading filters, the account area. |
+| `gamified-experiences.md` | Core loop, choosing reward systems, visual language, feedback and motion, and gamification anti-patterns. |
 | `fix-playbook.md` | Ten ordered passes for correcting any existing dashboard, with find-and-replace tables. |
 | `onboarding-and-activation.md` | Sign-up and workspace setup, smart defaults, placeholders and selector choice, first-run wizard, setup checklist, empty states, announcements. |
 | `dialogs-and-overlays.md` | Dialog anatomy, backdrops, nested dialogs, wizard dialogs, two-list transfer, confirmations, side sheets. |
@@ -143,9 +150,12 @@ The bundled static auditor can scan a project, or only its Git-changed files, fo
 node .agents/skills/vibe-ui/scripts/audit-static.mjs .
 node .agents/skills/vibe-ui/scripts/audit-static.mjs . --changed
 node .agents/skills/vibe-ui/scripts/check-colour.mjs "#CF4A0C" --brand "#FA4B09"
+node .agents/skills/vibe-ui/scripts/capture-viewports.mjs http://localhost:3000/dashboard --only desktop,mobile
 ```
 
 ## Changelog
+
+**0.9.0**: Gives the agent the role of a senior product designer and design engineer. Adds `device-audit.md` and `scripts/capture-viewports.mjs` (10-viewport capture with automatic signals), `menus-popovers-and-indicators.md` (menu placement, attention dots, segmented tabs, cascading filters), and `gamified-experiences.md`. Extends onboarding with log-in pages, role cards, and personalisation questions, and typography with clean product typefaces and content-hub titles.
 
 **0.8.0**: Adds `fix-playbook.md` (ten ordered passes to correct any dashboard), `onboarding-and-activation.md`, `dialogs-and-overlays.md`, and `detail-pages-and-editing.md`. Lightens the type rules (500 for titles, never 700+), adds the sticky top bar, "e.g." placeholders, selector choice by list length, scorecard add-ons for dialogs, onboarding, and record pages, and two static audit candidates (`heavy-weight`, `heavy-backdrop`). Removes product and real place names from the skill: it keeps patterns, never brands.
 

@@ -10,6 +10,12 @@ Use few families and weights. Load only intended web faces, preferably WOFF2. Av
 
 Working screens need a compact scale: page title 20 to 24px, section title 16 to 18px, card title 15 to 16px, body and table text 14 to 15px, meta 12 to 13px, KPI values 22 to 28px (never above 32px). Large display sizes belong on marketing pages, not admin tools. See `dashboard-craft.md` §2.
 
+## Choose a clean product typeface
+
+Minimal, professional products usually use one modern neutral sans for everything: a neo-grotesque or geometric-humanist face with open shapes, even colour, and good small sizes (for example Geist, Inter, Manrope, Plus Jakarta Sans, Figtree, or the system UI stack). Prefer the project's existing face. Set it with weights 400 and 500, a slightly tight letter-spacing on titles (-0.01em to -0.02em), and normal spacing on body text. Text should look crisp and light, never heavy.
+
+Content hubs and libraries (learn, gallery, templates) may use a larger page title (28 to 36px, weight 500) because they have little else on the first screen; dense working screens keep 20 to 24px. Body and tab text stay 14px, card titles 16px, meta 13 to 14px.
+
 ## Shape hierarchy
 
 - headings: tighter line-height, restrained negative tracking only at display sizes;

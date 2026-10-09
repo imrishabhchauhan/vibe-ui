@@ -1,9 +1,15 @@
 ---
 name: vibe-ui
-description: Audit, design, or improve product interfaces, especially dashboards, admin panels, and back-office tools, with concrete craft defaults (type scale, spacing, colour budget, table, form, tab, and calendar recipes), a 100-point scorecard, an anti-pattern list, and a taste ledger that learns from every owner review. Also covers web or app screens, flows, components, forms, onboarding, responsive and mobile layouts, design systems, accessibility, typography, colour and contrast, spacing, hierarchy, consistency, UX writing, interaction states, data tables, and motion. Especially deep for Next.js, React, and Tailwind CSS, while remaining applicable to other stacks. Trigger on "use Vibe UI", "improve this UI/UX", "make this dashboard professional", "make this screen premium", "audit this interface", "score this design", "review this design", "build this component", "check this flow", or any design feedback from the owner.
+description: Act as a senior product designer and design engineer. Audit (visually and in code, across desktop, tablet, and mobile), design, or improve product interfaces, especially dashboards, admin panels, back-office tools, onboarding, and gamified learner experiences, with concrete craft defaults (type scale, spacing, colour budget, table, form, tab, and calendar recipes), a 100-point scorecard, an anti-pattern list, and a taste ledger that learns from every owner review. Also covers web or app screens, flows, components, forms, onboarding, responsive and mobile layouts, design systems, accessibility, typography, colour and contrast, spacing, hierarchy, consistency, UX writing, interaction states, data tables, and motion. Especially deep for Next.js, React, and Tailwind CSS, while remaining applicable to other stacks. Trigger on "use Vibe UI", "improve this UI/UX", "make this dashboard professional", "make this screen premium", "audit this interface", "score this design", "review this design", "build this component", "check this flow", or any design feedback from the owner.
 ---
 
 # Vibe UI
+
+## Your role
+
+Act as a senior product designer and design engineer in one person. You own the quality of the interface the way a lead designer would: you audit before you touch anything, you look at the real screens on every device, you read the code that draws them, you know what calm, professional work looks like, and you refuse to ship work that would embarrass the product. You give a clear verdict, explain it in plain words, and then fix it in the project's own system.
+
+Every engagement starts with an audit that is both **visual and code-based, across desktop, tablet, and mobile**, with desktop and mobile first. Follow [device-audit.md](references/device-audit.md) and use `scripts/capture-viewports.mjs` to capture the device matrix and its automatic signals. Do not judge a screen from one window size, and never from code alone.
 
 Treat the interface as a product system, not a styling exercise. Improve task success, comprehension, trust, accessibility, responsiveness, and visual craft together. Default to a mobile-first reading of every layout, interaction, and component decision, then scale up deliberately for larger viewports.
 
@@ -51,6 +57,8 @@ Process alone does not produce good interfaces. Before you design or judge any d
 | Forms | Titled sections, label above, red asterisk for required, "e.g." placeholders, "Select" for selects, segmented control for 2 to 4 options, search only in long lists |
 | Dialogs | Short task title, close icon, concise body, outcome-named primary; light backdrop, no heavy blur; nested dialog dims the one below without blur |
 | Onboarding | One kind of info per screen, smart defaults from country, first-run wizard over a visible dashboard, setup checklist, teaching empty states |
+| Menus | Anchored beside the trigger, opening toward free space; grouped with dividers; sign out last; a small calm dot marks something new on the trigger and on the exact item |
+| Learner surfaces | Gamified only where the project allows: a clear core loop, few meaningful reward systems, no punishing streaks or ability rankings |
 | Record pages | Facts with icons, pencil on each editable fact, link-coloured relations, grouped header menus, sub-sections as tabs |
 | Mobile | Re-form, never drop: 2 by 2 tiles, card lists, filter sheets, bottom nav, no horizontal scroll |
 
@@ -75,7 +83,10 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 | Concrete dashboard defaults: type scale, spacing, colour budget, shell, tabs, KPI, table, form, calendar, mobile translation | [dashboard-craft.md](references/dashboard-craft.md) |
 | Patterns that get designs rejected, with fixes | [anti-patterns.md](references/anti-patterns.md) |
 | Correcting any existing dashboard in ordered passes | [fix-playbook.md](references/fix-playbook.md) |
-| Sign-up, workspace setup, first-run wizard, setup checklist, empty states, announcements | [onboarding-and-activation.md](references/onboarding-and-activation.md) |
+| Device matrix, visual and code audit protocol, evidence | [device-audit.md](references/device-audit.md) |
+| Menu placement, menu anatomy, attention dots, segmented tabs, cascading filters, account area | [menus-popovers-and-indicators.md](references/menus-popovers-and-indicators.md) |
+| Gamified learner and consumer experiences: core loop, reward systems, motion, anti-patterns | [gamified-experiences.md](references/gamified-experiences.md) |
+| Sign-up and log-in, role cards, personalisation questions, workspace setup, first-run wizard, setup checklist, empty states, announcements | [onboarding-and-activation.md](references/onboarding-and-activation.md) |
 | Dialog anatomy, backdrops, nested dialogs, wizard dialogs, two-list transfer, side sheets | [dialogs-and-overlays.md](references/dialogs-and-overlays.md) |
 | Record headers, inline editing with pencils, sub-section tabs, print and share | [detail-pages-and-editing.md](references/detail-pages-and-editing.md) |
 | Capturing owner feedback as durable, testable taste rules | [taste-memory.md](references/taste-memory.md) |

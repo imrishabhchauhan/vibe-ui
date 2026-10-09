@@ -13,12 +13,12 @@ assert.ok(!/\bTODO\b/.test(content), 'SKILL.md contains TODO markers');
 assert.ok(content.split(/\r?\n/).length < 500, 'SKILL.md must stay under 500 lines');
 
 const references = [...content.matchAll(/\]\((references\/[^)]+\.md)\)/g)].map((match) => match[1]);
-assert.ok(new Set(references).size >= 27, 'Expected all progressive-disclosure reference modules');
+assert.ok(new Set(references).size >= 30, 'Expected all progressive-disclosure reference modules');
 for (const relative of references) {
   assert.ok(fs.existsSync(path.join(skillRoot, relative)), `Missing reference: ${relative}`);
 }
 
-for (const required of ['agents/openai.yaml', 'scripts/detect-project.mjs', 'scripts/audit-static.mjs', 'scripts/check-colour.mjs']) {
+for (const required of ['agents/openai.yaml', 'scripts/detect-project.mjs', 'scripts/audit-static.mjs', 'scripts/check-colour.mjs', 'scripts/capture-viewports.mjs']) {
   assert.ok(fs.existsSync(path.join(skillRoot, required)), `Missing required resource: ${required}`);
 }
 
@@ -41,6 +41,11 @@ for (const requiredRule of [
   'onboarding-and-activation.md',
   'dialogs-and-overlays.md',
   'detail-pages-and-editing.md',
+  'device-audit.md',
+  'menus-popovers-and-indicators.md',
+  'gamified-experiences.md',
+  'capture-viewports.mjs',
+  'Your role',
 ]) {
   assert.ok(content.includes(requiredRule), `Missing operating rule: ${requiredRule}`);
 }
