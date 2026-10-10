@@ -68,6 +68,11 @@ Each item below has been seen in real rejected designs. Check every screen again
 | A three-way Light / Dark / System segmented control in a page header | Over-complicated for a simple preference | One icon button that toggles light and dark |
 | Text button groups where an icon is universally understood (viewport sizes, replay, close, copy) | Visual weight and width for no gain | Icon buttons with tooltips and accessible names |
 | One long scrolling page of many sections or components | Scrolling fatigue; hard to find things | Tabs per component or topic, one shown at a time, deep-linkable |
+| Buttons of different sizes in one row (a bigger primary next to smaller secondaries) | Looks unbalanced and unfinished | Same height, padding, radius and type; the primary differs only by colour |
+| Blue link styling on every name and card link | The page turns blue and noisy; nothing stands out | Neutral text with hover underline; quiet grey "Open …" links with an arrow |
+| Generated summary sentences under the page title ("1 urgent and 3 high-priority items need you today") | Repeats what the page shows; reads like filler | A short greeting with the day and date, or nothing |
+| A weak active state in navigation (grey on grey) | Users cannot tell where they are | A clear accent-tinted active item (tint, accent icon, edge marker) |
+| A static "AI" input in a prototype that does nothing | Promises a feature it does not show | A working conversation: message, typing state, answer, follow-ups, new chat |
 | A placeholder logo (a coloured square with letters) instead of the brand's real logo | Looks unfinished and off-brand | Use the official logo files from the repo; crop the mark for collapsed rails |
 | Status text, notices, or page buttons in the global header ("All systems normal", "Planned update", "Add school") | Noise in the one place users scan for tools; duplicates other sections | Header holds search, workspace switcher, notifications, user menu only |
 | Search that mixes every object type ("schools, invoices, tickets") | Users must think about what to type; results get noisy | Scope search to the primary entity; open the record on select |
