@@ -62,6 +62,7 @@ Each item below has been seen in real rejected designs. Check every screen again
 | A menu that opens over its own trigger or over the content being used | Hides context; feels clumsy | Anchor beside the trigger, open toward free space (`menus-popovers-and-indicators.md`) |
 | Red count badges for "something new" | Feels like an alarm | A small calm dot on the trigger and on the exact item |
 | Onboarding questions whose answers change nothing | Wasted effort; users notice | Ask only what personalises the product |
+| A placeholder logo (a coloured square with letters) instead of the brand's real logo | Looks unfinished and off-brand | Use the official logo files from the repo; crop the mark for collapsed rails |
 | Status text, notices, or page buttons in the global header ("All systems normal", "Planned update", "Add school") | Noise in the one place users scan for tools; duplicates other sections | Header holds search, workspace switcher, notifications, user menu only |
 | Search that mixes every object type ("schools, invoices, tickets") | Users must think about what to type; results get noisy | Scope search to the primary entity; open the record on select |
 | Any control that does nothing in a prototype or component gallery (a ⋮ menu, a map dot, a chart point) | Looks broken; the owner cannot judge the experience | Every control opens, filters, selects, or gives feedback; dialogs and menus close with Esc |
