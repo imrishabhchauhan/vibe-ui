@@ -21,6 +21,16 @@ These are defaults, not laws. A project's `.vibe-ui/TASTE.md` (see `taste-memory
 13. Mobile translation of every recipe
 14. Self-check before you show anything
 
+## 0. Start from the user's intents
+
+Before any layout, write down the questions the user opens this page to answer, in their words, ordered by importance. For a platform admin that is typically: how many customers (schools, accounts) are onboarded and live, how many end users and staff are actually using it, how much revenue has come in, what needs my attention now, what support is waiting, and which actions I take most often. Then:
+
+- The first screen answers the top intents directly, as numbers with context, not as links to other pages.
+- Each intent gets the visual that answers it best: a count with a status split, a trend, a ratio against capacity, a table of exceptions, a queue.
+- Quick actions are the 4 to 6 things the user does most from this page, named in their words.
+- If an element answers no intent, remove it. If an intent has no element, the page is incomplete.
+- Confirm the intent list with the owner when it is not obvious; never invent priorities silently.
+
 ## 1. The feel to aim for
 
 - **Calm, not empty.** White cards on a very light grey canvas, or an all-white page held together by thin borders and dividers. Generous gaps either way. Many features are present, but each sits in its own clear place.
@@ -30,6 +40,8 @@ These are defaults, not laws. A project's `.vibe-ui/TASTE.md` (see `taste-memory
 - **Obvious affordances.** Clickable text looks clickable (link colour). Menus look like menus (a real kebab button with a hover state). Inputs look like inputs.
 
 If a screen looks impressive in a screenshot but makes the user stop and think, it has failed.
+
+**Calm is not boring.** A page of four plain number cards and one plain table is calm but lifeless, and owners notice. Give every dashboard one strong, purposeful visual idea that answers a real intent (a footprint map, a reach funnel, a health matrix, goal rings, a revenue story, a bento of rich tiles), confident hierarchy with a clear focal point, and considered colour in small places. Interest comes from meaning and craft, never from decoration, gradients, or illustrations.
 
 ## 2. Typography scale for dashboards
 

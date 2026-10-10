@@ -123,6 +123,14 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 
 ## Apply the operating rules
 
+### Start with the user's intents
+
+Before designing any page, list the questions the target user opens it to answer, in priority order, and make the first screen answer the top ones directly. Every element must serve an intent; every intent must have an element. See `dashboard-craft.md` §0.
+
+### Present directions completely
+
+When you show design directions for a screen, show each one at desktop and phone widths, plus its design system (colour tokens, type scale, spacing and radii, core components, icons), so the owner can judge the whole system, not just a screenshot.
+
 ### Start with the audience and task
 
 Identify who is using the product, what they are trying to complete, their likely context, expertise, usage frequency, and the cost of error. Classify the product, journey stage, page archetype, dominant content, density, and device environment before choosing design patterns. Read `context-and-archetypes.md`. If evidence is missing, state a narrow assumption and avoid irreversible product decisions.

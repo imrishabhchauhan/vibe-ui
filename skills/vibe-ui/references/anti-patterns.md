@@ -20,6 +20,8 @@ Each item below has been seen in real rejected designs. Check every screen again
 
 | Anti-pattern | Why it fails | Do instead |
 | --- | --- | --- |
+| Calm but boring: plain number cards and a plain table with no focal point | Feels lifeless and generic; the owner loses trust in the product | One purposeful visual idea per dashboard, a clear focal point, richer tiles (status splits, trends, capacity) |
+| Layout chosen before the user's intents are listed | Misses what the user opens the page for | List the intents first; every element must answer one |
 | Everything on one screen | Congested; the user cannot find the next action | One job per screen; move detail to tabs or detail pages |
 | Long sidebar listing every sub-page | High cognitive load; hides what matters | 6 to 9 modules in the rail, sub-pages as tabs with counts |
 | Two cards that say the same thing | Duplication confuses and wastes space | One card per concept |
