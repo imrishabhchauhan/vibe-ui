@@ -74,6 +74,8 @@ Rules:
 
 When the owner likes a component but it does not belong on the current screen, save it as a live, themed, responsive component in a collection page (the project's own "component collection"), with why it was kept and where it could be used. Reuse from there later instead of redrawing from memory.
 
+Make the collection a real component gallery: for each component, a live Preview (with a viewport switch and a replay-motion control), Anatomy (numbered parts), Behaviour (interactions, states, keyboard, motion timings) and Usage (do and don't). Every control in it must work, light and dark themes must both be designed, and it must be responsive.
+
 ## Upstream what generalises
 
 When the same rule appears in two or more projects, or the owner states it as a general principle ("every table needs export"), propose adding it to `dashboard-craft.md`, `anti-patterns.md`, or `scorecard.md` in this skill. Keep project-specific facts (brand colours, names, fonts) out of the skill.

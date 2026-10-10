@@ -64,6 +64,7 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Onboarding questions whose answers change nothing | Wasted effort; users notice | Ask only what personalises the product |
 | Status text, notices, or page buttons in the global header ("All systems normal", "Planned update", "Add school") | Noise in the one place users scan for tools; duplicates other sections | Header holds search, workspace switcher, notifications, user menu only |
 | Search that mixes every object type ("schools, invoices, tickets") | Users must think about what to type; results get noisy | Scope search to the primary entity; open the record on select |
+| Any control that does nothing in a prototype or component gallery (a ⋮ menu, a map dot, a chart point) | Looks broken; the owner cannot judge the experience | Every control opens, filters, selects, or gives feedback; dialogs and menus close with Esc |
 | Header controls that do nothing in a prototype | Breaks trust; owner cannot judge the experience | Search panel, notifications panel, workspace and user menus all open |
 | Counts on low-value nav items | Draws attention to trivia | Counts only where they ask for action |
 | Header that scrolls away | Search, menu, and sign out disappear | Sticky slim top bar |
