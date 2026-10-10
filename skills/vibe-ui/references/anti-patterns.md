@@ -62,6 +62,12 @@ Each item below has been seen in real rejected designs. Check every screen again
 | A menu that opens over its own trigger or over the content being used | Hides context; feels clumsy | Anchor beside the trigger, open toward free space (`menus-popovers-and-indicators.md`) |
 | Red count badges for "something new" | Feels like an alarm | A small calm dot on the trigger and on the exact item |
 | Onboarding questions whose answers change nothing | Wasted effort; users notice | Ask only what personalises the product |
+| A percentage next to a count that already says it ("24 of 26 schools · 92% adoption") | Same fact twice; adds reading, not meaning | Show one form: the count, or the percentage |
+| Two visuals for the same measure on one card (an adoption strip plus a sparkline, a bar plus a ring) | Duplication dressed as richness | One visual per measure |
+| Vanity deltas and fillers on components ("+18% vs previous week", "Last 8 weeks", "Latest 2,000", "2 schools not using it") | Noise; most viewers do not act on them | Keep only what the viewer acts on; move detail into a drawer or details view |
+| A three-way Light / Dark / System segmented control in a page header | Over-complicated for a simple preference | One icon button that toggles light and dark |
+| Text button groups where an icon is universally understood (viewport sizes, replay, close, copy) | Visual weight and width for no gain | Icon buttons with tooltips and accessible names |
+| One long scrolling page of many sections or components | Scrolling fatigue; hard to find things | Tabs per component or topic, one shown at a time, deep-linkable |
 | A placeholder logo (a coloured square with letters) instead of the brand's real logo | Looks unfinished and off-brand | Use the official logo files from the repo; crop the mark for collapsed rails |
 | Status text, notices, or page buttons in the global header ("All systems normal", "Planned update", "Add school") | Noise in the one place users scan for tools; duplicates other sections | Header holds search, workspace switcher, notifications, user menu only |
 | Search that mixes every object type ("schools, invoices, tickets") | Users must think about what to type; results get noisy | Scope search to the primary entity; open the record on select |

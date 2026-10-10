@@ -74,7 +74,7 @@ Rules:
 
 When the owner likes a component but it does not belong on the current screen, save it as a live, themed, responsive component in a collection page (the project's own "component collection"), with why it was kept and where it could be used. Reuse from there later instead of redrawing from memory.
 
-Make the collection a real component gallery: for each component, a live Preview (with a viewport switch and a replay-motion control), Anatomy (numbered parts), Behaviour (interactions, states, keyboard, motion timings) and Usage (do and don't). Every control in it must work, light and dark themes must both be designed, and it must be responsive.
+Make the collection a real component gallery: for each component, a live Preview (with a viewport switch and a replay-motion control), Anatomy (numbered parts), Behaviour (interactions, states, keyboard, motion timings) and Usage (do and don't). Every control in it must work, light and dark themes must both be designed, and it must be responsive. Keep each component lean and generic (props-driven), one visual per measure, no repeated facts, and show one component per tab instead of one long page.
 
 ## Upstream what generalises
 
