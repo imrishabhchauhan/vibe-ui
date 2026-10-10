@@ -70,6 +70,10 @@ Rules:
 - Every rule has a **Why**, a **Source**, and, when possible, a **Check** that a person or script can verify.
 - Keep the file short enough to read in one minute. Merge old rules; move retired ones to a "Retired" section with the reason.
 
+## Keep a component collection
+
+When the owner likes a component but it does not belong on the current screen, save it as a live, themed, responsive component in a collection page (the project's own "component collection"), with why it was kept and where it could be used. Reuse from there later instead of redrawing from memory.
+
 ## Upstream what generalises
 
 When the same rule appears in two or more projects, or the owner states it as a general principle ("every table needs export"), propose adding it to `dashboard-craft.md`, `anti-patterns.md`, or `scorecard.md` in this skill. Keep project-specific facts (brand colours, names, fonts) out of the skill.

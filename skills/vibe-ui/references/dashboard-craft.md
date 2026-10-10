@@ -113,20 +113,33 @@ Many clean products pair the brand accent with one **companion hue** and a few s
 
 This is a suggestion, not a rule. Offer it to the owner with a preview; some prefer a single accent. Record the decision in `.vibe-ui/TASTE.md`. See `clean-ui-details.md` for examples.
 
-## 5. App shell: top bar, rail, workspace
+## 5. App shell: header, sidebar, workspace
 
-Desktop shell, top to bottom:
+The shell is global. It holds only tools the user needs on every page; page-specific content and actions belong to the page.
 
 ```text
-[logo] [ global search ...........]      [plan/trial status] [+ Add new] [workspace switcher ▾] [avatar ▾]
+[⇤] [ Search schools…            Ctrl K ]                 [Workspace: Admin ▾] [🔔•] [RC ▾]
 [rail]  page content
 ```
 
-- **Sticky top bar (56 to 64px):** it stays in place while the page scrolls, so search, quick-create, the workspace switcher, the menu, and sign out are always one click away. Keep it slim so it does not eat the viewport. It holds logo, global search (280 to 420px wide, placeholder "Search"), a quiet status text if relevant ("Trial ends in 14 days"), one primary quick-create button ("Add new" opening a menu of create actions), a workspace or school switcher showing the current workspace name, and the user avatar.
-- **Workspace switcher** sits in the top bar in a normal, quiet style (bordered button with an icon, name, and up/down chevron). It must be visible but must not pull the eye.
-- **Navigation rail:** collapsed by default to 64 to 72px with line icons only, each with a tooltip. It expands to 240 to 260px with labels on hover or on a pin toggle at the bottom. The active item gets a soft tinted square behind the icon.
-- **Keep the rail short.** 6 to 9 top-level modules. Sub-pages go into module tabs (section 6), not into the rail.
-- A floating help or chat button is fine in the bottom-right corner; keep it clear of table actions and pagination.
+**Header (sticky, 56 to 64px)**
+
+- **Sidebar toggle first**, at the start of the header, outside the sidebar, so it never moves when the sidebar changes width.
+- **Search scoped to the primary entity** the user looks for most (for a platform admin: schools). Placeholder names it ("Search schools"). Selecting a result opens that record. Do not mix in invoices, tickets, or settings unless the user really searches for them.
+- **Ctrl K (or click) opens a search panel**: a centred dialog with the input focused, recent items, live results grouped by type, keyboard navigation (arrows, Enter, Esc), and an empty state.
+- **Workspace or role switcher** on the right (for example Admin, Teacher, Counsellor, Institution), showing the current one; opens a small menu. Use it for switching context, not for filtering data.
+- **Notifications** bell with a calm dot; opens a panel with recent items, unread state, and "Mark all as read".
+- **User menu** (avatar and name): profile, settings, help, sign out last.
+- **Never in the header:** status text ("All systems normal"), planned-update notices, dates, page titles, or page action buttons. Status belongs in Support or a status page; actions belong on the page.
+- Every control in the header must work in a prototype. A control that does nothing on click breaks trust faster than a missing one.
+
+**Sidebar**
+
+- **Brand mark only** at the top (the official logo or its short mark). No product subtitle.
+- **Collapsed by default** to a 64 to 72px icon rail, every icon with a tooltip. On pointer hover (after about 150ms of hover intent) it **expands over the content** to 240 to 260px with labels, without pushing the page, in 180 to 220ms ease-out, and collapses when the pointer leaves. The header toggle pins it open. On touch devices, tap the toggle to open; never rely on hover.
+- Nav items are at least 44px tall with the whole row clickable; the active item keeps its marker in both states.
+- **Counts only where they drive action** (Support 7, Needs attention 3). No counts for reference data (number of counsellors, number of plans).
+- 6 to 9 top-level modules, grouped by job; Help and Settings at the bottom.
 
 ## 6. Module tabs with counts
 

@@ -62,6 +62,10 @@ Each item below has been seen in real rejected designs. Check every screen again
 | A menu that opens over its own trigger or over the content being used | Hides context; feels clumsy | Anchor beside the trigger, open toward free space (`menus-popovers-and-indicators.md`) |
 | Red count badges for "something new" | Feels like an alarm | A small calm dot on the trigger and on the exact item |
 | Onboarding questions whose answers change nothing | Wasted effort; users notice | Ask only what personalises the product |
+| Status text, notices, or page buttons in the global header ("All systems normal", "Planned update", "Add school") | Noise in the one place users scan for tools; duplicates other sections | Header holds search, workspace switcher, notifications, user menu only |
+| Search that mixes every object type ("schools, invoices, tickets") | Users must think about what to type; results get noisy | Scope search to the primary entity; open the record on select |
+| Header controls that do nothing in a prototype | Breaks trust; owner cannot judge the experience | Search panel, notifications panel, workspace and user menus all open |
+| Counts on low-value nav items | Draws attention to trivia | Counts only where they ask for action |
 | Header that scrolls away | Search, menu, and sign out disappear | Sticky slim top bar |
 
 ## Mobile
