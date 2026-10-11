@@ -21,7 +21,7 @@ These are defaults, not laws. A project's `.vibe-ui/TASTE.md` (see `taste-memory
 13. Mobile translation of every recipe
 14. Self-check before you show anything
 15. Craft signals: why some products look expensive
-16. Custom components worth designing
+16. Custom components worth designing (16a. Tables or cards?)
 17. AI assistant panel
 
 ## 0. Start from the user's intents
@@ -151,7 +151,7 @@ The shell is global. It holds only tools the user needs on every page; page-spec
 **Sidebar**
 
 - **Brand mark only** at the top (the official logo or its short mark). No product subtitle.
-- **Collapsed by default** to a 64 to 72px icon rail, every icon with a tooltip. On pointer hover (after about 150ms of hover intent) it **expands over the content** to 240 to 260px with labels, without pushing the page, in 180 to 220ms ease-out, and collapses when the pointer leaves. The header toggle pins it open. On touch devices, tap the toggle to open; never rely on hover.
+- **Collapsed by default** to a 64 to 72px icon rail, every icon with a tooltip. On pointer hover (after only about 50ms of intent) it **expands over the content** to 240 to 260px with labels, without pushing the page, in about 160ms ease-out, with labels readable by about 200ms. It **closes at once** when the pointer leaves (about 120ms ease-in). Owners notice anything slower as lag. Open it for keyboard focus with `:has(:focus-visible)`, never `:focus-within`: after a mouse click, focus stays on the clicked item and a `:focus-within` rail never closes until the user clicks elsewhere. Rail and panel stay white with a 1px border; a grey panel looks dull. The header toggle pins it open. On touch devices, tap the toggle to open; never rely on hover.
 - Nav items are at least 44px tall with the whole row clickable; the active item keeps its marker in both states.
 - **Counts only where they drive action** (Support 7, Needs attention 3). No counts for reference data (number of counsellors, number of plans).
 - 6 to 9 top-level modules, grouped by job; Help and Settings at the bottom.
@@ -272,14 +272,14 @@ Add these when the real-world job needs them. Each one saves the user a step or 
 
 | Feature | When it is needed |
 | --- | --- |
-| Count badges on tabs and list titles | Any list the user cares about the size of |
+| Count badges on tabs | Any tabbed list the user cares about the size of. Do not repeat a count that a footer already shows ("Showing 7 of 7") |
 | Refresh button | Data that other people change while the screen is open |
 | Print | Things that end up on paper: timetables, attendance sheets, report cards, ID cards, invoices |
 | Export (CSV or Excel) | Every operational table |
-| Column chooser | Tables with more than 6 columns |
+| Column chooser | Tables with more than 6 columns only; never on short summary tables |
 | Quick filters plus an advanced filter drawer | Every table with more than about 20 rows |
 | "Today" and range navigation | Every date-based view |
-| Last updated time | Numbers that are not live |
+| Last updated time | Only where staleness changes a decision; a list page usually does not need it |
 | Filters kept in the URL | Every list, so back and reload keep the view |
 | Undo toast after a reversible action | Archive, remove from list, status change |
 | Keyboard search shortcut (Ctrl K) | Products used daily by staff |
@@ -347,6 +347,12 @@ Generic component libraries make every product look the same. A few bespoke comp
 
 Rules: one illustration style per product; illustrations in dialogs, empty states, success and onboarding, never as decoration on working tables; keep each component lean; the project taste ledger wins over these defaults.
 
+## 16a. Tables or cards?
+
+- **Records** (tickets, renewals, invoices, schools, people) are a growing list with several attributes: use a table or divided list rows. Boxed cards for records waste space, break scanning and do not scale.
+- **Summaries** (a few number tiles, module cards, plan options) are a small fixed set: cards are right.
+- When unsure, ask: "Could this list have 50 rows next year?" If yes, it is a table.
+
 ## 17. AI assistant panel
 
 An "Ask" feature that only expands a box inside a card looks like a mock. A believable assistant has:
@@ -356,4 +362,6 @@ An "Ask" feature that only expands a box inside a card looks like a mock. A beli
 - **Turn anatomy:** user message as a soft right bubble; assistant avatar; a short working step with a spinner ("Reading 4 renewals…") that collapses to a done line; the answer streaming in; key numbers in bold; a data card with clickable rows; source chips with "updated" time; copy and thumbs up or down; two or three follow-up chips.
 - **Composer:** pinned at the bottom, auto-growing, send disabled when empty, Enter sends, Shift+Enter adds a line, Esc closes, a one-line note on what data it uses.
 - **Honesty:** a polite fallback for questions it cannot answer, offering what it can.
+- **Agentic, not chatty:** show the steps it takes (one line each, spinner to check, collapsing into "Worked through 3 steps"), answer with real data in a compact table, and propose at most one action in a confirm block ("Send reminder to X?" with the action and "Not now"). After confirmation, show the step and the result. A Stop button replaces Send while streaming.
+- **Minimal:** the reply is plain text on the page, not a bubble; message actions appear on hover; no suggestion or follow-up chips unless the owner asks; no gradient app-icon squares or sparkle clichés for the assistant mark; a neutral focus ring on the input.
 - **Motion:** streaming and the working step respect reduced motion (show instantly).

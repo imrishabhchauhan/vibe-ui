@@ -76,6 +76,12 @@ Each item below has been seen in real rejected designs. Check every screen again
 | A weak active state in navigation (grey on grey) | Users cannot tell where they are | A clear accent-tinted active item (tint, accent icon, edge marker) |
 | A static "AI" input in a prototype that does nothing | Promises a feature it does not show | A working conversation: message, typing state, answer, follow-ups, new chat |
 | An AI chat that grows inside a dashboard card | Looks like a mock; pushes the page around | A docked assistant panel or full-screen sheet (`dashboard-craft.md` §17) |
+| Slow or sticky hover rail (150ms+ intent, 200ms+ animation, labels fading late; staying open after a click) | Feels laggy and broken | About 50ms intent, about 160ms open, close at once on leave; open for keyboard with `:has(:focus-visible)`, not `:focus-within` |
+| Records shown as boxed cards (tickets, renewals, invoices) | Hard to scan, does not scale past a few rows | Table or divided list rows; cards only for a few summary items |
+| Meta filler around a section: summary sentence, total line, "Updated 9:40 am", SLA line per row, median-stat footer | Reads as noise; nobody acts on it | Keep only what the user acts on; put detail in the record or a report |
+| Two signals for one fact (coloured city dot plus a priority chip) | Colour without meaning; looks busy | One signal per fact |
+| A brand-coloured or gradient focus border on an input | Looks like an error or an ad | A quiet neutral focus ring that still meets contrast |
+| Suggestion chips, "Try" prompts and "/" key hints around an AI input | Clutter; feels like a demo | A clean input; let the user ask |
 | A screen that looks "all brand colour" | Monotone and loud | Keep the brand as primary and add a secondary and a tertiary colour, each with one job (`dashboard-craft.md` §4) |
 | A placeholder logo (a coloured square with letters) instead of the brand's real logo | Looks unfinished and off-brand | Use the official logo files from the repo; crop the mark for collapsed rails |
 | Status text, notices, or page buttons in the global header ("All systems normal", "Planned update", "Add school") | Noise in the one place users scan for tools; duplicates other sections | Header holds search, workspace switcher, notifications, user menu only |
