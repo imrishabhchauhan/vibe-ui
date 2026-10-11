@@ -122,7 +122,7 @@ When an owner says "the screen looks too much like our brand colour", do not dro
 
 | Role | Job | Typical places |
 | --- | --- | --- |
-| Primary (brand) | Act here | Primary button, active nav, focus, send |
+| Primary (brand) | Act here, you are here, selected | Primary button, active nav icon and label, selected tabs, checked boxes, toggles, selected options, new-item dots, assistant launcher |
 | Secondary | Read and progress | Progress strips, selected tabs, info chips, date-chip bands, data cards |
 | Tertiary | Done and celebrate | Live and success status, done checks, streaks, success dialogs |
 
@@ -347,6 +347,11 @@ Generic component libraries make every product look the same. A few bespoke comp
 
 Rules: one illustration style per product; illustrations in dialogs, empty states, success and onboarding, never as decoration on working tables; keep each component lean; the project taste ledger wins over these defaults.
 
+## 15a. Breathing room and scrollbars
+
+- The working area right of the rail needs generous side padding on both sides: about 48 to 64px at 1440 (`clamp(24px, 4vw, 64px)`), 16px on phones. Content hugging the rail or the scrollbar makes a calm page feel crowded.
+- Style scrollbars: thin, rounded, warm or cool grey thumb that darkens on hover, transparent track (`scrollbar-width: thin; scrollbar-color` plus `::-webkit-scrollbar` rules). Default chunky scrollbars inside panels, tables and menus look unfinished.
+
 ## 16a. Tables or cards?
 
 - **Records** (tickets, renewals, invoices, schools, people) are a growing list with several attributes: use a table or divided list rows. Boxed cards for records waste space, break scanning and do not scale.
@@ -357,7 +362,8 @@ Rules: one illustration style per product; illustrations in dialogs, empty state
 
 An "Ask" feature that only expands a box inside a card looks like a mock. A believable assistant has:
 
-- **Placement:** a docked side panel on desktop (about 400 to 460px, full height under the header) or a full-screen sheet on phones. The page stays visible.
+- **Placement:** two good options. (a) A **chatbot launcher**: a round 56px brand-coloured button fixed bottom right, opening a chat window of about 400×640 anchored above it, the dashboard staying usable; this costs no page space and owners often prefer it. (b) A docked side panel (about 400 to 460px, full height under the header). On phones, a full-screen sheet either way. Avoid a full-width ask bar that takes a whole section of the dashboard.
+- **Identity:** give the assistant a real logo (a crafted mark, not a gradient square with a sparkle). Use it on the launcher, the chat header, the reply avatar and the empty state.
 - **Header:** product name, new chat, history, close.
 - **Turn anatomy:** user message as a soft right bubble; assistant avatar; a short working step with a spinner ("Reading 4 renewals…") that collapses to a done line; the answer streaming in; key numbers in bold; a data card with clickable rows; source chips with "updated" time; copy and thumbs up or down; two or three follow-up chips.
 - **Composer:** pinned at the bottom, auto-growing, send disabled when empty, Enter sends, Shift+Enter adds a line, Esc closes, a one-line note on what data it uses.
