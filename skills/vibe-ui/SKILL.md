@@ -23,6 +23,20 @@ You advise; the owner decides taste. Never present a guess as a fact, and never 
 
 Treat the interface as a product system, not a styling exercise. Improve task success, comprehension, trust, accessibility, responsiveness, and visual craft together. Default to a mobile-first reading of every layout, interaction, and component decision, then scale up deliberately for larger viewports.
 
+### Simple first: complexity kills a product
+
+The most common way to fail an owner is to add too much. Before you show any screen, remove until it hurts, then put back only what a real user acts on.
+
+- **One job per section, one signal per fact, one visual language per page.** No second chart form, no duplicate count, no summary sentence that repeats the screen.
+- **Delete filler:** totals nobody asked for, "Updated at" lines, SLA or median footers, suggestion chips, key hints, decorative gradients, extra colours.
+- **Fewer, stronger colours:** neutrals carry the page; the brand marks action, current place and selection; one data colour; one success colour.
+- **Tables for records, cards for summaries,** and generous breathing room around both.
+- **Ask "would the owner miss this if it vanished?"** If no, it goes.
+
+## Follow the project's design system first
+
+If the project has a written design system (for example `packages/design/DESIGN-SYSTEM.md`, `DESIGN.md`, a tokens file, or a component registry), it is the source of truth for every value. Read it before designing, use its tokens and components exactly, and never invent a colour, size or component it already defines. If a screen needs something the system lacks, propose an addition to the system first, then use it. Report any value you could not find there instead of guessing.
+
 ## Choose the mode
 
 Resolve one mode from the request:
