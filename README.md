@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/vibe-ui-skill.svg)](https://www.npmjs.com/package/vibe-ui-skill)
 [![license](https://img.shields.io/npm/l/vibe-ui-skill.svg)](./LICENSE)
 
-Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.12.3`.
+Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.13.0`.
 
 Vibe UI audits and improves product interfaces — including building new components from a project's existing library and visually validating shipped work — across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, dashboards, forms, onboarding, UX writing, interaction states, and motion.
 
@@ -166,6 +166,8 @@ npm publish   # prepublishOnly runs the tests and the skill validation first
 ```
 
 ## Changelog
+
+**0.13.0**: Craft signals, a custom-component catalogue, an AI assistant panel recipe, a primary/secondary/tertiary colour-role method, and anti-patterns for chart samplers, row button columns and in-card AI chats.
 
 **0.12.3**: Anti-patterns for unequal buttons, blue-everywhere links, filler summary lines, weak active navigation, and static AI inputs in prototypes.
 

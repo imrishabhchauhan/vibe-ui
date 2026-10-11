@@ -20,6 +20,9 @@ These are defaults, not laws. A project's `.vibe-ui/TASTE.md` (see `taste-memory
 12. Quality-of-life toolkit
 13. Mobile translation of every recipe
 14. Self-check before you show anything
+15. Craft signals: why some products look expensive
+16. Custom components worth designing
+17. AI assistant panel
 
 ## 0. Start from the user's intents
 
@@ -113,6 +116,18 @@ Many clean products pair the brand accent with one **companion hue** and a few s
 
 This is a suggestion, not a rule. Offer it to the owner with a preview; some prefer a single accent. Record the decision in `.vibe-ui/TASTE.md`. See `clean-ui-details.md` for examples.
 
+### Primary, secondary, tertiary: give each colour a job
+
+When an owner says "the screen looks too much like our brand colour", do not drop the brand. Propose a small trio where each colour has one named job:
+
+| Role | Job | Typical places |
+| --- | --- | --- |
+| Primary (brand) | Act here | Primary button, active nav, focus, send |
+| Secondary | Read and progress | Progress strips, selected tabs, info chips, date-chip bands, data cards |
+| Tertiary | Done and celebrate | Live and success status, done checks, streaks, success dialogs |
+
+Red, amber and green-for-paid stay semantic and sit outside the trio. Show two to four candidate trios side by side, each applied to the same screen, with contrast numbers for text on white. Let the owner pick; record it in `.vibe-ui/TASTE.md`.
+
 ## 5. App shell: header, sidebar, workspace
 
 The shell is global. It holds only tools the user needs on every page; page-specific content and actions belong to the page.
@@ -177,6 +192,7 @@ People
 - Add the comparison and period only when they matter ("up 8% vs last month"). A bare count with a clear label is fine for operational counts.
 - Zero is a real value. Show `0`, not a dash, and not an empty tile.
 - Tiles should be clickable into the filtered list they summarise.
+- Use **one visual language** for every tile on a page (for example the same segmented progress strip on all four). A row where each tile has a different chart form (sparkline, bars, donut, ring) reads as a chart sampler, not a dashboard. More than two chart forms on one overview is a warning sign.
 
 ## 9. Data tables
 
@@ -298,3 +314,46 @@ Run `scorecard.md`. If any answer below is "no", fix it first:
 - Is the accent under about 5% of the screen?
 - Does every clickable thing look clickable?
 - Does the phone version keep every number, status, and primary action?
+
+## 15. Craft signals: why some products look expensive
+
+Owners often say a reference "looks really professional" without naming why. These are the usual reasons. Look for them in any reference and reproduce the signal, not the brand.
+
+| Signal | What it is | Cheap version |
+| --- | --- | --- |
+| Tactile buttons | Primary with a very subtle vertical gradient, a 1px lighter inner top edge and a 1px darker bottom edge; secondary white with a 1px bottom shadow so it looks pressable | Flat fill, or heavy glossy gradient |
+| One type family, few weights | 400 body, 500 titles and labels, 600 only for key numbers; titles 15 to 16px in cards | Many weights, bold everywhere |
+| Quiet surfaces | White cards, 1px borders, near-white page, almost no shadow | Coloured panels, big shadows |
+| Chips with meaning | Chips carry a tiny icon that encodes level or category (signal bars for level, a bug icon for "Bug"), outlined or softly tinted | Plain coloured pills with only text |
+| Consistent icon set | One stroke weight and corner style everywhere, icons in tinted squares or circles | Mixed icon packs |
+| Bespoke illustration in few places | Dialogs, empty states, success and onboarding use one illustration style (for example objects in a gradient circle, or isometric line drawings on a faint grid) | Stock art, mascots on working screens |
+| Small "designed" details | Calendar date chips, step dots, struck-through done items, progress rings with a fraction, verified ticks | Generic text everywhere |
+| Rhythm | One spacing scale, aligned left edges, equal card heights, equal button heights | Near-misses of 2 to 4px everywhere |
+
+## 16. Custom components worth designing
+
+Generic component libraries make every product look the same. A few bespoke components, used consistently, give a product its own face. Offer them to the owner as a set to approve, each with "where it would be used".
+
+| Component | Anatomy | Good for |
+| --- | --- | --- |
+| Illustrated dialog | Illustration in a gradient circle or on a faint grid, icon chip (warning or success), title, two-line body, Cancel plus an outcome-named primary | Irreversible actions, success moments, exam or session rules |
+| Level chip | Small outlined chip with a 1 to 3 bar signal icon and a word | Plans, difficulty, seniority, priority tiers |
+| Date chip | Small calendar tile: coloured month band, large day number | Renewals, exams, deadlines, events |
+| Streak row | Seven day circles with checks, today marked, a reward marker on a goal day | Learner or teacher weekly activity |
+| Setup checklist | Progress ring with "2/5", rows with done items struck through and a current item highlighted | First-run setup, onboarding |
+| Milestone badge | Crafted hexagon or rosette, locked state in grey with a lock | Achievements, certificates, milestones |
+| Ticket or post card | Avatar, name, time ago, one-line title, category chip with icon, count of replies or votes | Support inboxes, Q&A, feedback |
+| Score gauge | Half or three-quarter ring with a big percentage and one line of meaning | Quiz and report results |
+
+Rules: one illustration style per product; illustrations in dialogs, empty states, success and onboarding, never as decoration on working tables; keep each component lean; the project taste ledger wins over these defaults.
+
+## 17. AI assistant panel
+
+An "Ask" feature that only expands a box inside a card looks like a mock. A believable assistant has:
+
+- **Placement:** a docked side panel on desktop (about 400 to 460px, full height under the header) or a full-screen sheet on phones. The page stays visible.
+- **Header:** product name, new chat, history, close.
+- **Turn anatomy:** user message as a soft right bubble; assistant avatar; a short working step with a spinner ("Reading 4 renewals…") that collapses to a done line; the answer streaming in; key numbers in bold; a data card with clickable rows; source chips with "updated" time; copy and thumbs up or down; two or three follow-up chips.
+- **Composer:** pinned at the bottom, auto-growing, send disabled when empty, Enter sends, Shift+Enter adds a line, Esc closes, a one-line note on what data it uses.
+- **Honesty:** a polite fallback for questions it cannot answer, offering what it can.
+- **Motion:** streaming and the working step respect reduced motion (show instantly).

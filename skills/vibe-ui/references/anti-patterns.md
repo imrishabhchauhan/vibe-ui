@@ -28,6 +28,8 @@ Each item below has been seen in real rejected designs. Check every screen again
 | A card with two titles or two jobs | Hard to scan | Split it |
 | Thin seams between tinted blocks | Looks like a rendering bug | 24px+ gaps between sections |
 | A chart because the data exists | Decoration, not answer | Every chart answers a named question or is removed |
+| A chart sampler: sparkline, bars, donut, ring and trend line on one overview | Too many visual languages; the owner reads it as clutter | One visual language for the number row; at most two chart forms per page |
+| A named action button on every row of a triage table, each with a different verb | A column of buttons is noisy and hard to scan | Keep the row kebab with the named action first; open the record on row click |
 
 ## Controls
 
@@ -73,6 +75,8 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Generated summary sentences under the page title ("1 urgent and 3 high-priority items need you today") | Repeats what the page shows; reads like filler | A short greeting with the day and date, or nothing |
 | A weak active state in navigation (grey on grey) | Users cannot tell where they are | A clear accent-tinted active item (tint, accent icon, edge marker) |
 | A static "AI" input in a prototype that does nothing | Promises a feature it does not show | A working conversation: message, typing state, answer, follow-ups, new chat |
+| An AI chat that grows inside a dashboard card | Looks like a mock; pushes the page around | A docked assistant panel or full-screen sheet (`dashboard-craft.md` §17) |
+| A screen that looks "all brand colour" | Monotone and loud | Keep the brand as primary and add a secondary and a tertiary colour, each with one job (`dashboard-craft.md` §4) |
 | A placeholder logo (a coloured square with letters) instead of the brand's real logo | Looks unfinished and off-brand | Use the official logo files from the repo; crop the mark for collapsed rails |
 | Status text, notices, or page buttons in the global header ("All systems normal", "Planned update", "Add school") | Noise in the one place users scan for tools; duplicates other sections | Header holds search, workspace switcher, notifications, user menu only |
 | Search that mixes every object type ("schools, invoices, tickets") | Users must think about what to type; results get noisy | Scope search to the primary entity; open the record on select |
