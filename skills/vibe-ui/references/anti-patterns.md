@@ -14,6 +14,7 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Tiny meta text (under 12px) | Unreadable for many users | 12 to 13px minimum for meta |
 | Dark mode as the default look of a staff tool | Owners of calm admin products rarely want it; it changes the brand feel | Light by default; dark only on request, designed separately |
 | Illustrations, mascots, or 3D art on staff dashboards | Looks kiddish, adds no information | Line icons in tinted chips. Small, consistent illustrations are fine on role cards, personalisation tiles, and empty states, not on working dashboards |
+| AI-generated characters or robot scenes on dashboards, tools and status pages | "Feels very cheap and AI-generated"; undermines a professional product | Simple drawn shapes in brand colours (cards, rings, ticks) that follow the theme, or no picture at all |
 | Gradients, glows, and heavy shadows on cards | Noise; looks dated | White card, 1px border, optional faint shadow |
 
 ## Structure and focus
@@ -87,6 +88,10 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Suggestion chips, "Try" prompts and "/" key hints around an AI input | Clutter; feels like a demo | A clean input; let the user ask |
 | A screen that looks "all brand colour" | Monotone and loud | Keep the brand as primary and add a secondary and a tertiary colour, each with one job (`dashboard-craft.md` §4) |
 | A placeholder logo (a coloured square with letters) instead of the brand's real logo | Looks unfinished and off-brand | Use the official logo files from the repo; crop the mark for collapsed rails |
+| A decorative icon that means nothing (a flag beside a product name) | Reads as filler; owners call it "pathetic" | Real logo beside the name; icons only where they name their neighbour |
+| A long, event-specific product name in the header ("Shemrock Demo Hub") | Looks temporary and unprofessional | A short product name ("Sprint Hub"); put the event in the subtitle |
+| A summary tile that repeats the banner, header or timeline | Same fact twice; more to scan | Show each fact once; the overview summarises, detail lives in its own tab |
+| Numbers and statuses as plain text lists where a picture would read faster | Users must read and compare in their head | Donut or stacked bar for splits, a board for stages, a stepper for milestones |
 | Status text, notices, or page buttons in the global header ("All systems normal", "Planned update", "Add school") | Noise in the one place users scan for tools; duplicates other sections | Header holds search, workspace switcher, notifications, user menu only |
 | Search that mixes every object type ("schools, invoices, tickets") | Users must think about what to type; results get noisy | Scope search to the primary entity; open the record on select |
 | Any control that does nothing in a prototype or component gallery (a ⋮ menu, a map dot, a chart point) | Looks broken; the owner cannot judge the experience | Every control opens, filters, selects, or gives feedback; dialogs and menus close with Esc |

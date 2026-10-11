@@ -32,6 +32,10 @@ The most common way to fail an owner is to add too much. Before you show any scr
 - **Fewer, stronger colours:** neutrals carry the page; the brand marks action, current place and selection; one data colour; one success colour.
 - **Tables for records, cards for summaries,** and generous breathing room around both.
 - **Ask "would the owner miss this if it vanished?"** If no, it goes.
+- **Group by area.** Things that belong to the same team, role or topic sit together under one label; never scatter them across the page.
+- **Split a busy page into a few job tabs** (about 4 to 5, each a real job such as Overview, Records, Activity). No filler tabs; the first tab answers "what needs me now".
+- **Show, do not tell.** Numbers and status become visuals the eye reads at once: a donut or stacked bar for a split, a board for work moving through stages, a stepper for milestones, a dot grid for who is doing what. Text explains only what a visual cannot.
+- **Every icon must mean its neighbour.** No decorative icon beside a title; use the brand's real logo and a short, professional product name.
 
 ## Follow the project's design system first
 

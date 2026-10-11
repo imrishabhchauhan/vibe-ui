@@ -15,6 +15,18 @@ Prefer:
 
 Never use `transition: all`. Avoid layout-triggering animation when a transform can communicate the same change. Use `will-change` only for observed first-frame problems and remove it when no longer needed.
 
+## Motion recipes that read as craft
+
+Owners notice these and call the product "professional". Each has a job, stays under about 400ms, and is off under reduced motion:
+
+- **View enter:** the new view's sections fade up 8 to 10px with a 40 to 60ms stagger. Run it on navigation only, never on a live-data refresh.
+- **Count-up:** a number animates from its old value to its new one (about 600ms, ease-out) only when the value changes.
+- **Chart draw-in:** donut arcs and bars grow from zero the first time a view opens; later data changes transition from the old shape, not from zero.
+- **Sliding tab indicator:** one underline that moves and resizes to the active tab, instead of each tab drawing its own.
+- **Press and lift:** buttons scale to about 0.97 on press; clickable cards lift 1 to 2px on hover.
+- **Arrival flash:** a new row or card gets a brief tint that fades out, so live updates are noticed without a toast for each.
+- **Pending pulse:** something waiting on the user (an unanswered question, a count badge) pulses a soft ring until it is handled.
+
 ## Timing starting points
 
 These are starting ranges, not universal tokens:
