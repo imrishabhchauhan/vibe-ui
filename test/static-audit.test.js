@@ -30,6 +30,11 @@ try {
       </div>;
     }
   `, 'utf8');
+  fs.writeFileSync(path.join(temp, 'hero.tsx'), `
+    import lottie from 'lottie-web';
+    export const mount = (el) => lottie.loadAnimation({ container: el, autoplay: true, path: '/hero.json' });
+  `, 'utf8');
+  fs.writeFileSync(path.join(temp, 'light.tsx'), "export const load = () => import('lottie-web/build/player/lottie_light');", 'utf8');
   fs.writeFileSync(path.join(temp, 'semantic.tsx'), 'export const Safe = () => <div className="bg-surface text-foreground border-border" />;', 'utf8');
 
   const result = spawnSync(process.execPath, [auditor, temp], { encoding: 'utf8' });
@@ -41,6 +46,9 @@ try {
     assert.ok(ids.has(expected), `Expected ${expected} finding`);
   }
   assert.ok(!report.findings.some((finding) => finding.file === 'semantic.tsx' && finding.check === 'tailwind-palette-colour'));
+  assert.ok(report.findings.some((finding) => finding.file === 'hero.tsx' && finding.check === 'lottie-full-build'));
+  assert.ok(report.findings.some((finding) => finding.file === 'hero.tsx' && finding.check === 'lottie-autoplay'));
+  assert.ok(!report.findings.some((finding) => finding.file === 'light.tsx' && finding.check === 'lottie-full-build'));
   assert.strictEqual(report.scope, 'all-supported-files');
 
   runGit(['init']);

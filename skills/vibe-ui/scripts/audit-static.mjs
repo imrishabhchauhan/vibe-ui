@@ -29,6 +29,8 @@ const checks = [
   { id: 'heavy-weight', re: /\bfont-(?:bold|extrabold|black)\b|font-weight\s*:\s*(?:[7-9]00|bold|bolder)\b/g, note: 'Heavy weight candidate; product UI rarely needs more than 500 for titles and 600 for KPI values.' },
   { id: 'heavy-backdrop', re: /\bbackdrop-blur-(?:md|lg|xl|2xl|3xl)\b|backdrop-filter\s*:\s*blur\(\s*(?:[5-9]|\d{2,})px|\bbg-black\/(?:[6-9]\d|100)\b/g, note: 'Heavy backdrop candidate; dialogs should keep context visible (light dim, no blur or 2 to 4px).' },
   { id: 'dark-by-default', re: /<html[^>]*class(?:Name)?=["'{][^"'}]*\bdark\b|defaultTheme\s*=\s*["']dark["']|forcedTheme\s*=\s*["']dark["']/g, note: 'Dark-by-default candidate; confirm the owner wants dark as the default look.' },
+  { id: 'lottie-full-build', re: /(?:from\s+|import\s*\(\s*|require\s*\(\s*)['"]lottie-web(?:\/build\/player\/lottie(?:_svg)?(?:\.min)?(?:\.js)?)?['"]/g, note: 'Full lottie-web build candidate; use lottie_light unless the files need expressions (check with lottie-inspect.mjs).' },
+  { id: 'lottie-autoplay', re: /\bauto[pP]lay\s*[:=]\s*\{?\s*true\b/g, note: 'Autoplaying or looping animation candidate; verify reduced-motion poster, off-screen pause, and that it has a job.' },
   { id: 'physical-direction', re: /\b(?:margin|padding|border)-(?:left|right)\b|\b(?:ml|mr|pl|pr)-/g, note: 'Physical direction candidate; verify RTL/localisation requirements.' },
 ];
 

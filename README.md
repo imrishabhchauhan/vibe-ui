@@ -3,9 +3,9 @@
 [![npm version](https://img.shields.io/npm/v/vibe-ui-skill.svg)](https://www.npmjs.com/package/vibe-ui-skill)
 [![license](https://img.shields.io/npm/l/vibe-ui-skill.svg)](./LICENSE)
 
-Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.15.0`.
+Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.16.0`.
 
-Vibe UI audits and improves product interfaces — including building new components from a project's existing library and visually validating shipped work — across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, dashboards, forms, onboarding, UX writing, interaction states, and motion.
+Vibe UI audits and improves product interfaces — including building new components from a project's existing library and visually validating shipped work — across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, dashboards, forms, onboarding, UX writing, interaction states, motion, and Lottie animation.
 
 It is stack-agnostic at the principle level and intentionally deeper for Next.js, React, and Tailwind CSS projects.
 
@@ -15,6 +15,8 @@ It is stack-agnostic at the principle level and intentionally deeper for Next.js
 - [Use](#use)
 - [How it works](#how-it-works)
 - [Reference modules](#reference-modules)
+- [Coded motion components and live demos](#coded-motion-components-and-live-demos)
+- [Lottie animation](#lottie-animation)
 - [Component libraries and MCP research](#component-libraries-and-mcp-research)
 - [CLI reference](#cli-reference)
 - [Development](#development)
@@ -36,9 +38,10 @@ By default, `init` installs:
 1. the Vibe UI skill into `.agents/skills/vibe-ui/` and any detected IDE-specific skill directories (Claude Code, Cursor, Windsurf, Kiro, GitHub/Copilot);
 2. a fallback pointer in `AGENTS.md`, for tools that read that file directly instead of doing skill discovery;
 3. a project-owned `.vibe-ui/` context and evidence folder, where the skill records what it learns about *this* codebase, including `TASTE.md`, the owner's taste ledger;
-4. the free `transitions-dev` agent skill, installed into the universal project skill directory via its official `npx skills add` command.
+4. the free `transitions-dev` agent skill, installed into the universal project skill directory via its official `npx skills add` command;
+5. LottieFiles' free, MIT-licensed [`motion-design`](https://github.com/LottieFiles/motion-design-skill) agent skill (timing, easing, and choreography principles), installed the same way.
 
-It never installs `transitions-pro`, uses Pro recipes, creates an account, or requires an API key. Pass `--skip-transitions` for an offline, Vibe UI-only installation.
+It never installs `transitions-pro`, uses Pro recipes, creates an account, or requires an API key. Pass `--skip-transitions` and/or `--skip-motion-design` to leave out a companion; pass both for an offline, Vibe UI-only installation.
 
 No network calls are made beyond the installs above; the skill itself runs entirely inside the AI agent you're already using, reading and writing only files in your project directory.
 
@@ -114,10 +117,37 @@ Loaded on demand from `skills/vibe-ui/references/`:
 | `data-tables-and-controls.md` | Toolbar consolidation, real row-action buttons, sorting, filtering, and when truncation is (and isn't) justified. |
 | `connected-surfaces.md` | Following a target view into the dialogs, drawers, menus, and filtered states it opens. |
 | `motion-and-feedback.md` | Motion with a job, timing systems, reduced-motion behaviour. |
+| `coded-motion-components.md` | Code vs Lottie decision, building animated components and live product demos in the project's own stack (Next.js, React, TanStack, Vue, Svelte, Astro, plain HTML), craft rules for demos, and the pause/reduced-motion/accessibility contract. |
+| `lottie-and-vector-animation.md` | CSS vs Lottie vs dotLottie vs Rive, measured player cost, asset budgets and contract (segments, poster frame, seamless loops), embedding rules, authoring paths, and verification. |
 | `responsive-and-platforms.md` | Mobile-first adaptation across compact touch, tablet, and desktop. |
 | `next-react-tailwind.md` | Next.js/React/Tailwind-specific implementation patterns and framework composition. |
 | `component-libraries-and-mcp.md` | Installed component-library detection, composition over invention, and MCP tooling (registries plus Mobbin/Refero). |
 | `visual-validation.md` | The state matrix, evidence capture, and verdict rules (`Block` / `Needs changes` / `Approve`). |
+
+## Coded motion components and live demos
+
+When the motion shows the product itself, Vibe UI builds it in code, in the project's own stack, instead of as a video or Lottie. Real text stays sharp, accessible and translatable, light and dark come from one source, and a demo weighs a few KB. Bundled resources:
+
+| Resource | Purpose |
+| --- | --- |
+| `assets/live-demo/useLiveDemo.ts` + `DemoCursor.tsx` | React / Next.js / TanStack Start: a scripted timeline that changes React state, plus an easing cursor. Pauses off-screen, shows the finished state under reduced motion, cleans up on unmount, SSR-safe. `UploadDemo.example.tsx` shows the pattern. |
+| `assets/live-demo/demo-kit.js` + `demo-kit.css` | The same contract for plain HTML and non-React stacks. |
+
+## Lottie animation
+
+Vibe UI treats Lottie as a deliberate choice, not decoration. For success and error moments, empty states, onboarding or hero scenes, and celebrations it recommends Lottie played by `lottie-web`'s light SVG build (about 46 KB gzipped). CSS stays the default for interface state changes, and dotLottie or Rive are reserved for cases whose in-file state machines justify a much larger runtime. The skill bundles:
+
+| Resource | Purpose |
+| --- | --- |
+| `assets/lottie/lottie-player.js` | Framework-free player helper: reserved aspect ratio, lazy load, off-screen and hidden-tab pause, reduced-motion poster frame, named segments from markers, accessible labelling, cleanup. |
+| `assets/lottie/LottiePlayer.tsx` | Thin React / Next.js / TanStack Start client component over the helper, with an imperative `play(segment)` handle. |
+| `scripts/lottie-render.mjs` | Headless contact-sheet renderer: frames or every segment of a Lottie file into one PNG. No server and no LottieFiles window, so it works in CI and cloud agent sessions. |
+| `assets/lottie-forge/` | `lot.py`, the Lottie JSON builder used to generate assets as code, plus a runnable example. |
+| `scripts/lottie-inspect.mjs` | Checks `.json` and `.lottie` files: gzip size against a budget, segments, expressions, effects, merge paths, text and image layers, and the cheapest compatible `lottie-web` build. |
+
+```bash
+node .agents/skills/vibe-ui/scripts/lottie-inspect.mjs public/lottie/*.json --budget=state
+```
 
 ## Component libraries and MCP research
 
@@ -128,13 +158,13 @@ If Mobbin or Refero MCP tools are already available and enabled, Vibe UI can als
 ## CLI reference
 
 ```bash
-npx vibe-ui-skill init [--skip-transitions]   # install into the current project
-npx vibe-ui-skill status                     # show what's currently installed
-npx vibe-ui-skill update [--skip-transitions] # refresh skill content only
+npx vibe-ui-skill init [--skip-transitions] [--skip-motion-design]   # install into the current project
+npx vibe-ui-skill status                                            # show what's currently installed
+npx vibe-ui-skill update [--skip-transitions] [--skip-motion-design] # refresh skill content only
 npx vibe-ui-skill remove [--purge-memory]     # uninstall
 ```
 
-`update` only refreshes the installed skill directories (the methodology itself) — it never touches `.vibe-ui/`, so a project's recorded stack fingerprint, engagement state, and evidence survive every update. `remove` keeps `.vibe-ui/` and the separately installed Transitions.dev skill unless `--purge-memory` is passed, so removing Vibe UI never silently deletes another tool's dependency or a project's accumulated context.
+`update` only refreshes the installed skill directories (the methodology itself) — it never touches `.vibe-ui/`, so a project's recorded stack fingerprint, engagement state, and evidence survive every update. `remove` keeps `.vibe-ui/` and the separately installed companion skills (Transitions.dev, LottieFiles motion-design) unless `--purge-memory` is passed, so removing Vibe UI never silently deletes another tool's dependency or a project's accumulated context.
 
 ## Development
 
@@ -143,7 +173,7 @@ npm test
 npm run validate:skill
 ```
 
-`npm test` runs the CLI lifecycle test (`test/cli.test.js`) and the static-auditor heuristic test (`test/static-audit.test.js`). `validate:skill` checks the packaged skill bundle's structure (all referenced modules exist, required resources are present, core operating rules haven't regressed).
+`npm test` runs the CLI lifecycle test (`test/cli.test.js`), the static-auditor heuristic test (`test/static-audit.test.js`), and the Lottie inspector test (`test/lottie-inspect.test.js`). `validate:skill` checks the packaged skill bundle's structure (all referenced modules exist, required resources are present, core operating rules haven't regressed).
 
 Visual quality cannot be proven by a structural test. Forward tests should use real repositories and compare the same routes, fixtures, states, themes, and viewports before and after — see `test/visual-evaluation.md` for the current case list and scoring rubric.
 
@@ -166,6 +196,8 @@ npm publish   # prepublishOnly runs the tests and the skill validation first
 ```
 
 ## Changelog
+
+**0.16.0**: Lottie, vector animation and coded motion. Adds `lottie-and-vector-animation.md`: choose CSS, Lottie, dotLottie, Rive, or video by the job; pick the player by measured runtime cost (lottie-web `lottie_light` by default); a Lottie asset contract (gzip budgets, named segments, poster frame, seamless loops, no embedded images, fonts, or unsupported features, recorded licence); an embedding contract (reserved box, lazy client-only load, off-screen pause, reduced-motion poster, labelling, real button controls, cleanup); authoring paths; and verification. Bundles a framework-free Lottie player helper, a React/Next.js component, and `scripts/lottie-inspect.mjs`. `detect-project.mjs` now reports Lottie, dotLottie, and Rive dependencies. The static auditor flags full `lottie-web` imports and autoplaying animations as candidates. `init` installs LottieFiles' MIT-licensed `motion-design` skill as a second optional companion (`--skip-motion-design` to opt out), and companions now install before Vibe UI, so Vibe UI also lands in any agent folders they create. Adds `coded-motion-components.md`, which draws the line between code and Lottie: the product's own interface is built in code, while artwork such as brand moments, morphing shapes, characters, icon morphs, cross-platform assets and scroll-scrubbed scenes stays Lottie. It covers building animated components in the project's own stack (Next.js App Router client leaves with a deterministic first render, the project's tokens, fonts and components, and its installed motion library), plus craft rules and timings for live product demos and a behaviour contract. Bundles the `assets/live-demo/` kits (React hook, cursor component and example; vanilla kit). The Lottie player helper no longer mistakes an element with `id="lottie"` for the player, and supports a `fit` option. Lottie works headlessly and in cloud sessions. Adds `scripts/lottie-render.mjs` (a contact-sheet renderer using Chrome's screenshot mode, labelled by segment) and `assets/lottie-forge/` (generate Lottie as code). The Lottie reference gains an agentic and cloud workflow section: generated JSON is the default for agents, the LottieFiles remote MCP manages the account and library, and the Creator MCP is local only.
 
 **0.15.0**: Group by area, a few job tabs, "show, do not tell" visuals, meaningful icons and short product names; motion recipes (view enter, count-up, chart draw-in, sliding tab indicator, arrival flash, pending pulse); new anti-patterns for AI-looking illustrations, decorative icons, event-specific names and repeated summary tiles.
 
@@ -212,9 +244,11 @@ Vibe UI contains original synthesis and practical examples informed by:
 - [Laws of UX](https://lawsofux.com/), for its public catalogue of behavioural and perception principles;
 - [Jakub Krehel's interface skills](https://github.com/jakubkrehel/skills) (MIT licensed), for the value of domain-owned progressive-disclosure skills;
 - [Transitions.dev](https://github.com/Jakubantalik/transitions.dev), as an optional, separately installed free companion skill;
+- [LottieFiles motion-design skill](https://github.com/LottieFiles/motion-design-skill) (MIT licensed), as an optional, separately installed free companion skill;
+- [lottie-web](https://github.com/airbnb/lottie-web) (MIT licensed) documentation, and a measured Rive / dotLottie / lottie-web comparison;
 - official [Next.js](https://nextjs.org/docs/), [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/docs), [Mobbin](https://docs.mobbin.com/mcp/introduction), and [Refero](https://doc.refero.design/mcp/getting-started) documentation.
 
-No Transitions.dev source or Pro content is bundled in this repository.
+No Transitions.dev or LottieFiles skill source, and no Pro content, is bundled in this repository.
 
 ## License
 

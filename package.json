@@ -1,7 +1,7 @@
 {
   "name": "vibe-ui-skill",
-  "version": "0.15.0",
-  "description": "Evidence-led UI and UX engineering skill for AI coding agents, with deep Next.js, React, and Tailwind CSS guidance.",
+  "version": "0.16.0",
+  "description": "Evidence-led UI and UX engineering skill for AI coding agents, with deep Next.js, React, and Tailwind CSS guidance and Lottie animation support.",
   "type": "commonjs",
   "bin": {
     "vibe-ui": "bin/cli.js"
@@ -16,7 +16,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node test/cli.test.js && node test/static-audit.test.js",
+    "test": "node test/cli.test.js && node test/static-audit.test.js && node test/lottie-inspect.test.js",
     "validate:skill": "node scripts/validate-skill.js",
     "prepublishOnly": "npm test && npm run validate:skill"
   },
@@ -28,7 +28,10 @@
     "tailwindcss",
     "accessibility",
     "design-system",
-    "agent-skill"
+    "agent-skill",
+    "lottie",
+    "animation",
+    "motion"
   ],
   "author": "Rishabh Chauhan <imrishabh.work@gmail.com>",
   "license": "MIT",

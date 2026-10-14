@@ -17,7 +17,7 @@ const pointer = [
   '',
   'For interface design, dashboards, UI/UX audits, accessibility, responsive behaviour,',
   'visual polish, forms, onboarding, design systems, colour, typography, spacing, hierarchy,',
-  'or motion, read and follow `.agents/skills/vibe-ui/SKILL.md`.',
+  'motion, or Lottie/vector animation, read and follow `.agents/skills/vibe-ui/SKILL.md`.',
   '',
   'Read `.vibe-ui/TASTE.md` (the owner\'s taste ledger) before any design work, and update it',
   'after every piece of design feedback.',
@@ -89,33 +89,62 @@ function scaffoldMemory() {
   writeIfMissing(path.join(memoryDir, 'STATE.md'), '# Current Vibe UI Engagement\n\nMode: idle\nScope: none\n\n## Checklist\n\n## Evidence\n\n## Decisions\n');
 }
 
-function hasTransitions() {
+const companions = [
+  {
+    id: 'transitions-dev',
+    label: 'Transitions.dev',
+    flag: '--skip-transitions',
+    repo: 'Jakubantalik/transitions.dev',
+    note: 'free agent skill, no Pro assets',
+  },
+  {
+    id: 'motion-design',
+    label: 'LottieFiles motion-design',
+    flag: '--skip-motion-design',
+    repo: 'LottieFiles/motion-design-skill',
+    note: 'free MIT motion principles from LottieFiles',
+  },
+];
+
+function hasCompanion(companion) {
   const roots = ['.agents', '.claude', '.cursor', '.windsurf', '.kiro', '.github'];
-  return roots.some((root) => exists(path.join(projectRoot, root, 'skills', 'transitions-dev', 'SKILL.md')));
+  return roots.some((root) => exists(path.join(projectRoot, root, 'skills', companion.id, 'SKILL.md')));
 }
 
-function installTransitions() {
-  if (hasTransitions()) {
-    console.log('i Transitions.dev skill already installed.');
+function installCompanion(companion) {
+  if (hasCompanion(companion)) {
+    console.log(`i ${companion.label} skill already installed.`);
     return true;
   }
-  console.log('i Installing the free Transitions.dev agent skill (no Pro assets)...');
-  const npxArgs = ['--yes', 'skills', 'add', 'Jakubantalik/transitions.dev', '--skill', 'transitions-dev', '--yes', '--copy'];
+  console.log(`i Installing the ${companion.label} agent skill (${companion.note})...`);
+  const npxArgs = ['--yes', 'skills', 'add', companion.repo, '--skill', companion.id, '--yes', '--copy'];
   const result = process.platform === 'win32'
     ? spawnSync(process.env.ComSpec || 'C:\\Windows\\System32\\cmd.exe', ['/d', '/s', '/c', `npx ${npxArgs.join(' ')}`], { cwd: projectRoot, stdio: 'inherit' })
     : spawnSync('npx', npxArgs, { cwd: projectRoot, stdio: 'inherit' });
   if (result.status !== 0) {
-    console.warn('! Vibe UI installed, but the optional Transitions.dev install failed.');
+    console.warn(`! The optional ${companion.label} install failed; Vibe UI continues without it.`);
     if (result.error) console.warn(`  ${result.error.message}`);
-    console.warn('  Retry: npx skills add Jakubantalik/transitions.dev --skill transitions-dev --yes --copy');
+    console.warn(`  Retry: npx skills add ${companion.repo} --skill ${companion.id} --yes --copy`);
     return false;
   }
   return true;
 }
 
+function installCompanions(args, { onlyMissing = false } = {}) {
+  for (const companion of companions) {
+    if (args.includes(companion.flag)) {
+      if (!onlyMissing) console.log(`i Skipped optional ${companion.label} installation.`);
+    } else if (!onlyMissing || !hasCompanion(companion)) {
+      installCompanion(companion);
+    }
+  }
+}
+
 function init(args) {
   if (!exists(path.join(sourceSkill, 'SKILL.md'))) throw new Error('Packaged skill bundle is missing.');
   console.log('Vibe UI — installing into this project\n');
+  // Companions first: the skills CLI may create agent folders (.claude, .kiro, ...) that Vibe UI should also land in.
+  installCompanions(args);
   for (const target of targets()) {
     const wasInstalled = exists(path.join(target.dir, 'SKILL.md'));
     copySkill(target.dir);
@@ -124,8 +153,6 @@ function init(args) {
   console.log(`✓ AGENTS.md fallback pointer: ${upsertPointer()}`);
   scaffoldMemory();
   console.log('✓ Project context: .vibe-ui/');
-  if (!args.includes('--skip-transitions')) installTransitions();
-  else console.log('i Skipped optional Transitions.dev installation.');
   console.log('\nDone. Ask your agent: "Use Vibe UI to audit and improve this interface."');
 }
 
@@ -142,7 +169,7 @@ function update(args) {
   }
   upsertPointer();
   console.log('i .vibe-ui/ project context was not changed.');
-  if (!args.includes('--skip-transitions') && !hasTransitions()) installTransitions();
+  installCompanions(args, { onlyMissing: true });
 }
 
 function status() {
@@ -151,7 +178,9 @@ function status() {
     console.log(`${exists(path.join(target.dir, 'SKILL.md')) ? '✓' : '✗'} ${target.label}: ${path.relative(projectRoot, target.dir)}`);
   }
   console.log(`${exists(memoryDir) ? '✓' : '✗'} Project context: .vibe-ui/`);
-  console.log(`${hasTransitions() ? '✓' : 'i'} Free Transitions.dev companion: ${hasTransitions() ? 'installed' : 'not detected'}`);
+  for (const companion of companions) {
+    console.log(`${hasCompanion(companion) ? '✓' : 'i'} Free ${companion.label} companion: ${hasCompanion(companion) ? 'installed' : 'not detected'}`);
+  }
 }
 
 function remove(args) {
@@ -167,20 +196,21 @@ function remove(args) {
   } else if (exists(memoryDir)) {
     console.log('i Kept .vibe-ui/ project context. Use --purge-memory to remove it.');
   }
-  console.log('i The Transitions.dev skill was kept because other workflows may use it.');
+  console.log('i Companion skills (Transitions.dev, LottieFiles motion-design) were kept because other workflows may use them.');
 }
 
 function help() {
   console.log(`Vibe UI CLI
 
 Usage:
-  vibe-ui init [--skip-transitions]
+  vibe-ui init [--skip-transitions] [--skip-motion-design]
   vibe-ui status
-  vibe-ui update [--skip-transitions]
+  vibe-ui update [--skip-transitions] [--skip-motion-design]
   vibe-ui remove [--purge-memory]
 
-The default init also installs the free Transitions.dev agent skill using its
-official skills CLI command. It never installs transitions-pro or Pro assets.`);
+The default init also installs two free companion skills with the official skills
+CLI: Transitions.dev (never transitions-pro or Pro assets) and LottieFiles'
+MIT-licensed motion-design skill.`);
 }
 
 const [, , command, ...args] = process.argv;

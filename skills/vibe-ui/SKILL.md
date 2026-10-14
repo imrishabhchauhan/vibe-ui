@@ -1,6 +1,6 @@
 ---
 name: vibe-ui
-description: Act as a senior product designer and design engineer. Audit (visually and in code, across desktop, tablet, and mobile), design, or improve product interfaces, especially dashboards, admin panels, back-office tools, onboarding, and gamified learner experiences, with concrete craft defaults (type scale, spacing, colour budget, table, form, tab, and calendar recipes), a 100-point scorecard, an anti-pattern list, and a taste ledger that learns from every owner review. Also covers web or app screens, flows, components, forms, onboarding, responsive and mobile layouts, design systems, accessibility, typography, colour and contrast, spacing, hierarchy, consistency, UX writing, interaction states, data tables, and motion. Especially deep for Next.js, React, and Tailwind CSS, while remaining applicable to other stacks. Trigger on "use Vibe UI", "improve this UI/UX", "make this dashboard professional", "make this screen premium", "audit this interface", "score this design", "review this design", "build this component", "check this flow", or any design feedback from the owner.
+description: Act as a senior product designer and design engineer. Audit (visually and in code, across desktop, tablet, and mobile), design, or improve product interfaces, especially dashboards, admin panels, back-office tools, onboarding, and gamified learner experiences, with concrete craft defaults (type scale, spacing, colour budget, table, form, tab, and calendar recipes), a 100-point scorecard, an anti-pattern list, and a taste ledger that learns from every owner review. Also covers web or app screens, flows, components, forms, onboarding, responsive and mobile layouts, design systems, accessibility, typography, colour and contrast, spacing, hierarchy, consistency, UX writing, interaction states, data tables, motion, animated components and live product demos built in the project's own stack, and Lottie or vector animation (brand moments, morphing shapes, animated icons, illustrations). Especially deep for Next.js, React, and Tailwind CSS, while remaining applicable to other stacks. Trigger on "use Vibe UI", "improve this UI/UX", "make this dashboard professional", "make this screen premium", "audit this interface", "score this design", "review this design", "build this component", "check this flow", or any design feedback from the owner.
 ---
 
 # Vibe UI
@@ -134,6 +134,8 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 | Data tables, row actions, sorting, filtering, truncation | [data-tables-and-controls.md](references/data-tables-and-controls.md) |
 | Dialogs, drawers, menus, and other surfaces opened from the target view | [connected-surfaces.md](references/connected-surfaces.md) |
 | Motion, transitions, feedback, reduced motion | [motion-and-feedback.md](references/motion-and-feedback.md) |
+| Animated components and live product demos in code (Next.js, React, TanStack, Vue, Svelte, Astro, plain HTML): code vs Lottie, stack rules, craft, behaviour contract | [coded-motion-components.md](references/coded-motion-components.md) |
+| Lottie, dotLottie, or Rive assets: choosing the medium and player, asset budgets, authoring, React/HTML embedding | [lottie-and-vector-animation.md](references/lottie-and-vector-animation.md) |
 | Mobile, tablet, desktop, touch, pointer and responsive logic | [responsive-and-platforms.md](references/responsive-and-platforms.md) |
 | Next.js, React, Tailwind CSS and component-system implementation | [next-react-tailwind.md](references/next-react-tailwind.md) |
 | Detecting installed component libraries/registries, and Mobbin/Refero or registry MCP tools | [component-libraries-and-mcp.md](references/component-libraries-and-mcp.md) |
@@ -205,13 +207,19 @@ Use the existing styling and component system. In Next.js/React/Tailwind project
 
 Do not add heavy animation libraries, oversized media, client-side rendering boundaries, polling, or effects without clear value. Preserve perceived responsiveness and stable layout. If Vibe Performance is installed and the issue is fundamentally performance-related, coordinate with it instead of duplicating its job.
 
+### Choose the animation medium deliberately
+
+If the motion shows the product itself (screens, text, numbers, states, interaction), build it in code, in the project's own stack and component library: a Next.js project gets a small `'use client'` React leaf using its tokens, fonts and components, and a plain site gets the vanilla kit. Read `coded-motion-components.md`, which bundles `assets/live-demo/`. Reserve Lottie for artwork code cannot reasonably produce: brand moments, morphing or organic shapes, characters, icon morphs, cross-platform assets, and scroll-scrubbed vector scenes.
+
+Default to CSS for interface state changes. Use Lottie only for artwork that earns its weight (brand moments, morphing or organic shapes, characters, icon morphs, illustrated empty and success states), played with `lottie-web`'s light SVG build through the bundled `assets/lottie/` player, which handles lazy loading, off-screen pause, reduced-motion posters, and labelling. Reach for dotLottie or Rive only when in-file state machines or runtime interactivity justify a much larger runtime. Generate Lottie as code with `assets/lottie-forge/`, review it with `scripts/lottie-render.mjs` (headless contact sheet, works in cloud sessions), and inspect every new Lottie file with `scripts/lottie-inspect.mjs`. Read `lottie-and-vector-animation.md`.
+
 ### Use design-reference MCPs carefully
 
 Detect available tools from the actual tool registry or project configuration; never invent tool names. If Mobbin or Refero is available and enabled, use it only for a concrete pattern question. If configured but disabled, ask the user to enable it before relying on it. If absent or access fails, continue without it. Never imply these services are free; both currently require paid plans for MCP access. Read `component-libraries-and-mcp.md` for this and for component-registry MCP tooling.
 
-### Treat Transitions.dev as an optional companion
+### Treat Transitions.dev and LottieFiles motion-design as optional companions
 
-If `transitions-dev` is installed, use it for matching transition patterns. If unavailable, implement restrained native CSS or the project's existing motion system. Never use or install Pro assets. Preserve `prefers-reduced-motion` behaviour.
+If `transitions-dev` is installed, use it for matching transition patterns. If unavailable, implement restrained native CSS or the project's existing motion system. Never use or install Pro assets. If the LottieFiles `motion-design` skill is installed, use it for timing, easing, and choreography decisions when authoring illustrative animation; Vibe UI's restraint rules still win for high-frequency interface chrome. Preserve `prefers-reduced-motion` behaviour.
 
 ## Use the output contract
 

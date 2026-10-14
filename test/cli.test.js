@@ -20,7 +20,7 @@ try {
   fs.writeFileSync(path.join(temp, 'AGENTS.md'), '# Existing project rules\n', 'utf8');
   fs.mkdirSync(path.join(temp, '.cursor'), { recursive: true });
 
-  run(['init', '--skip-transitions']);
+  run(['init', '--skip-transitions', '--skip-motion-design']);
   assert.ok(fs.existsSync(path.join(temp, '.agents', 'skills', 'vibe-ui', 'SKILL.md')));
   assert.ok(fs.existsSync(path.join(temp, '.cursor', 'skills', 'vibe-ui', 'SKILL.md')));
   assert.ok(fs.existsSync(path.join(temp, '.vibe-ui', 'PROJECT.md')));
@@ -28,17 +28,17 @@ try {
   assert.match(fs.readFileSync(path.join(temp, 'AGENTS.md'), 'utf8'), /Existing project rules/);
   assert.strictEqual((fs.readFileSync(path.join(temp, 'AGENTS.md'), 'utf8').match(/<!-- vibe-ui:start -->/g) || []).length, 1);
 
-  run(['init', '--skip-transitions']);
+  run(['init', '--skip-transitions', '--skip-motion-design']);
   assert.strictEqual((fs.readFileSync(path.join(temp, 'AGENTS.md'), 'utf8').match(/<!-- vibe-ui:start -->/g) || []).length, 1);
   assert.match(run(['status']), /Agent Skills standard/);
-  run(['update', '--skip-transitions']);
+  run(['update', '--skip-transitions', '--skip-motion-design']);
 
   run(['remove']);
   assert.ok(!fs.existsSync(path.join(temp, '.agents', 'skills', 'vibe-ui')));
   assert.ok(fs.existsSync(path.join(temp, '.vibe-ui')));
   assert.match(fs.readFileSync(path.join(temp, 'AGENTS.md'), 'utf8'), /Existing project rules/);
 
-  run(['init', '--skip-transitions']);
+  run(['init', '--skip-transitions', '--skip-motion-design']);
   run(['remove', '--purge-memory']);
   assert.ok(!fs.existsSync(path.join(temp, '.vibe-ui')));
 

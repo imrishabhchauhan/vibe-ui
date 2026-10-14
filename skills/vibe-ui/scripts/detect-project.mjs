@@ -69,6 +69,12 @@ const result = {
     baseUi: has('@base-ui-components/react'),
     motion: has('motion') || has('framer-motion'),
   },
+  animation: {
+    lottieWeb: has('lottie-web'),
+    lottieWrappers: ['lottie-react', 'react-lottie', '@lottiefiles/react-lottie-player', 'react-lottie-player'].filter(has),
+    dotLottie: Object.keys(dependencies).filter((name) => name.startsWith('@lottiefiles/dotlottie')),
+    rive: Object.keys(dependencies).filter((name) => name.startsWith('@rive-app/')),
+  },
   validation: {
     playwright: has('@playwright/test') || exists('playwright.config.ts') || exists('playwright.config.js'),
     storybook: Object.keys(dependencies).some((name) => name.startsWith('@storybook/')) || exists('.storybook'),
@@ -83,6 +89,11 @@ const result = {
       '.agents/skills/transitions-dev/SKILL.md',
       '.claude/skills/transitions-dev/SKILL.md',
       '.cursor/skills/transitions-dev/SKILL.md',
+    ].some(exists),
+    motionDesign: [
+      '.agents/skills/motion-design/SKILL.md',
+      '.claude/skills/motion-design/SKILL.md',
+      '.cursor/skills/motion-design/SKILL.md',
     ].some(exists),
     vibePerformance: exists('.agents/skills/vibe-performance/SKILL.md'),
   },

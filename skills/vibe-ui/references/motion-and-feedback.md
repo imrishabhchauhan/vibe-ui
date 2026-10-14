@@ -38,6 +38,10 @@ These are starting ranges, not universal tokens:
 
 Match the existing system. Do not add animation merely to use a library.
 
+## Illustrative animation
+
+For Lottie, dotLottie, or Rive assets (success and empty-state illustrations, onboarding or hero scenes, celebrations, animated icons), read `lottie-and-vector-animation.md` for medium choice, player cost, asset budgets, and the embedding contract.
+
 ## Direct manipulation and interruption
 
 Interactive animations should reverse smoothly when the user changes direction. Avoid one-shot keyframes for hover, open/close, or toggles when transitions or state-driven motion can be interrupted.
