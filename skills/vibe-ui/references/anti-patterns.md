@@ -99,6 +99,25 @@ Each item below has been seen in real rejected designs. Check every screen again
 | Counts on low-value nav items | Draws attention to trivia | Counts only where they ask for action |
 | Header that scrolls away | Search, menu, and sign out disappear | Sticky slim top bar |
 
+## AI slop tells
+
+These are the marks that make a page look machine-made. One of them is rarely a problem. The tell is decoration with no job, or several of them on one page. Borders, dividers, tags, italics and diagrams are all fine when they carry meaning (a status, a real grouping, a stressed word). Gradients, glows, heavy shadows, bold weights, `transition-all` and decorative icons are already covered above and in `fix-playbook.md` Pass 3 and 4.
+
+| Tell | Why it reads as slop | Keep it only when |
+| --- | --- | --- |
+| Tags or pills on things that are not statuses or categories (a tag above every heading, "New" on everything) | Labels with no decision behind them | The tag helps the user filter, scan or act |
+| Emoji as labels or icons, and "New ✨" badges | Cheap and inconsistent across devices | The product's own voice uses them on purpose |
+| Italic words inside headlines for flair | Pure decoration; hurts reading | Real emphasis, or a quote or term |
+| A display serif with tight negative tracking as the default "premium" move | The most copied look of AI pages | The brand truly uses that face; check it against `typography-and-content.md` |
+| ALL CAPS labels with wide letter spacing on every section | A style, not a system | One clear label role, used the same way everywhere |
+| Section numbers ("01", "02") and code-style breadcrumbs ("// features") | Fake structure | The order matters to the task (steps, a guide) |
+| A border on every container, and a divider between every block | Boxes inside boxes; no hierarchy | A boundary shows grouping or state; otherwise use spacing (`visual-hierarchy-and-layout.md`: dividers last) |
+| Many shades and opacities of one colour (five greys, text at 60, 70 and 80 percent) | Looks busy, breaks contrast checks | One tinted neutral scale, three text levels, one accent (`color-and-contrast.md`) |
+| Over-detailed UI mockups and diagrams (tiny labels, many nodes, glowing lines) | The more detail, the less it says | The diagram answers one named question and is readable at phone width |
+| Never-ending animations, hover scale-ups, `transition-all` | Motion with no purpose | It shows state or progress (`motion-and-feedback.md`) |
+
+Source: Ayush Soni ([@ayushsoni_io](https://x.com/ayushsoni_io/status/2115322579187867898)), checked 2026-11.
+
 ## Mobile
 
 | Anti-pattern | Why it fails | Do instead |

@@ -6,6 +6,22 @@ Passes fix defects directly. For taste-level changes (accent, second colour, typ
 
 Before pass 1: read `.vibe-ui/TASTE.md`, render the current screens at desktop and 390px, and score them with `scorecard.md`. Keep the screenshots; you will compare against them at the end.
 
+## Direction before the passes (when the page feels generic)
+
+Skip this on a small bug fix or when `.vibe-ui/TASTE.md` already sets the direction. If the page looks like every other AI page, write five short lines first and wait for the owner to confirm them. The passes below then fix toward them, and the order of the passes stays as written here.
+
+- **Product:** what it does and for whom.
+- **Character:** two or three concrete words. Not "clean", "modern", "sleek", "minimal" or "premium", which fit every product.
+- **World:** the setting or material the product belongs to (a school timetable, a workshop, a ledger).
+- **Focus:** the one or two places that get richer color and detail. The rest stays quiet.
+- **Signature:** one small detail only this product would have.
+
+Example: Product: fee tracking for small schools. Character: orderly, warm. World: a paper register. Focus: the overdue list. Signature: a ruled-line row style.
+
+Do not change features, content or section order here, only craft. After the passes, run the swap test: replace the product name with another company's. If the page still makes sense, it is not distinctive enough, so push World and Signature further. Compare the page with the slop list in `anti-patterns.md` (AI slop tells).
+
+Adapted from the `unslop` skill by Damir Sokolovsky ([@heydamir](https://github.com/heydamir/unslop)), licensed CC BY 4.0, and the prompt shared by Vox ([@Voxyz_ai](https://x.com/Voxyz_ai/status/2116515537496993856)); text rewritten for Vibe UI, checked 2026-11.
+
 ## Pass 1: Job and structure
 
 Find:

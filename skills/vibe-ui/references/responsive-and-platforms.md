@@ -17,6 +17,7 @@ Test the narrowest supported viewport and a wide desktop first. Add breakpoints 
 - Keep inputs at 16px text on iOS.
 - Do not pin critical actions where the keyboard or browser chrome hides them.
 - Preserve progress and drafts across interruption.
+- For phone-specific CSS and meta fixes (stuck hover after tap, tap delay, `dvh`/`svh` heights, safe-area `env()` insets, overscroll, `theme-color`, touch-action on carousels), use the `mobile-native` skill by Emil Kowalski (MIT) when it is installed. Never disable zoom. Test on real hardware. Source: [@emilkowalski](https://x.com/emilkowalski/status/2116144374170235224), checked 2026-11.
 
 ## Tablet
 

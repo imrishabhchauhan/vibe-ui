@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/vibe-ui-skill.svg)](https://www.npmjs.com/package/vibe-ui-skill)
 [![license](https://img.shields.io/npm/l/vibe-ui-skill.svg)](./LICENSE)
 
-Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.17.0`.
+Evidence-led UI/UX engineering skill for AI coding agents, with concrete taste for calm, professional dashboards. Current release: `v0.18.0`.
 
 Vibe UI audits and improves product interfaces — including building new components from a project's existing library and visually validating shipped work — across accessibility, hierarchy, layout, spacing, consistency, typography, colour, responsive behaviour, data tables, dashboards, forms, onboarding, UX writing, interaction states, motion, and Lottie animation.
 
@@ -196,6 +196,8 @@ npm publish   # prepublishOnly runs the tests and the skill validation first
 ```
 
 ## Changelog
+
+**0.18.0**: AI slop tells, direction before fixes, mobile pointers. `anti-patterns.md` gains an AI slop tells table (tags, emoji labels, italic headline words, tight-kerned display serifs, section numbers, borders and dividers everywhere, many shades and opacities, over-detailed diagrams, pointless animation) with a guard that none of these is wrong by itself. `fix-playbook.md` gains a Direction step (product, character, world, focus, signature, then wait for the owner) and a swap-the-company-name test; its own pass order is unchanged. `responsive-and-platforms.md` points to the `mobile-native` skill for phone-specific CSS and meta fixes, and `forms-onboarding-and-states.md` adds `autocomplete="one-time-code"` for OTP fields (the iOS suggestion behavior is marked unverified). Sources, checked 2026-11: Ayush Soni ([@ayushsoni_io](https://x.com/ayushsoni_io/status/2115322579187867898)); Vox ([@Voxyz_ai](https://x.com/Voxyz_ai/status/2116515537496993856)) and the `unslop` skill by Damir Sokolovsky ([heydamir/unslop](https://github.com/heydamir/unslop), CC BY 4.0, text adapted); Emil Kowalski ([@emilkowalski](https://x.com/emilkowalski/status/2116144374170235224), `mobile-native` skill, MIT).
 
 **0.17.0**: Perceived speed, finish pass, layout-first labels, three readers. `motion-and-feedback.md` gains a Perceived speed section (ease-out for responses to input, most UI motion under about 300ms, one custom ease-out token, and a spinner-speed tip marked unverified practitioner advice). `fix-playbook.md` gains a finish-pass checklist that links to the existing state, form, feedback and motion rules and adds the empty-state next-step copy point. `cognitive-load-and-information-architecture.md` adds the rule that a caption existing only to explain the layout is a layout bug, with a guard that keeps helper text stating real constraints or consequences. `SKILL.md` adds a short principle: serve the user, the developer and the agent that edits the screen next. Sources, checked 2026-11: Emil Kowalski ([@emilkowalski](https://x.com/emilkowalski/status/2118687605776597482)), Vox ([finish pass](https://x.com/Voxyz_ai/status/2117658059522949355), [simple design](https://x.com/Voxyz_ai/status/2117281830449942825)), Khairallah AL-Awady ([@eng_khairallah1](https://x.com/eng_khairallah1/status/2117321468841517449)).
 

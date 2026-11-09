@@ -90,4 +90,5 @@ See `dashboard-craft.md` §10 for the drawn recipe. In short:
 - Show the expected format under date and code fields, in the user's locale.
 - Use three columns on wide screens, two on tablets, and one on phones, keeping the same sections.
 - Choose the selector by list length: segmented control for 2 to 4 options, a plain dropdown for about 5 to 12, a searchable dropdown for longer lists or names people type faster than they scroll (countries, time zones, currencies, people). See `onboarding-and-activation.md` §4.
+- On one-time code (OTP) fields use `autocomplete="one-time-code"` with `inputmode="numeric"`, so the phone can offer the SMS code above the keyboard. The token is listed on MDN; the iOS suggestion above the keyboard is from a practitioner reply and is `unverified` here (checked 2026-11).
 - Start text placeholders with "e.g." so they never look like a value already entered.

@@ -94,7 +94,7 @@ Process alone does not produce good interfaces. Before you design or judge any d
 | Record pages | Facts with icons, pencil on each editable fact, link-coloured relations, grouped header menus, sub-sections as tabs |
 | Mobile | Re-form, never drop: 2 by 2 tiles, card lists, filter sheets, bottom nav, no horizontal scroll |
 
-To correct an existing dashboard of any kind, follow [fix-playbook.md](references/fix-playbook.md): ten ordered passes from structure to mobile, with find-and-replace tables, then its finish-pass checklist.
+To correct an existing dashboard of any kind, follow [fix-playbook.md](references/fix-playbook.md): ten ordered passes from structure to mobile, with find-and-replace tables, then its finish-pass checklist. For a page that looks generic, it also has a short direction step (five lines, confirmed by the owner) and a swap-the-company-name test; `anti-patterns.md` lists AI slop tells.
 
 Run `node scripts/check-colour.mjs <accent> --brand <brand-hex>` whenever you pick or adjust an accent, so a brand orange never drifts into brown and no button goes near-black.
 
