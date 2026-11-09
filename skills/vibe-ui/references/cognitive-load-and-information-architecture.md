@@ -23,6 +23,12 @@ Counts are diagnostic signals, not universal scores. A dense expert tool may jus
 
 Do not move essential information into a tooltip. Tooltips are supplementary and weak on touch; use a popover or disclosure when interactive, persistent, or accessible detail is required. A card with more than a title and one supporting block should trigger classification, not automatic deletion.
 
+## A caption that explains the layout is a layout bug
+
+If a label, tagline, caption or helper line exists only to make the layout understandable, the layout is broken. Fix the grouping, order, heading or control first, then remove the text. Do not paper over a confusing screen with explanation. (Sources: Vox, [@Voxyz_ai](https://x.com/Voxyz_ai/status/2117281830449942825), and Khairallah AL-Awady, [@eng_khairallah1](https://x.com/eng_khairallah1/status/2117321468841517449), checked 2026-11.)
+
+Guard against over-applying it. Keep text that states a real constraint or consequence: password rules, accepted format or file size, privacy notes, and warnings about irreversible actions. These are `decision-critical` or `task-supporting` above, and accessibility needs them (visible labels, format hints, help and error text tied to the field). The test: after the layout is fixed, would deleting the text make the user lose a fact they need to act safely? If yes, keep it. If it only repeats what the layout already shows, remove it.
+
 ## Audit navigation before panel content
 
 Evaluate the number, naming, grouping, order, selected state, and overflow behaviour of tabs or navigation before polishing individual panels.

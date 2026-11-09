@@ -37,6 +37,10 @@ The most common way to fail an owner is to add too much. Before you show any scr
 - **Show, do not tell.** Numbers and status become visuals the eye reads at once: a donut or stacked bar for a split, a board for work moving through stages, a stepper for milestones, a dot grid for who is doing what. Text explains only what a visual cannot.
 - **Every icon must mean its neighbour.** No decorative icon beside a title; use the brand's real logo and a short, professional product name.
 
+## Serve three readers: user, developer, agent
+
+Every screen is opened by three readers: the user who works in it, the developer who maintains it, and the agent that edits it next. Serve all three at once; do not help one by hurting another. For the developer and the agent this means using the design system's components and tokens, keeping one source for each pattern (no copy-pasted variants), and naming things plainly, so the next edit cannot quietly break the layout you just fixed. Aim for a simple purpose, a simple structure and a simple implementation. When a screen needs captions to make sense, fix the layout first (`cognitive-load-and-information-architecture.md`). Idea credit: Khairallah AL-Awady ([@eng_khairallah1](https://x.com/eng_khairallah1/status/2117321468841517449)) and Vox ([@Voxyz_ai](https://x.com/Voxyz_ai/status/2117281830449942825)), checked 2026-11.
+
 ## Follow the project's design system first
 
 If the project has a written design system (for example `packages/design/DESIGN-SYSTEM.md`, `DESIGN.md`, a tokens file, or a component registry), it is the source of truth for every value. Read it before designing, use its tokens and components exactly, and never invent a colour, size or component it already defines. If a screen needs something the system lacks, propose an addition to the system first, then use it. Report any value you could not find there instead of guessing.
@@ -90,7 +94,7 @@ Process alone does not produce good interfaces. Before you design or judge any d
 | Record pages | Facts with icons, pencil on each editable fact, link-coloured relations, grouped header menus, sub-sections as tabs |
 | Mobile | Re-form, never drop: 2 by 2 tiles, card lists, filter sheets, bottom nav, no horizontal scroll |
 
-To correct an existing dashboard of any kind, follow [fix-playbook.md](references/fix-playbook.md): ten ordered passes from structure to mobile, with find-and-replace tables.
+To correct an existing dashboard of any kind, follow [fix-playbook.md](references/fix-playbook.md): ten ordered passes from structure to mobile, with find-and-replace tables, then its finish-pass checklist.
 
 Run `node scripts/check-colour.mjs <accent> --brand <brand-hex>` whenever you pick or adjust an accent, so a brand orange never drifts into brown and no button goes near-black.
 
@@ -133,7 +137,7 @@ Always read `workflow.md`. Then load the modules needed for the scope:
 | Forms, onboarding, dialog vs sheet choice, defaults, errors, loading and empty states | [forms-onboarding-and-states.md](references/forms-onboarding-and-states.md) |
 | Data tables, row actions, sorting, filtering, truncation | [data-tables-and-controls.md](references/data-tables-and-controls.md) |
 | Dialogs, drawers, menus, and other surfaces opened from the target view | [connected-surfaces.md](references/connected-surfaces.md) |
-| Motion, transitions, feedback, reduced motion | [motion-and-feedback.md](references/motion-and-feedback.md) |
+| Motion, transitions, feedback, perceived speed (ease-out, under 300ms), reduced motion | [motion-and-feedback.md](references/motion-and-feedback.md) |
 | Animated components and live product demos in code (Next.js, React, TanStack, Vue, Svelte, Astro, plain HTML): code vs Lottie, stack rules, craft, behaviour contract | [coded-motion-components.md](references/coded-motion-components.md) |
 | Lottie, dotLottie, or Rive assets: choosing the medium and player, asset budgets, authoring, React/HTML embedding | [lottie-and-vector-animation.md](references/lottie-and-vector-animation.md) |
 | Mobile, tablet, desktop, touch, pointer and responsive logic | [responsive-and-platforms.md](references/responsive-and-platforms.md) |

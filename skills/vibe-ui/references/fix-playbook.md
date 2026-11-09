@@ -93,6 +93,20 @@ At 360, 390, and 430px: no horizontal scroll; every number, status, and primary 
 - Run `scripts/audit-static.mjs --changed` and fix real candidates.
 - After the owner reviews, update `.vibe-ui/TASTE.md` (`taste-memory.md`).
 
+## Finish pass (run after any page is built)
+
+A short checklist for the end of any build or fix. It links to the rules instead of repeating them:
+
+- Loading, empty and error states exist and match the rest of the app (`forms-onboarding-and-states.md`: Loading, Empty states; Pass 7 above).
+- Every button and control has hover, pressed, focus-visible and disabled states (`forms-onboarding-and-states.md`: Disabled states; `accessibility-and-input.md`).
+- Form errors sit right under the field that is wrong, with a summary only when several fail (`forms-onboarding-and-states.md`: Field-level craft).
+- Submit, success and failure each give feedback (`forms-onboarding-and-states.md`: Success; `motion-and-feedback.md`: Feedback rules).
+- Modals, dropdowns and tab switches have a short ease-out transition that respects reduced motion (`motion-and-feedback.md`: Perceived speed, Reduced motion).
+- Empty-state copy tells the user the next step in one line ("Add your first student"), never "No data" (`onboarding-and-activation.md` section 7).
+- No label or caption exists only to explain the layout (`cognitive-load-and-information-architecture.md`: A caption that explains the layout is a layout bug).
+
+Source: Vox (@Voxyz_ai), [finish-pass post](https://x.com/Voxyz_ai/status/2117658059522949355), with the empty-state copy tip from a reply by @NickDong888, checked 2026-11.
+
 ## Scope control
 
 On a large product, fix the shared tokens and primitives first (type scale, colour tokens, button, input, table, dialog), then the highest-traffic screens. One shared fix beats fifty local ones. Never redesign everything in one change; ship pass by pass so each can be reviewed.

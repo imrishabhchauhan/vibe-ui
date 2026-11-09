@@ -38,6 +38,16 @@ These are starting ranges, not universal tokens:
 
 Match the existing system. Do not add animation merely to use a library.
 
+## Perceived speed
+
+Speed users feel is mostly easing, duration and feedback, not only load time. Practitioner guidance from Emil Kowalski (@emilkowalski, [post](https://x.com/emilkowalski/status/2118687605776597482) and his [emil-design-eng skill](https://github.com/emilkowalski/skills/blob/main/skills/emil-design-eng/SKILL.md), checked 2026-11):
+
+- **Response to user input uses ease-out,** not ease-in. Ease-out moves most of the distance at once, so the interface reacts the moment the user acts; ease-in starts slowly and feels laggy at the same duration. MDN describes `ease-out` as starting abruptly then slowing, suited to elements that enter and settle, and `ease-in` as suited to elements leaving the screen. Example: a dropdown opening in 200ms with `ease-out` feels faster than 200ms with `ease-in`.
+- **Keep most UI animation under 300ms.** Frequent controls (press, tooltip, dropdown) belong at about 100 to 250ms. Larger surfaces such as modals and drawers may run longer (see Timing starting points); the 300ms guide is for most UI, not a hard cap.
+- **Prefer a custom curve over the built-in keywords when snappiness matters.** The built-in `ease-out` is mild. A stronger ease-out such as `cubic-bezier(0.23, 1, 0.32, 1)` is the curve the skill above recommends. Define it once as a token and reuse it, so the system keeps one easing language.
+- **Spinner speed (practitioner tip, `unverified` as a measured effect; no formal study found):** a slightly faster rotation tends to make a short wait feel shorter. Never use it to hide a slow action; a spinner with no context is still wrong for long or high-stakes waits (see `forms-onboarding-and-states.md`, Loading).
+- All of this stays subject to Reduced motion below and to the "Give motion a job" rule above.
+
 ## Illustrative animation
 
 For Lottie, dotLottie, or Rive assets (success and empty-state illustrations, onboarding or hero scenes, celebrations, animated icons), read `lottie-and-vector-animation.md` for medium choice, player cost, asset budgets, and the embedding contract.
